@@ -14,14 +14,14 @@ export default function NavBar() {
 
             <br></br>
 
-                <Link className="pitch-link" to="/pitches?page=0">
-                    Pitches
+                <Link className="profile-link" to="/profile">
+                    Profile
                 </Link>
 
             <br></br>
 
-                <Link className="shark-link" to="/sharks">
-                    Sharks
+                <Link className="questions-link" to="/questions">
+                    Questions
                 </Link>
 
             <br></br>
