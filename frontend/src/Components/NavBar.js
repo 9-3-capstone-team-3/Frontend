@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../Assests/logo.png"
+import "../Components/NavBar.css"
 
 
 export default function NavBar() {
@@ -28,6 +29,12 @@ export default function NavBar() {
 
                 <Link className="contact-link" to="/contact">
                     Contact
+                </Link>
+
+            <br></br>
+
+                <Link className="leaderboard-link" to="/leaderboard">
+                    Leaderboard
                 </Link>
 
             <br></br>

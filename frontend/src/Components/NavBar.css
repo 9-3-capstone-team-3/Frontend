@@ -1,0 +1,74 @@
+#logo{ 
+	top:0; 
+	left:0; 
+    
+} 
+
+
+
+nav {
+    height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #027FE2ff;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  .5em 1em;
+
+}
+
+.contact-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+.questions-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  .5em 1em;
+   
+}
+
+.questions-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+
+.profile-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  .5em 1em;
+   
+}
+
+.profile-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+
+.leaderboard-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  .5em 1em;
+   
+}
+
+.leaderboard-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 

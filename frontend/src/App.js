@@ -1,8 +1,7 @@
-
+import NavBar from "./Components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from './Pages/Home';
-import NavBar from './Components/NavBar';
 import FourOFour from "./Pages/FourOFour";
 
 function App() {
