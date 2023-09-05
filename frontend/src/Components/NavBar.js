@@ -39,11 +39,7 @@ export default function NavBar() {
 
             <br></br>
             
-                <Link className="signin-link" to="/signin">
-                    Log In
-                </Link>
-
-            <br></br>
+               
 
 
         </nav>
