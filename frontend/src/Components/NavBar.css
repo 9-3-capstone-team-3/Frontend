@@ -6,14 +6,14 @@
 
 
 
-nav {
+.nav-bar {
     height: 100%;
   width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #027FE2ff;
+  background-color: #37abf9;
   overflow-x: hidden;
   padding-top: 20px;
 }
