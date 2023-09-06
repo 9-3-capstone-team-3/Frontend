@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Pages/Home';
 import FourOFour from "./Pages/FourOFour";
 import SignInPage from "./Components/SignInPage";
+import BeginnerPage from "./Components/BeginnerPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Home />} /> 
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="*" element={<FourOFour/>} />
+            <Route path="/beginnerpage" element={<BeginnerPage/>}/>
           </Routes>
       </Router>
     </div>
