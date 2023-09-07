@@ -15,10 +15,26 @@ function SignInPage() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle the sign-in logic here (e.g., API call)
-    console.log('Email:', email, 'Password:', password);
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, password})
+      })
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data)
+      } else {
+        console.error('Failed to login')
+      }
+    } catch (error) {
+      console.error('There was an error:', error);
+    }
+    
   };
 
   return (
