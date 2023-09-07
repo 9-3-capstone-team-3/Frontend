@@ -5,6 +5,7 @@ import "./OpeningPage.css"
 function OpeningPage() {
 
   const [questions, setQuestions] = useState([]);
+  let progressCounter = 0
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/quiz`).then((res) => {
@@ -15,20 +16,26 @@ function OpeningPage() {
 }, []);
 
 console.log(questions)
+console.log(progressCounter)
+function PlusCounter() {
+  progressCounter++
+}
 
+function MinusCounter() {
+  progressCounter--
+}
 
     return (
-      <>
-      <div className="fakeMenu">
-      <div class="fakeButtons fakeClose"></div>
-      <div class="fakeButtons fakeMinimize"></div>
-      <div class="fakeButtons fakeZoom"></div>
-    </div>
-    <div class="fakeScreen">
-      <h1>placeholder for form, can this show up?</h1>
-    </div>
-    </>
+      <div>
+      {progressCounter === 0 ? <>
+        <div>
+        {}
+        </div>
+        <button className="forward_button" onClick={PlusCounter}></button>
+        </> : null}
+        </div>
     );
+    
   }
   
   export default OpeningPage;
