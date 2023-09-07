@@ -1,7 +1,10 @@
 // Signin.js
+import axios from 'axios';
 import { useState } from 'react';
 import './Signin.css';
 import { Link } from "react-router-dom";
+
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 function SignInPage() {
   const [email, setEmail] = useState('');
@@ -18,21 +21,14 @@ function SignInPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email, password})
-      })
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data)
-      } else {
-        console.error('Failed to login')
-      }
+      const response = await axios.post(`${apiUrl}/users/login`, {
+        email: email,
+        password: password
+      });
+
+      console.log(response.data);
     } catch (error) {
-      console.error('There was an error:', error);
+      console.error('Failed to login:', error.response ? error.response.data : error.message);
     }
     
   };
@@ -50,7 +46,7 @@ function SignInPage() {
           <input type="password" value={password} onChange={handlePasswordChange} />
         </label>
         <button type="submit">Sign In</button>
-        <Link className="create-account-link" to="/"> Create An Account</Link>
+        <Link className="create-account-link" to="/signup"> Create An Account</Link>
       </form>
     </div>
   );

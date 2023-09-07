@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./OpeningPage.css"
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+
 function OpeningPage() {
 
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/quiz`).then((res) => {
+    axios.get(`${apiUrl}/quiz`).then((res) => {
         setQuestions(res.data)
     }).catch((e) => {
         console.log({ error: {e}})
@@ -20,11 +22,11 @@ console.log(questions)
     return (
       <>
       <div className="fakeMenu">
-      <div class="fakeButtons fakeClose"></div>
-      <div class="fakeButtons fakeMinimize"></div>
-      <div class="fakeButtons fakeZoom"></div>
+      <div className="fakeButtons fakeClose"></div>
+      <div className="fakeButtons fakeMinimize"></div>
+      <div className="fakeButtons fakeZoom"></div>
     </div>
-    <div class="fakeScreen">
+    <div className="fakeScreen">
       <h1>placeholder for form, can this show up?</h1>
     </div>
     </>
