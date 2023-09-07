@@ -1,19 +1,25 @@
 import NavBar from "./Components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
-import Home from './Pages/Home';
+import OpeningPage from './Pages/OpeningPage';
 import FourOFour from "./Pages/FourOFour";
 import SignInPage from "./Components/SignInPage";
-import BeginnerPage from "./Components/BeginnerPage";
+
+
+import SignUpPage from "./Components/SignUpPage";
+import Header from "./Components/Header";
+
 
 function App() {
   return (
     <div className="App">
       <Router>
         <NavBar/>
+        <Header/>
           <Routes>
-            <Route path="/" element={<Home />} /> 
+            <Route path="/" element={<OpeningPage />} /> 
             <Route path="/signin" element={<SignInPage/>}/>
+            <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
             <Route path="/beginnerpage" element={<BeginnerPage/>}/>
           </Routes>
