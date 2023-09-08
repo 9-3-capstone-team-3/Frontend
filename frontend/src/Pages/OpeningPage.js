@@ -1,12 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import "./OpeningPage.css"
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 function OpeningPage() {
 
-  const [questions, setQuestions] = useState([]);
   const [isTrueChecked, setIsTrueChecked] = useState(false);
   const [isFalseChecked, setIsFalseChecked] = useState(false);
   const [counter, setCounter] = useState(0);
