@@ -7,7 +7,7 @@ function UserProfile({ match }) {
 
     useEffect(() => {
         // Fetch user profile data based on user ID
-        fetch('/user-profile/${userId}')
+        fetch(`/user-profile/${userId}`)
             .then((response) => response.json())
             .then((data) => setUserProfile(data))
             .catch((error) => console.error(error));
@@ -50,8 +50,8 @@ function UserProfile({ match }) {
 
             {/* Profile Image */}
             <div>
-                <img
-                    src={userProfile.profileImage || '/default-avatar.png'} // Placeholder or actual image URL
+                <img                                                           // Placeholder or actual image URL
+                    src={userProfile.profileImage || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.johnsmithjohnsmith.com%2Fabout&psig=AOvVaw0pb-yg_WlxoIs9sw6aQAkK&ust=1694329317781000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKDzoNz6nIEDFQAAAAAdAAAAABAD'} 
                     alt='Profile'
                     width='100'
                     height='100'
