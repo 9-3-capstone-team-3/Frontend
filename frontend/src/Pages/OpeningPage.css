@@ -1,5 +1,9 @@
 body {
-    padding: 10px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+
   }
   
   .fakeButtons {
@@ -35,6 +39,7 @@ body {
     margin: 0 auto;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+    
   }
   
   .fakeScreen {
@@ -45,6 +50,18 @@ body {
     padding: 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    position: absolute;    top: 20%; 
+    left: 50;   
+    /* Start off the screen */  
+    transform: translate(-50%, -50%);    
+    background-color: #180404;    
+    padding: 20px;    
+    animation: slideIn 1s forwards; 
+    /* Define the animation */}@keyframes slideIn {    0% {        
+    left: 0%; 
+    /* Off-screen to the left */    }   
+    100% {        
+    left: 50%; /* Slides in to the center */    }
   }
   
   p {
@@ -78,6 +95,7 @@ body {
     -moz-animation: type .5s 1s steps(20, end) forwards;
     -o-animation: type .5s 1s steps(20, end) forwards;
     animation: type .5s 1s steps(20, end) forwards; */
+    
   }
   
   .cursor1 {

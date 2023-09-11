@@ -61,7 +61,7 @@ return (
       </> : null}
   
     {counter === 1 ?<><div className="fakeScreen">
-      <div className="line1"><div>True Or False? <br/>Software developers completely independently to complete projects.</div><br/><br/><br/> 
+      <div className="line1"><div>True Or False? <br/>Software developers work on teams to complete projects.</div><br/><br/><br/> 
         <form>
           <label>
             <input
@@ -108,8 +108,7 @@ return (
       
 </>
 
-
-
+  
 //       <>
 //       <div className="fakeMenu">
 //   <div className="fakeButtons fakeClose"></div>
