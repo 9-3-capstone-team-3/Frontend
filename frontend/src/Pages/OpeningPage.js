@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import "./OpeningPage.css"
+import Footer from "../Components/Footer";
+import CenterOfPage from "../Components/CenterOfPage";
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+//const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 function OpeningPage() {
 
-  const [questions, setQuestions] = useState([]);
-  const [isTrueChecked, setIsTrueChecked] = useState(false);
-  const [isFalseChecked, setIsFalseChecked] = useState(false);
-  const [counter, setCounter] = useState(0);
+  // const [questions, setQuestions] = useState([]);
+  // const [isTrueChecked, setIsTrueChecked] = useState(false);
+  // const [isFalseChecked, setIsFalseChecked] = useState(false);
+  // const [counter, setCounter] = useState(0);
 
 //   useEffect(() => {
 //     axios.get(`${apiUrl}/introquestions`).then((res) => {
@@ -21,28 +21,30 @@ function OpeningPage() {
 
 // console.log(questions)
 
-console.log(counter)
+// console.log(counter)
 
-console.log(isTrueChecked)
-console.log(isFalseChecked)
+// console.log(isTrueChecked)
+// console.log(isFalseChecked)
 
-const handleIncrement = () => {
-  setCounter(counter + 1);
-};
-const handleTrueChange = () => {
-  setIsTrueChecked(true);
-  setIsFalseChecked(false);
-};
+// const handleIncrement = () => {
+//   setCounter(counter + 1);
+// };
+// const handleTrueChange = () => {
+//   setIsTrueChecked(true);
+//   setIsFalseChecked(false);
+// };
 
-const handleFalseChange = () => {
-  setIsTrueChecked(false);
-  setIsFalseChecked(true);
-};
+// const handleFalseChange = () => {
+//   setIsTrueChecked(false);
+//   setIsFalseChecked(true);
+// };
 
 
     return (
     <>
-      <div className="fakeMenu">
+      
+      <CenterOfPage/>
+      {/* <div className="fakeMenu">
         <div className="fakeButtons fakeClose"></div>
         <div className="fakeButtons fakeMinimize"></div>
         <div className="fakeButtons fakeZoom"></div>
@@ -89,10 +91,10 @@ const handleFalseChange = () => {
         False
       </label>
     </form></div>
-      </div><button onClick={handleIncrement}>Make An Account and Continue Your Progress!</button></> : null}
-            
+      </div><button onClick={handleIncrement}>Make An Account and Continue Your Progress!</button></> : null} */}
+      <Footer/>     
       
-</>
+  </>
 
 
 

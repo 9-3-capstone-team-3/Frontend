@@ -1,4 +1,3 @@
-import NavBar from "./Components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import OpeningPage from './Pages/OpeningPage';
@@ -11,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar/>
         <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 

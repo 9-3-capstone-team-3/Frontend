@@ -1,0 +1,47 @@
+.image-container {
+    position: relative;
+    display: flex;         /* Aligns its children (image-set divs) in a row */
+    justify-content: space-between;  /* Distributes the space between the child elements */
+    width: 100%;
+    max-width: 500px;
+}
+
+.image-set {
+    flex: 1;              /* Allows each image set to take equal space */
+    display: flex;
+    flex-direction: column; /* Stack child elements (text, image, text) vertically */
+    align-items: center;    /* Center the items horizontally */
+    margin: 10px;           /* Adjust as needed to provide spacing between image sets */
+}
+
+.image-text {
+    margin: 10px 0;       /* Adjust as needed to provide spacing above and below the text */
+}
+
+.image-set img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+p {
+    font-family: sans-serif;
+    color: #000000;
+    position: relative;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(5, 21, 141); /* change to your desired color */
+    font-weight: bold; /* optional styling */
+    margin-right: 60px;
+}
+.centered-text {
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(5, 21, 141); /* change to your desired color */
+    font-weight: bold; /* optional styling */
+    font-size: xx-large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
