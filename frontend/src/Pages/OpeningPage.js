@@ -61,7 +61,7 @@ return (
       </> : null}
   
     {counter === 1 ?<><div className="fakeScreen">
-      <div className="line1"><div>True Or False? <br/>Software developers work on teams to complete projects.</div><br/><br/><br/> 
+      <div className="line1"><div><b>True Or False?</b><br/>Software developers work on teams to complete projects.</div><br/><br/><br/> 
         <form>
           <label>
             <input
@@ -84,7 +84,7 @@ return (
       </div><button onClick={handleIncrement}>Next</button></> : null}
 
     {counter === 2 ?<><div className="fakeScreen">
-      <div className="line1"><div>True Or False? Developers should use a version tracker to keep track of code changes, in case something goes wrong</div><br/><br/><br/> <form>
+      <div className="line1"><div><b>True Or False?</b><br/> Developers should use a version tracker to keep track of code changes, in case something goes wrong</div><br/><br/><br/> <form>
         <label>
           <input
             type="checkbox"
