@@ -103,7 +103,7 @@ return (
         </label>
       </form>
       </div>
-      </div><Link className="signup-button" to={`/signin`}>Continue Your Journey!</Link></> : null}
+      </div><Link className="signup-button" to={`/signup`}>Continue Your Journey!</Link></> : null}
             
       
 </>
