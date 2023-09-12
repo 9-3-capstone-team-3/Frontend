@@ -78,7 +78,7 @@ body {
     -moz-animation: type .5s 1s steps(20, end) forwards;
     -o-animation: type .5s 1s steps(20, end) forwards;
     animation: type .5s 1s steps(20, end) forwards; */
-  }
+  
   
   .cursor1 {
     -webkit-animation: blink 1s 2s 2 forwards;
@@ -226,4 +226,4 @@ body {
     to {
       width: 17em;
     }
-  } */ 
+  } 
