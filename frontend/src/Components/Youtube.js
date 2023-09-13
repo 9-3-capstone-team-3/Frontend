@@ -1,47 +1,42 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const YouTube = ({ videoId }) => {
-  const ref = useRef();
-
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+const YouTube = () => {
+  const { id } = useParams();
+  const [video, setVideo] = useState({});
   useEffect(() => {
-    // Ensure the script is loaded once
-    if (!window.YT) {
-      const script = document.createElement('script');
-      script.src = 'https://www.youtube.com/iframe_api';
-      script.async = true;
-      const firstScript = document.getElementsByTagName('script')[0];
-      firstScript.parentNode.insertBefore(script, firstScript);
-    }
+    // Fetch video data by ID from the /quiz route
+    fetch(`${apiUrl}/quiz/1`)
+      .then((response) => response.json())
+      .then((data) => {
+        setVideo(data); // Assuming your API response contains the video details
+      })
+      .catch((error) => {
+        console.error('Error fetching video data:', error);
+      });
+  }, [id]);
 
-    // Wait for the script to be loaded and then create the player
-    const checkAndCreatePlayer = () => {
-      if (window.YT && window.YT.Player) {
-        new window.YT.Player(ref.current, {
-          videoId: videoId,
-          width: '100%',
-          height: '100%',
-          playerVars: {
-            autoplay: 1,
-            controls: 1,
-            modestbranding: 1,
-            rel: 0,
-          },
-        });
-      } else {
-        setTimeout(checkAndCreatePlayer, 100);
-      }
-    };
+  if (!video) {
+    return <div>Loading...</div>;
+  }
 
-    checkAndCreatePlayer();
-
-  }, [videoId]);
-
-  return <div className="youtube-thumbnail">
-  <iframe src="https://www.youtube.com/embed/hfsP3lXoSMc?si=PY0LmI7O3St7CjcB" frameborder="0" allowFullScreen></iframe>
-</div>
-  
-
-
-}
+  return (
+    <div>
+      <h2>{video.name}</h2>
+      <Link to={'/beginnershowpage'}>{video.name}</Link>
+      <iframe
+        width="560"
+        height="315"
+        src={video.video_url}
+        title="YouTube video player"
+        frameborder="0"
+        allowFullScreen
+      ></iframe>
+      </div>
+    
+  );
+};
 
 export default YouTube;

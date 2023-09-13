@@ -8,6 +8,7 @@ import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import Header from "./Components/Header";
 import UserProfile from "./Components/UserProfile";
+import BeginnerLevelShowPage from "./Pages/BeginnerLevelShowPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
             <Route path="/user-profile/:user_id" element={UserProfile} />
+            <Route path="beginnerlevelshowpage" element={<BeginnerLevelShowPage/>} />
           </Routes>
       </Router>
     </div>
