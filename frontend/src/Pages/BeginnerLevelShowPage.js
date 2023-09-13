@@ -1,3 +1,4 @@
+
 import YouTube from "../Components/Youtube";
 
 export default function BeginnerLevelShowPage(){
@@ -10,3 +11,4 @@ export default function BeginnerLevelShowPage(){
         </>
     )
 }
+
