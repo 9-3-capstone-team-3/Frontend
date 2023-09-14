@@ -9,12 +9,14 @@ import Header from "./Components/Header";
 import UserProfile from "./Components/UserProfile";
 import BeginnerLevelShowPage from "./Pages/BeginnerLevelShowPage";
 import Dashboard from "./Pages/Dashboard";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Header/>
+        <NavBar/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
             <Route path="/signin" element={<SignInPage/>}/>
@@ -23,6 +25,7 @@ function App() {
             <Route path="/user-profile/:user_id" element={<UserProfile />} />
             <Route path="/beginnerlevelshowpage" element={ <BeginnerLevelShowPage />} />
             <Route path="/dashboard" element={ <Dashboard />} />
+          
           </Routes>
       </Router>
     </div>
