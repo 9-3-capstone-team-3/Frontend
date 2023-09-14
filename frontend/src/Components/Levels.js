@@ -1,18 +1,20 @@
 import axios from "axios";
-import {useState} from "react";
+import {useState, useEffect} from "react";
+
 
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 export default function Levels(){
  
-    const [levels, setLevels] = useState("");
+    const [questions, setQuestions] = useState([]);
  
  useEffect(() => {
     axios
-      .get(`${apiUrl}/level`)
+      .get(`${apiUrl}/questions`)
       .then((response) => {
-        setLevels(response.data);
+        console.log(response.data)
+        setQuestions(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -21,15 +23,18 @@ export default function Levels(){
 
   return (
     <div className="levels-container">
-        <div>
+      <div>
         <ul>
-            {levels.map((level, index) => (
-                <li key={index}>{level}</li>
-            ))}
+        {questions.map((question, index) => (
+            <li key={index}>
+              Level {question.level_number}: {question.prompt}
+            </li>
+          ))}
         </ul>
-        </div>
+      </div>
     </div>
-  )
+  );
+
 
 };
 

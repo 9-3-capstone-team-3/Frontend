@@ -11,6 +11,7 @@ export default function QuizList(){
         axios
         .get(`${apiUrl}/quiz`)
         .then((res) => {
+            console.log(res.data)
             setQuizList(res.data);
         })
         .catch((error) => {
@@ -23,8 +24,12 @@ export default function QuizList(){
             <div>
             <ul>
             {quizList.map((quiz, index) => (
-                <li key={index}>{quiz}</li>
+                <li key={index}>{quiz.name} - {quiz.video_url}
+                
+                </li>
             ))}
+            <YouTube quiz_id={quiz.quiz_id} />
+
         </ul>
             </div>
         </div>
