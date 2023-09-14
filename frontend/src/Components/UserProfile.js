@@ -7,7 +7,7 @@ function UserProfile({ match }) {
 
     useEffect(() => {
         // Fetch user profile data based on user ID
-        fetch(`/users/user-profile/${user.userId}`)
+        fetch(`/users/user-profile/${userId}`)
             .then((response) => response.json())
             .then((data) => setUserProfile(data))
             .catch((error) => console.error(error));
