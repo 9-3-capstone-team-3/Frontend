@@ -1,0 +1,61 @@
+/* Quiz.css */
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px; /* some spacing around the quiz for better visual appeal */
+}
+
+/* Use gradient and other button styles from the dashboard for quiz buttons */
+.quiz-button {
+    width: 250px; /* adjust as per your need */
+    height: 50px;
+    border-radius: 25px; /* gives a rounded effect */
+    background: linear-gradient(to right, #47d0f9, #0276a0);
+    border: none;
+    color: white; /* Text color */
+    margin: 5px 0; /* spacing between buttons */
+    cursor: pointer; /* hand cursor on hover */
+    transition: background 0.3s ease; /* smooth transition effect for hover */
+}
+
+.quiz-button:hover {
+    background: linear-gradient(to right, #0276a0, #47d0f9); /* swap colors on hover */
+}
+
+/* Specific colorings for correct and incorrect answers */
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.defaultColor {
+    background-color: transparent;
+}
+
+/* Video section styling */
+.video-section {
+    margin-top: 20px; /* spacing between the quiz and the video */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-container {
+    margin-top: 50px; /* adjust this value based on the desired distance */
+}
+
+.feedback {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
