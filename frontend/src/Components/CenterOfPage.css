@@ -3,7 +3,7 @@
     display: flex;         /* Aligns its children (image-set divs) in a row */
     justify-content: space-between;  /* Distributes the space between the child elements */
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
 }
 
 .image-set {
@@ -28,7 +28,7 @@ p {
     font-family: sans-serif;
     color: #000000;
     position: relative;
-    top: -15%;
+    top: 8%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(5, 21, 141); /* change to your desired color */
@@ -37,7 +37,7 @@ p {
 }
 .centered-text {
     position: relative;
-    top: 20%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(5, 21, 141); /* change to your desired color */
