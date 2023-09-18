@@ -7,9 +7,10 @@ import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import Header from "./Components/Header";
 import UserProfile from "./Components/UserProfile";
-import BeginnerLevelShowPage from "./Pages/BeginnerLevelShowPage";
-import Dashboard from "./Pages/Dashboard";
+// import BeginnerLevelShowPage from "./Pages/BeginnerLevelShowPage";
+// import Dashboard from "./Pages/Dashboard";
 import NavBar from "./Components/NavBar";
+import Quiz from "./Components/Quiz";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
             <Route path="/user-profile/:user_id" element={<UserProfile />} />
-            <Route path="/beginnerlevelshowpage" element={ <BeginnerLevelShowPage />} />
-            <Route path="/dashboard" element={ <Dashboard />} />
+            <Route path="/quiz" element={ <Quiz />} />
+            {/* <Route path="/dashboard" element={ <Dashboard />} /> */}
           
           </Routes>
       </Router>
