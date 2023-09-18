@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../Assests/Logo1.png"
+import logo from "../Assests/Logo2.png"
 import "../Components/NavBar.css"
 
 
@@ -15,14 +15,14 @@ export default function NavBar() {
 
             <br></br>
 
-                <Link className="profile-link" to="/profile">
-                    Profile
+                <Link className="home-link" to="/">
+                    Home
                 </Link>
 
             <br></br>
 
-                <Link className="questions-link" to="/questions">
-                    Questions
+                <Link className="about-link" to="/about">
+                    About us
                 </Link>
 
             <br></br>
@@ -32,16 +32,6 @@ export default function NavBar() {
                 </Link>
 
             <br></br>
-
-                <Link className="leaderboard-link" to="/leaderboard">
-                    Leaderboard
-                </Link>
-
-            <br></br>
-            
-               
-
-
         </nav>
-    )
+    );
 }

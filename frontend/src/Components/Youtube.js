@@ -1,75 +1,65 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003/';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 const YouTube = ({quiz_id}) => {
   const ref = useRef();
-  const [videoURL, setVideoURL] = useState('')
+  const [videoID, setVideoID] = useState('');
 
   useEffect(() => {
-    const fetchVideoURL= async () => {
+    const fetchVideoID = async () => {
+      const endpoint = `${apiUrl}/quiz/2`; // Move endpoint definition outside the try block.
+
       try {
-        const response = await fetch(`${apiUrl}/quiz/1`); 
+        const response = await fetch(endpoint); 
         if (response.ok) {
           const data = await response.json();
-          console.log(data)
-          setVideoURL(data.video_url)
+          setVideoID(data.video_id);
         } else {
-          console.error('Error fetching video URL:', response.statusText);
+          console.error('Error fetching video ID:', response.statusText, 'From URL:', endpoint);
         }
-
       } catch (error) {
-        console.error('Error fetching video URL:', error);
+        console.error('Error fetching video ID:', error, 'From URL:', endpoint);
       }
     };
+
     if (quiz_id) {
-      fetchVideoURL();
+      fetchVideoID();
     }
-  }, [quiz_id])
+  }, [quiz_id]);
 
   useEffect(() => {
-    // Ensure the script is loaded once
     if (!window.YT) {
       const script = document.createElement('script');
       script.src = 'https://www.youtube.com/iframe_api';
-
       script.async = true;
       const firstScript = document.getElementsByTagName('script')[0];
       firstScript.parentNode.insertBefore(script, firstScript);
     }
 
-
-    // Wait for the script to be loaded and then create the player
-    const checkAndCreatePlayer = () => {
-      if (window.YT && window.YT.Player) {
+    window.onYouTubeIframeAPIReady = () => {
+      if (videoID) {
         new window.YT.Player(ref.current, {
-          videoId: videoURL,
-          width: '100%',
-          height: '100%',
+          videoId: videoID,
+          width: '640',
+          height: '390',
           playerVars: {
+            'playsinline': 1,
             autoplay: 0,
             controls: 1,
             modestbranding: 1,
             rel: 0,
           },
         });
-      } else {
-        setTimeout(checkAndCreatePlayer, 100);
       }
     };
-
-    checkAndCreatePlayer();
-
-  }, [videoURL]);
+  }, [videoID]);
 
   return (
-  <div className="youtube-thumbnail">
-    <div ref={ref}></div>
-  </div>)
-  
-
-
+    <div className="youtube-thumbnail">
+      <div ref={ref}></div>
+    </div>
+  );
 }
 
 export default YouTube;
