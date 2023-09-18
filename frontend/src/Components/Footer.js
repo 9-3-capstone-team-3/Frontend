@@ -7,8 +7,8 @@ import footer from "../Assests/footer.png";
 
 function Footer() {
     return (
-        <div className="footer-container">
-            <img src={footer} alt="Footer" />
+        <div className="footer-container" >
+            <img src={footer} alt="Footer" style={{backgroundRepeat: "repeat"}}/>
             
             <div className="footer-links">
                 <Link to="/page1">About Us</Link>

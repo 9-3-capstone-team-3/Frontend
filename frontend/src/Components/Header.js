@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import Logo1 from "../Assests/Logo1.png";
+import Logo2 from "../Assests/Logo2.png";
 
 export default function Header() {
     return (
@@ -10,7 +10,7 @@ export default function Header() {
 
             {/* Wrap the image inside the Link component */}
                 <Link to="/">
-                    <img src={Logo1} alt="Logo" className="logo" />
+                    <img src={Logo2} alt="Logo" className="logo" />
                 </Link>
             </div>
                 <Link className="signon-button" to="/signin">
