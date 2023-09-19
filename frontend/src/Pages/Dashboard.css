@@ -11,7 +11,6 @@
     top: 0;
     left: 0;
     width: 15%; /* adjust as needed */
-    height: 100vh;
     border-right: 2px #0276a0;
     /* other styles */
   }
@@ -157,26 +156,5 @@
     flex-direction: column; /* stack children vertically */
     border-left: 2px #0276a0;
     /* other styles */
-  }
-  
-  /* Footer inside Right Sidebar */
-.footer {
-    display: flex;
-    justify-content: space-between; /* Or space-around for even spacing around and between */
-    width: 100%; /* take full width of the right sidebar */
-    margin-top: auto; /* push it to the bottom */
-    background-color: #f1f0f0; /* for visualization */
-    z-index: 1;
-    height: 60px;
-    padding: 0;
-    /* other styles */
-  }
-  
-  /* If you have links inside the footer, you might style them like this */
-  .footer-links {
-    color: black; /* or any other preferred color */
-    text-decoration: none;
-    padding: 0; /* Some spacing, adjust as needed */
-    /* other link styles */
   }
   

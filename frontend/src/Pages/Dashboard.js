@@ -124,7 +124,7 @@ function Dashboard(){
 
         {/* Footer */}
         <div className="footer">
-          {<DashboardFooter/>}
+          {/* {<DashboardFooter/>} */}
         </div>
       </div>
 
