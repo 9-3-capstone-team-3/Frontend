@@ -11,11 +11,14 @@ import Quiz from "./Components/Quiz";
 
 
 import Dashboard from "./Pages/Dashboard";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
             <Route path="/signin" element={<SignInPage/>}/>
@@ -24,8 +27,8 @@ function App() {
             <Route path="/user/:user_id" element={<UserProfile />} />
             <Route path="/quiz/:quiz_id" element={ <Quiz />} />
             <Route path="/dashboard" element={ <Dashboard />} />
-          
           </Routes>
+        <Footer/>
       </Router>
     </div>
   );

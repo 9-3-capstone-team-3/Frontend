@@ -17,6 +17,7 @@ export default function Leaderboard(){
 
     return (
         <div className="leaderboard">
+            <h1>Leaderboard</h1>
             {users.map((user) => (
                 <LeaderboardItem key={user.id} user={user} />
             ))}

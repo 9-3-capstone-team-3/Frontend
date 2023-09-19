@@ -185,7 +185,11 @@ console.log(quizzes)
         <div className="leaderboard">{<Leaderboard />}</div>
 
         {/* Footer */}
-        <div className="footer">{<DashboardFooter />}</div>
+
+        <div className="footer">
+          {/* {<DashboardFooter/>} */}
+        </div>
+
       </div>
     </div>
   );
