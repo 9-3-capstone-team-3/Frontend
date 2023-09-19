@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import YouTube from "./Youtube";
 import "./Quiz.css"
@@ -6,20 +7,22 @@ import "./Quiz.css"
 
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3003";
 
-async function getQuizDetails(quiz_id, setQuestions) {
+async function getQuizDetails(quiz_id) {
   try {
-    const response = await axios.get(`${apiUrl}/quiz/2/questions`, {
+    const response = await axios.get(`${apiUrl}/quiz/${quiz_id}/questions`, {
       withCredentials: true,
     });
     console.log(response);
 
     if (response.status === 200) {
-      setQuestions(response.data);
+      return response.data;
     } else {
       console.error("Failed to fetch quiz details.");
+      return [];
     }
   } catch (err) {
     console.error("Error:", err);
+    return [];
   }
 }
 
@@ -27,17 +30,15 @@ async function getQuizDetails(quiz_id, setQuestions) {
 
 // const baseURL = "https://www.youtube.com/watch?v=";
 
-async function getQuizVideoUrl(quiz_id, setVideoId) {
+async function getQuizVideoUrl(quiz_id,setVideoId) {
+
+
     try {
-        const response = await axios.get(`${apiUrl}/quiz/2`, {
+        const response = await axios.get(`${apiUrl}/quiz/${quiz_id}`, {
             withCredentials: true,
         });
         
-        if (quiz_id) {
-            getQuizVideoUrl(quiz_id, setVideoId);
-        } else {
-            console.error("Quiz ID is undefined!");
-        }
+       
       if (response.status === 200 && response.data.video_id) {
         setVideoId(response.data.video_id);
       } else {
@@ -45,12 +46,13 @@ async function getQuizVideoUrl(quiz_id, setVideoId) {
       }
     } catch (err) {
       console.error("Error:", err);
-    }
+    
   }
-  
+}
 
 
-function Quiz(props) {
+function Quiz() {
+ 
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -60,22 +62,29 @@ function Quiz(props) {
   const [feedback, setFeedback] = useState("");
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
-  const [currentQuiz, setCurrentQuiz] = useState(props.quiz_id);
-
-
+  let {quiz_id} = useParams();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
-    getQuizDetails(currentQuiz, setQuestions).then(() => {
-        if (questions.length > 0) {
-            setCurrentIndex(0);
-        }
-    });
-}, [currentQuiz, questions.length]);
+    getQuizDetails(quiz_id).then(() => {
+    //     if (questions.length > 0) {
+      //     }
+      // });
+              // setCurrentIndex(0);
+}, [quiz_id])});
 
 useEffect(() => {
-    getQuizVideoUrl(currentQuiz, setVideoURL);
-}, [currentQuiz]);
+    getQuizVideoUrl(quiz_id, setVideoURL);
+}, [quiz_id]);
+
+useEffect(() => {
+  const fetchQuestions = async () => {
+      const fetchedQuestions = await getQuizDetails(quiz_id);
+      setQuestions(fetchedQuestions);
+  }
+  fetchQuestions();
+}, [quiz_id]);
 
   useEffect(() => {
     async function fetchAnswers() {
@@ -135,8 +144,8 @@ useEffect(() => {
     setFeedback("");
 
     // Move to the next quiz
-    setCurrentQuiz(prevQuiz => prevQuiz + 1);
-}
+    navigate(`/path-to-your-quiz/${parseInt(quiz_id) + 1}`);
+  }
 
 
   const getAnswerColor = (answer) => {
@@ -155,7 +164,7 @@ useEffect(() => {
 
   return (
     <div className="quiz-container">
-      <h2>{props.name}</h2>
+      <h2>{currentQuestion.quiz_name}</h2>
       <div>
         {videoUrl && (
           <div className="video-section">
@@ -187,6 +196,6 @@ useEffect(() => {
     </div>
   );
   
-}
 
+}
 export default Quiz;
