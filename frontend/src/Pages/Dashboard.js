@@ -16,7 +16,7 @@ function Dashboard(props) {
   const [showProfile, setShowProfile] = useState(false);
   const [user, setUser] = useState(null);
   const [quizzes, setQuizzes] = useState([]);
-  const [setQuiz] = useState([]);  
+  const [quiz,setQuiz] = useState([]);  
   
   const navigate = useNavigate();
 
