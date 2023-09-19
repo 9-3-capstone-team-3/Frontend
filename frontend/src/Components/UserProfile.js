@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-function UserProfile({ match }) {
+function UserProfile() {
+    const { user_id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
     const [newPassword, setNewPassword] = useState(''); // Option to change Password 
-    const userId = match.params.user_id; // Get the user ID from the route parameter
+   
 
     useEffect(() => {
-        // Fetch user profile data based on user ID
-        fetch(`/users/user-profile/${userId}`)
+     
+        fetch(`http://localhost:3003/users/profile/${user_id}`)
+
             .then((response) => response.json())
-            .then((data) => setUserProfile(data))
+            
+            .then((data) =>
+                
+                setUserProfile(data))
             .catch((error) => console.error(error));
-    }, [userId]);
+    }, [user_id]);
 
     const handlePasswordChange = async () => {
         try {
