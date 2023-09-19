@@ -7,8 +7,7 @@ export default function NavBar() {
 
     return(
         <nav className="nav-bar">
-            <div id="logo">  
-             
+            <div id="logo">   
                 <Link className="nav-link" to="/">
                     <img className="logo" src={logo} alt='logo' width="120" height="70"></img>
                 </Link>
