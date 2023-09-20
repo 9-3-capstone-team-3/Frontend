@@ -26,7 +26,7 @@ function App() {
             <Route path="*" element={<FourOFour/>} />
             <Route path="/user/:user_id" element={<UserProfile />} />
             <Route path="/quiz/:quiz_id" element={ <Quiz />} />
-            <Route path="/dashboard" element={ <Dashboard />} />
+            <Route path="/dashboard/:user_id" element={ <Dashboard />} />
           </Routes>
         <Footer/>
       </Router>
