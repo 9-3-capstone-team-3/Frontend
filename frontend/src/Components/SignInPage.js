@@ -1,14 +1,16 @@
 // Signin.js
-import axios from 'axios';
 import { useState } from 'react';
+import axios from 'axios';
 import './Signin.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -25,13 +27,20 @@ function SignInPage() {
         email: email,
         password: password
       });
-
-      console.log(response.data);
+  
+      if (response.data) {
+        const userId = response.data.user_id; // Assuming the key is named "user_id"
+        navigate(`/dashboard/${userId}`);
+      } else {
+        console.error('Failed to login: Authentication failed.');
+      }
     } catch (error) {
-      console.error('Failed to login:', error.response ? error.response.data : error.message);
+      const errorMessage = error.response && error.response.data ? error.response.data.error : error.message;
+      console.error('Failed to login:', errorMessage);
     }
-    
   };
+  
+
 
   return (
     <div className="signin-container">

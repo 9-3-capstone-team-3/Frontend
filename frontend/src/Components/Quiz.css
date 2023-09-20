@@ -10,7 +10,6 @@
     padding: 20px; /* some spacing around the quiz for better visual appeal */
 }
 
-/* Use gradient and other button styles from the dashboard for quiz buttons */
 .quiz-button {
     width: 250px; /* adjust as per your need */
     height: 50px;
@@ -27,7 +26,7 @@
     background: linear-gradient(to right, #0276a0, #47d0f9); /* swap colors on hover */
 }
 
-/* Specific colorings for correct and incorrect answers */
+/* Specific colorings for correct and incorrect answers - defined after .quiz-button to ensure precedence */
 .green {
     background-color: green;
 }
@@ -40,7 +39,6 @@
     background-color: transparent;
 }
 
-/* Video section styling */
 .video-section {
     margin-top: 20px; /* spacing between the quiz and the video */
     width: 100%;
@@ -57,5 +55,38 @@
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
-  }
-  
+}
+
+.qa-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #0276a0; /* giving it a border */
+    border-radius: 15px; /* rounded corners */
+    background-color: #f2f2f2; /* light grey background color for contrast */
+    width: 70%; /* adjust based on how wide you want the box to be */
+    margin-top: 40px;
+    margin-bottom: 20px; /* spacing between the box and the navigation buttons */
+}
+
+.question-prompt {
+    font-size: 15px;
+    margin: 0; /* reset margin to remove any unwanted space */
+    text-align: center; /* This centers the text within the paragraph */
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%; /* match width with the qa-box for alignment */
+}
+
+.result-box {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
