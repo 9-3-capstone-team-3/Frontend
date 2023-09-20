@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import './SignUpPage.css';
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
