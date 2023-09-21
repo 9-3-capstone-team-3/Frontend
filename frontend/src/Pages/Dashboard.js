@@ -45,8 +45,6 @@ function Dashboard() {
     };
     fetchQuizzes();
   }, []);
-
-  
   
   useEffect(() => {
     const fetchUserData = async () => {

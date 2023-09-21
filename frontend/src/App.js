@@ -6,8 +6,8 @@ import FourOFour from "./Pages/FourOFour";
 import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import UserProfile from "./Components/UserProfile";
-// import NavBar from "./Components/NavBar";
 import Quiz from "./Components/Quiz";
+import Leaderboard from "./Components/Leaderboard";
 
 
 import Dashboard from "./Pages/Dashboard";
