@@ -1,60 +1,68 @@
 /* Signin.css */
 .signin-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   
-  .signin-form {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9; /* Light gray background color */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Centers the content horizontally */
-  }
-  
-  .signin-form h1 {
-    margin-bottom: 20px;
-    font-size: 24px; /* Increases font size for the heading */
-    color: #333; /* Darkens the text color */
-  }
-  
-  .signin-form label {
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;  /* Aligns labels to the left */
-    font-weight: bold; /* Makes labels bold */
-  }
-  
-  .signin-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 15px; /* Adds some spacing between inputs */
-  }
-  
-  .signin-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: bold; /* Makes the button text bold */
-  }
+}
+
+.signin-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light gray background color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centers the content horizontally */
+}
+
+.signin-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px; /* Increases font size for the heading */
+  color: #333; /* Darkens the text color */
+}
+
+.signin-form label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;  /* Aligns labels to the left */
+  font-weight: bold; /* Makes labels bold */
+}
+
+.signin-form input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 15px; /* Adds some spacing between inputs */
+}
+
+.signin-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold; /* Makes the button text bold */
+}
+
+.signin-form button:hover {
+  background-color: aquamarine; 
+  color: #fff;
+}
 
 .create-account-link {
-  display: block; /* Displays as a block-level element */
-  margin-top: 10px; /* Adds some spacing between the button and the link */
-  text-align: center; /* Centers the link text */
-  text-decoration: none; /* Removes underlines from the link */
-  color: #007bff;
-  font-weight: bold;  /* Makes the link text bold */
+display: block; /* Displays as a block-level element */
+margin-top: 10px; /* Adds some spacing between the button and the link */
+text-align: center; /* Centers the link text */
+text-decoration: none; /* Removes underlines from the link */
+color: #007bff;
+font-weight: bold;  /* Makes the link text bold */
 }
-  
+
+.create-account-link:hover {
+color: aquamarine; /* Change the text color on hover */
+}

@@ -40,23 +40,20 @@ function SignInPage() {
     }
 
   };
-  
-
 
   return (
     <div className="signin-container">
       <form className="signin-form" onSubmit={handleSubmit}>
-        <h1>Log In Or Create an Account</h1>
+        <h2>CodeFusion Login</h2>
         <label>
-          Email:
-          <input type="email" value={email} onChange={handleEmailChange} />
+          <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
         </label>
         <label>
-          Password:
-          <input type="password" value={password} onChange={handlePasswordChange} />
+          <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         </label>
-        <button type="submit">Sign In</button>
-        <Link className="create-account-link" to="/signup"> Create An Account</Link>
+        <button className="button" type="submit">Log In</button>
+        <h5><span>Don't have an Account?</span></h5>
+        <Link className="create-account-link" to="/signup">Create Account</Link>
       </form>
     </div>
   );
