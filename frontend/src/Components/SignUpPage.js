@@ -103,70 +103,70 @@ function SignUpPage() {
     <div className="signup-container">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form className="signup-form" onSubmit={handleSubmit}>
-        <h1>Sign up Here</h1>
+        <h2>Sign up Here</h2>
         <label>
-          Username:
           <input
             type="text"
+            placeholder="Username"
             value={username}
             onChange={handleUsernameChange}
             required
           />
         </label>
         <label>
-          Email:
           <input
             type="email"
+            placeholder="Email"
             value={email}
             onChange={handleEmailChange}
             required
           />
         </label>
         <label>
-          First Name:
           <input
             type="text"
+            placeholder="First Name"
             value={firstname}
             onChange={handleFirstnameChange}
             required
           />
         </label>
         <label>
-          Last Name:
           <input
             type="text"
+            placeholder="Last Name"
             value={lastname}
             onChange={handleLastnameChange}
             required
           />
         </label>
         <label>
-          Password:
           <input
             type="password"
+            placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
             required
           />
         </label>
         <label>
-          Confirm Password:
           <input
             type="password"
+            placeholder="Confirm Password"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
           />
         </label>
         <label>
-          Level Number:
           <input
             type="number"
+            placeholder="Level Number"
             value={level_number}
             onChange={handleLevelIdChange}
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className="button" type="submit">Sign Up</button>
         <Link className="login-account-link" to="/signin">
           Already have an account? Log in
         </Link>
