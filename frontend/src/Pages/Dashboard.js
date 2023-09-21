@@ -26,7 +26,7 @@ function Dashboard(){
         setUser(data)})
       .catch(error => console.error('Error fetching user data:', error));
   }, []);
-    
+  
     return (
     <div className="container">
 
