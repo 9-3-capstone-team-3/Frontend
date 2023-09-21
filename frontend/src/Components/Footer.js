@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
-import footer from "../Assests/footer.png";
 
 function Footer() {
     const [showFooter, setShowFooter] = useState(false);
