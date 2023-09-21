@@ -51,6 +51,7 @@ function Dashboard() {
       try {
         const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
         const userData = await userDataResponse.json();
+        console.log("User Data:", userData); // Log user data
         setUser(userData);
     
         // Fetch completed quizzes here and set them as an array
@@ -69,7 +70,8 @@ function Dashboard() {
     fetchUserData();
   }, [user_id]);
   
-  
+  console.log(user)
+
   return (
     <div className="container">
       {/* Left Sidebar */}
@@ -144,7 +146,7 @@ function Dashboard() {
         <div className="banner3">
           <h1>Advance</h1>
           <p>
-            Collab on gitHub <br />
+            Collab on GitHub <br />
             and gain points
           </p>
         </div>
@@ -206,7 +208,7 @@ function Dashboard() {
             {/* Points */}
 
             <img src={pointsIcon} alt="points icon" className="points-icon" />
-            <span className="icon-text">1234 pts</span>
+            <span className="icon-text">{user.total_points} pts</span>
 
             <img
               src={userIcon}

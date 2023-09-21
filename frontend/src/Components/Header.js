@@ -8,10 +8,7 @@ export default function Header() {
         <header className="header">
             <div className="logo-container">
 
-            {/* Wrap the image inside the Link component */}
-                <Link to="/">
-                    <img src={Logo2} alt="Logo" className="logo" />
-                </Link>
+            
             </div>
                 <Link className="signon-button" to="/signin">
                     Sign In / Create An Account
