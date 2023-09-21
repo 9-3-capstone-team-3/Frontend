@@ -5,7 +5,6 @@ import UserProfile from "../Components/UserProfile";
 import Leaderboard from "../Components/Leaderboard";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
-import DashboardFooter from "../Components/DashboardFooter";
 import pointsIcon from "../Assests/pointsIcon.png";
 import lock from "../Assests/lock.png";
 import star from "../Assests/star.png";
@@ -82,7 +81,7 @@ function Dashboard() {
         {/* ...contents of main body... */}
         <div className="banner">
           <h1>Beginner</h1>
-          <p>Learn the basics of git!</p>
+          <p>Learn the basics of Git!</p>
         </div>
         <div className="circle-buttons">
           {quizzes &&
@@ -116,7 +115,7 @@ function Dashboard() {
 
         <div className="banner2">
           <h1>Intermediate</h1>
-          <p>Practice the git process</p>
+          <p>Practice the Git process</p>
         </div>
         <div className="circle-buttons">
           {quizzes &&
