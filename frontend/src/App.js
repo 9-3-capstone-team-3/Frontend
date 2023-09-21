@@ -11,21 +11,24 @@ import Leaderboard from "./Components/Leaderboard";
 
 
 import Dashboard from "./Pages/Dashboard";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
-            <Route path="/user-profile/:user_id" element={<UserProfile />} />
-            <Route path="/quiz" element={ <Quiz />} />
-            <Route path="/dashboard" element={ <Dashboard />} /> 
-            <Route path="/leaderboard" element={ <Leaderboard/>} />
+            <Route path="/user/:user_id" element={<UserProfile />} />
+            <Route path="/quiz/:quiz_id" element={ <Quiz />} />
+            <Route path="/dashboard/:user_id" element={ <Dashboard />} />
           </Routes>
+        <Footer/>
       </Router>
     </div>
   );

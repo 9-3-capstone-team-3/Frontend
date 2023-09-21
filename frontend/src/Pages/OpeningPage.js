@@ -11,17 +11,13 @@ function OpeningPage() {
 
 
     return (
-    <>
-      <Header/>
-      <br></br>
-      <br></br>
+    <div className="openingMain">
+      <br/>
+      <br/>
       <CenterOfPage/>
-      <br></br>
-      <br></br>
-      <Footer/>     
-
-      
-  </>
+      <br/>
+      <br/>
+    </div>
 
     );
     

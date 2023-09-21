@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import './SignUpPage.css';
+
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
@@ -10,7 +12,7 @@ function SignUpPage() {
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [level_id, setLevelId] = useState(0);
+  const [level_number, setLevelNumber] = useState(0);
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ function SignUpPage() {
     setConfirmPassword(event.target.value);
   };
   const handleLevelIdChange = (event) => {
-    setLevelId(event.target.value);
+    setLevelNumber(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -66,7 +68,7 @@ function SignUpPage() {
       firstname,
       lastname,
       password,
-      level_id,
+      level_number,
     };
 
     try {
@@ -157,10 +159,10 @@ function SignUpPage() {
           />
         </label>
         <label>
-          Level Id:
+          Level Number:
           <input
             type="number"
-            value={level_id}
+            value={level_number}
             onChange={handleLevelIdChange}
           />
         </label>
