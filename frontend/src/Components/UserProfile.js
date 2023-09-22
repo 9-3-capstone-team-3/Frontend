@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+const apiUrl = process.env.REACT_APP_API_URL
+
 function UserProfile() {
     const { user_id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
@@ -9,7 +11,7 @@ function UserProfile() {
 
     useEffect(() => {
      
-        fetch(`http://localhost:3003/users/profile/${user_id}`)
+        fetch(`${apiUrl}/users/${user_id}`)
 
             .then((response) => response.json())
             

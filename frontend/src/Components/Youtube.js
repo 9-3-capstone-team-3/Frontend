@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+const apiUrl = process.env.REACT_APP_API_URL ;
 
 const YouTube = ({quiz_id}) => {
   const ref = useRef();
