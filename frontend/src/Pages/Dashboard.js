@@ -9,8 +9,8 @@ import pointsIcon from "../Assests/pointsIcon.png";
 import lock from "../Assests/lock.png";
 import star from "../Assests/star.png";
 
-<Link></Link>;
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3003";
+
+const apiUrl = process.env.REACT_APP_API_URL ;
 function Dashboard() {
   const [showProfile, setShowProfile] = useState(false);
   const [user, setUser] = useState(null);
@@ -25,7 +25,7 @@ function Dashboard() {
     setQuiz(quiz);
     console.log(quiz);
     // console.log(quiz.quiz_id)
-    navigate(`/quiz/${quiz.quiz_id}`);
+    navigate(`/quiz/${quiz.quiz_id}/${user_id}`);
   };
   const handleImageClick = () => {
     setShowProfile((prevState) => !prevState);
@@ -207,7 +207,7 @@ function Dashboard() {
             {/* Points */}
 
             <img src={pointsIcon} alt="points icon" className="points-icon" />
-            <span className="icon-text">{user.total_points} pts</span>
+            <span className="icon-text">{user && user.total_points} pts</span>
 
             <img
               src={userIcon}

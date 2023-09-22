@@ -7,7 +7,6 @@ import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import UserProfile from "./Components/UserProfile";
 import Quiz from "./Components/Quiz";
-import Leaderboard from "./Components/Leaderboard";
 
 
 import Dashboard from "./Pages/Dashboard";
@@ -25,7 +24,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
             <Route path="/user/:user_id" element={<UserProfile />} />
-            <Route path="/quiz/:quiz_id" element={ <Quiz />} />
+            <Route path="/quiz/:quiz_id/:user_id" element={ <Quiz />} />
             <Route path="/dashboard/:user_id" element={ <Dashboard />} />
           </Routes>
         <Footer/>

@@ -4,7 +4,7 @@ import axios from "axios";
 import YouTube from "./Youtube";
 import "./Quiz.css";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3003";
+const apiUrl = process.env.REACT_APP_API_URL ;
 
 async function getQuizDetails(quiz_id) {
   try {
@@ -55,7 +55,7 @@ function Quiz() {
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
 
-  let { quiz_id } = useParams();
+  const { quiz_id, user_id } = useParams();
   const navigate = useNavigate();
 
   
@@ -258,7 +258,7 @@ console.log(currentQuestion);
 
         {feedback && <div className="feedback">{feedback}</div>}
       </div>
-        <button className="quiz-button" onClick={() => navigate("/dashboard/user_id")}>
+        <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
           Return to Dashboard
         </button>
         {isQuizCompleted && (
