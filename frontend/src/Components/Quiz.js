@@ -258,7 +258,7 @@ console.log(currentQuestion);
 
         {feedback && <div className="feedback">{feedback}</div>}
       </div>
-        <button className="quiz-button" onClick={() => navigate(`/quiz/${quiz_id}/${user_id}`)}>
+        <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
           Return to Dashboard
         </button>
         {isQuizCompleted && (
