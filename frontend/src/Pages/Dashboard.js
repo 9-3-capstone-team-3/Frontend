@@ -83,7 +83,7 @@ function Dashboard() {
         <div className="col-lg-8" >
           {/* Header */}
           <div className="card" style={{ ...cardGradientStyle, ...cardMarginTop }}>
-            <div className="card-body text-white">
+            <div className="card-body text-white text-center">
               <h1 className="font-weight-bold">Beginner</h1>
               <p>Learn the basics of Git!</p>
             </div>
@@ -127,7 +127,7 @@ function Dashboard() {
   
           {/* Intermediate */}
           <div className="card mt-5" style={cardGradientStyle}>
-            <div className="card-body text-white">
+            <div className="card-body text-white text-center">
               <h1 className="font-weight-bold">Intermediate</h1>
               <p>Practice the Git process</p>
             </div>
@@ -170,7 +170,7 @@ function Dashboard() {
   
           {/* Advance */}
           <div className="card mt-5" style={cardGradientStyle}>
-            <div className="card-body text-white">
+            <div className="card-body text-white text-center">
               <h1 className="font-weight-bold">Advance</h1>
               <p>Collab on GitHub and gain points</p>
             </div>
@@ -213,7 +213,7 @@ function Dashboard() {
   
           {/* Expert */}
           <div className="card mt-5" style={cardGradientStyle}>
-            <div className="card-body text-white">
+            <div className="card-body text-white text-center">
               <h1 className="font-weight-bold">Expert</h1>
               <p>Master the advanced concepts</p>
             </div>
