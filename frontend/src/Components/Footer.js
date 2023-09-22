@@ -1,72 +1,62 @@
-// Footer.js
-
 import React, { useState, useEffect } from 'react';
-import './Footer.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
-    const [showFooter, setShowFooter] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
 
-    useEffect(() => {
-        // Function to check if the page is scrolled to the bottom
-        const handleScroll = () => {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.scrollY || window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+  useEffect(() => {
+    // Function to check if the page is scrolled to the bottom
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight =
+        document.documentElement.scrollHeight ||
+        document.body.scrollHeight;
+      const scrollTop =
+        window.scrollY || window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
 
-            // Check if the user has scrolled to the bottom
-            if (scrollTop + windowHeight >= documentHeight - 10) {
-                setShowFooter(true);
-            } else {
-                setShowFooter(false);
-            }
-        };
+      // Check if the user has scrolled to the bottom
+      if (scrollTop + windowHeight >= documentHeight - 10) {
+        setShowFooter(true);
+      } else {
+        setShowFooter(false);
+      }
+    };
 
-        // Add a scroll event listener
-        window.addEventListener('scroll', handleScroll);
+    // Add a scroll event listener
+    window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-    return (
-        <footer className={`footer ${showFooter ? 'show' : 'hide'}`}>
-            <div className="footer-container">
-                <div className="footer-links">
-                    <div className="footer-section">
-                        <h4>About Us</h4>
-                        <ul>
-                            <li><Link to="/about">Our Story</Link></li>
-                            <li><Link to="/team">Our Team</Link></li>
-                        </ul>
-                    </div>
-                    <div className="footer-section">
-                        <h4>Our Vision</h4>
-                        <ul>
-                            <li><Link to="/personal">Learning Git</Link></li>
-                            <li><Link to="/business">Learning Collaboration</Link></li>
-                            <li><Link to="/loans">Going out to Collab!</Link></li>
-                        </ul>
-                    </div>
-                    <div className="footer-section">
-                        <h4>Contact Us</h4>
-                        <ul>
-                            <li><Link to="/contact">GitHubs</Link></li>
-                            <li><Link to="/locations">LinkedIn's</Link></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="footer-info">
-                    <p>&copy; {new Date().getFullYear()} Capstone Team 3. All rights reserved.</p>
-                    <p>Karimah Reavis | Shaniqua Coston</p>
-                    <p>Markeya Mckoy-Carree | Marangely Rosas</p>
-                    <p>SangUn Park</p>
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer
+      className={`footer ${showFooter ? 'show' : 'hide'}`}
+      style={{
+        height: '1in', // 1 inch height
+        display: 'flex',
+        justifyContent: 'center', // Center text horizontally
+        alignItems: 'center', // Center text vertically
+        backgroundColor: '#f8f9fa', // Background color
+      }}
+    >
+      <div className="container text-center">
+        <div className="row">
+          <div className="col-12 text-muted">
+            <p className="mb-0">
+              &copy; {new Date().getFullYear()} Capstone Team 3. All rights
+              reserved.
+            </p>
+            <p className="mb-0">Karimah Reavis | Shaniqua Coston</p>
+            <p className="mb-0">Markeya Mckoy-Carree | Marangely Rosas</p>
+            <p className="mb-0">SangUn Park</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

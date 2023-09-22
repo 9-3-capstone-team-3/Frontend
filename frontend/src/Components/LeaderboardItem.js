@@ -1,13 +1,11 @@
-function LeaderboardItem({ user }) {
-    return (
-      <div className="leaderboard-item">
-        <div className="rank">{user.id}</div>
-        <div className="user-info">
-          <div className="user-name">{user.username}</div>
-          <div className="user-score">{user.total_points} points</div>
-        </div>
-      </div>
-    );
-  }
-  
-  export default LeaderboardItem;
+import React from "react";
+
+export default function LeaderboardItem({ user, rank }) {
+  return (
+    <tr>
+      <td>{rank}</td>
+      <td>{user.username}</td>
+      <td>{user.total_points}</td>
+    </tr>
+  );
+}

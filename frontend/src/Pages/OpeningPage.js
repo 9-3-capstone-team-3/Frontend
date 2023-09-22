@@ -1,4 +1,4 @@
-import "./OpeningPage.css"
+// import "./OpeningPage.css"
 import CenterOfPage from "../Components/CenterOfPage";
 
 

@@ -1,7 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './SignUpPage.css';
-
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
@@ -11,9 +9,10 @@ function SignUpPage() {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); 
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [level_number, setLevelNumber] = useState(0);
-  const [errorMessage, setErrorMessage] = useState(""); 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State variable for showing/hiding password
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
@@ -41,6 +40,10 @@ function SignUpPage() {
   };
   const handleLevelIdChange = (event) => {
     setLevelNumber(event.target.value);
+  };
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword); // Toggle the state
   };
 
   const handleSubmit = async (event) => {
@@ -85,93 +88,117 @@ function SignUpPage() {
       console.log("Data:", data);
       console.log("Received response:", response);
 
-
       if (response.ok) {
         alert('Sign up successful! Redirecting to sign in.'); // Alerting the user
         navigate("/signin"); // Redirecting to the sign-in page on successful registration
       } else {
         setErrorMessage("Failed to sign up. Please try again."); // Show error to user
-        console.log(errorMessage); 
+        console.log(errorMessage);
       }
     } catch (error) {
-        setErrorMessage("Failed to sign up. Please try again."); // Show error to user
-        console.error("There was an error", error);
+      setErrorMessage("Failed to sign up. Please try again."); // Show error to user
+      console.error("There was an error", error);
     }
   };
 
   return (
-    <div className="signup-container">
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>Sign up Here</h2>
-        <label>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={handleUsernameChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstname}
-            onChange={handleFirstnameChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastname}
-            onChange={handleLastnameChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            required
-          />
-        </label>
-        <label>
-          <input
-            type="number"
-            placeholder="Level Number"
-            value={level_number}
-            onChange={handleLevelIdChange}
-          />
-        </label>
-        <button className="button" type="submit">Sign Up</button>
-        <Link className="login-account-link" to="/signin">
-          Already have an account? Log in
-        </Link>
-      </form>
-      <button onClick={handleSubmit}>Test Signup</button>
+    <div className="container">
+      <div className="row justify-content-center mt-5">
+        <div className="col-md-6">
+          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+          <form onSubmit={handleSubmit}>
+            <h2 className="mb-3 text-center" style={{ marginTop: "50px" }}>
+              Sign up Here
+            </h2>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Username"
+                value={username}
+                onChange={handleUsernameChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="First Name"
+                value={firstname}
+                onChange={handleFirstnameChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Last Name"
+                value={lastname}
+                onChange={handleLastnameChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <div className="input-group">
+                <input
+                  type={showPassword ? "text" : "password"} // Toggle password visibility
+                  className="form-control"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  required
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={handleTogglePassword}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
+            <div className="mb-3">
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Level Number"
+                value={level_number}
+                onChange={handleLevelIdChange}
+              />
+            </div>
+            <div className="text-center">
+              <button className="btn btn-primary" type="submit">
+                Sign Up
+              </button>
+              <Link className="d-block mt-3" style={{ marginBottom: "50px" }} to="/signin">
+                Already have an account? Log in
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

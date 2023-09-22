@@ -1,10 +1,10 @@
 // Signin.js
 import { useState } from 'react';
 import axios from 'axios';
-import './Signin.css';
+// import './Signin.css';
 import { Link, useNavigate } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+const apiUrl = process.env.REACT_APP_API_URL ;
 
 function SignInPage() {
   const [email, setEmail] = useState('');
@@ -44,19 +44,38 @@ function SignInPage() {
 
 
   return (
-    <div className="signin-container">
-      <form className="signin-form" onSubmit={handleSubmit}>
-        <h2>CodeFusion Login</h2>
-        <label>
-          <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
-        </label>
-        <label>
-          <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        </label>
-        <button className="button" type="submit">Log In</button>
-        <h5><span>Don't have an Account?</span></h5>
-        <Link className="create-account-link" to="/signup">Create Account</Link>
-      </form>
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="card shadow p-4">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Email"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <button className="btn btn-primary btn-block" type="submit">
+            Log In
+          </button>
+          <div className="mt-3">
+            <span>Don't have an Account?</span>
+            <Link to="/signup" className="ml-2">
+              Create Account
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

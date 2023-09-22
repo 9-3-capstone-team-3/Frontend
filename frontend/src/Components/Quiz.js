@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import YouTube from "./Youtube";
-import "./Quiz.css";
+// import "./Quiz.css";
 
 const apiUrl = process.env.REACT_APP_API_URL ;
 
@@ -191,82 +191,94 @@ if (questions.length === 0) {
  const currentQuestion = questions[currentIndex];
 console.log(currentQuestion);
   return (
-    <div className="quiz-container">
-      <h2>{currentQuestion?.prompt}</h2>
-      <div>
-        {videoUrl && (
-          <div className="video-section">
-            <YouTube quiz_id={videoUrl} />
-          </div>
-        )}
-      </div>
+    <div className="container">
+      <div className="row justify-content-center align-items-center vh-100">
+        <div className="col-md-8">
+          <div className="card bg-lightblue"> {/* Apply the light blue background */}
+            <div className="card-body">
+              <h2 className="card-title">{currentQuestion?.prompt}</h2>
+              <div>
+                {videoUrl && (
+                  <div className="video-section">
+                    <YouTube quiz_id={videoUrl} />
+                  </div>
+                )}
+              </div>
   
-      <div className="qa-box">
-  
-      {currentQuestion.prompt_type_id === 2 ? (
-    <div>
-        <div>TEST RENDERING</div>
-        <h2>{currentQuestion?.prompt}</h2>        
-          <input 
-            type="text" 
-            value={selectedAnswer}
-            onChange={(e) => setSelectedAnswer(e.target.value)} 
-            placeholder="Type your answer here"
-            disabled={isAnswered}
-        />
-        <button 
-            className="quiz-button"
-            onClick={() => handleAnswerSubmission({ answer_text: selectedAnswer })}
-            disabled={isAnswered}
-        >
-            Submit
-        </button>
-    </div>
-) : currentQuestion.prompt_type_id === 3 ? (
-    <div>
-        <p className="question-prompt">{currentQuestion?.prompt}</p>
-        <button
-            className={`quiz-button ${getAnswerColor({answer_text: "True"})}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission({ answer_text: "True" })}
-            style={{ backgroundColor: getAnswerColor({answer_text: "True"}), margin: "5px" }}
-        >
-            True
-        </button>
-        <button
-            className={`quiz-button ${getAnswerColor({answer_text: "False"})}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission({ answer_text: "False" })}
-            style={{ backgroundColor: getAnswerColor({answer_text: "False"}), margin: "5px" }}
-        >
-            False
-        </button>
-    </div>
-) : (
-    answers.map((answer) => (
-        <button
-            key={answer.answer_id}
-            className={`quiz-button ${getAnswerColor(answer)}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission(answer)}
-            style={{ backgroundColor: getAnswerColor(answer), margin: "5px" }}
-        >
-            {answer.answer_text}
-        </button>
-    ))
-)}
-
-        {feedback && <div className="feedback">{feedback}</div>}
-      </div>
-        <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
-          Return to Dashboard
-        </button>
-        {isQuizCompleted && (
-          <div className="result-box">
-            <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
-            <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
+              <div className="qa-box">
+                {currentQuestion.prompt_type_id === 2 ? (
+                  <div>
+                    <div>TEST RENDERING</div>
+                    <input 
+                      type="text" 
+                      value={selectedAnswer}
+                      onChange={(e) => setSelectedAnswer(e.target.value)} 
+                      placeholder="Type your answer here"
+                      disabled={isAnswered}
+                    />
+                    <button 
+                      className="btn btn-primary"
+                      onClick={() => handleAnswerSubmission({ answer_text: selectedAnswer })}
+                      disabled={isAnswered}
+                    >
+                      Submit
+                    </button>
+                  </div>
+                ) : currentQuestion.prompt_type_id === 3 ? (
+                  <div className="text-center">
+                    <p className="question-prompt">{currentQuestion?.prompt}</p>
+                    <button
+                      className={`btn btn-primary ${getAnswerColor({answer_text: "True"})}`}
+                      disabled={isAnswered}
+                      onClick={() => handleAnswerSubmission({ answer_text: "True" })}
+                      style={{ margin: "5px" }}
+                    >
+                      True
+                    </button>
+                    <button
+                      className={`btn btn-primary ${getAnswerColor({answer_text: "False"})}`}
+                      disabled={isAnswered}
+                      onClick={() => handleAnswerSubmission({ answer_text: "False" })}
+                      style={{ margin: "5px" }}
+                    >
+                      False
+                    </button>
+                  </div>
+                ) : (
+                  <div className="text-center">
+                    {answers.map((answer) => (
+                      <button
+                        key={answer.answer_id}
+                        className={`btn btn-primary ${getAnswerColor(answer)}`}
+                        disabled={isAnswered}
+                        onClick={() => handleAnswerSubmission(answer)}
+                        style={{ margin: "5px" }}
+                      >
+                        {answer.answer_text}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+      <div className="text-center mt-3">
+                {/* Centered buttons under the current question */}
+                <button className="btn btn-primary" onClick={() => navigate(`/dashboard/${user_id}`)}>
+                  Return to Dashboard
+                </button>
+                {isQuizCompleted && (
+                  <div className="result-box">
+                    <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
+                    <button className="btn btn-primary" onClick={startNextQuiz}>
+                      Move to Next Quiz
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
+      </div>
     </div>
   );
   

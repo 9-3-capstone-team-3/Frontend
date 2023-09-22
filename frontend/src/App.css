@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -31,4 +31,9 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* App.css */
+body {
+  padding-top: 4rem; /* Adjust the value as needed to create enough space */
 }
