@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './SignUpPage.css';
 import closeEye from "../Assests/closeEye.png";
 import openEye from "../Assests/openEye.png";
+import PasswordModal from "./PasswordReqModal";
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
@@ -15,13 +16,22 @@ function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState(""); 
   const [errorMessage, setErrorMessage] = useState(""); 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const openModal = () => {
+    setIsModalOpen(true);
+}
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+}
 
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
 };
-const passwordInputType = isPasswordVisible ? 'text' : 'password';
-const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
+  const passwordInputType = isPasswordVisible ? 'text' : 'password';
+  const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -103,6 +113,8 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
   };
 
   return (
+    <>
+      <PasswordModal isOpen={isModalOpen} onClose={closeModal} />
     <div className="signup-container">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form className="signup-form" onSubmit={handleSubmit}>
@@ -161,6 +173,7 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
             onClick={handleTogglePasswordVisibility}
             className="toggle-password-visibility"
           />
+          <button onClick={openModal}>Password Requirements</button>
         </label>
         
         <label className="password-wrapper">
@@ -186,6 +199,7 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
       </form>
       <button onClick={handleSubmit}>Test Signup</button>
     </div>
+    </>
   );
 }
 
