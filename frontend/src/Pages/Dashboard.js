@@ -52,7 +52,7 @@ function Dashboard() {
         const userData = await userDataResponse.json();
         console.log("User Data:", userData); // Log user data
         setUser(userData);
-    
+      
         // Fetch completed quizzes here and set them as an array
         const completedQuizzesResponse = await fetch(
           `${apiUrl}/users/completed-quizzes/4`
@@ -63,13 +63,13 @@ function Dashboard() {
         console.error("Error fetching user data:", error);
       }
     };
-    
-    
   
     fetchUserData();
   }, [user_id]);
   
   console.log(user)
+
+
 
   return (
     <div className="container">
@@ -216,6 +216,7 @@ function Dashboard() {
               onClick={handleImageClick}
             />
             {showProfile && <UserProfile />}
+            <h4>{user && user.username}</h4>
           </div>
         </div>
         {/* Leaderboard */}
