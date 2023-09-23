@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './SignUpPage.css';
-
+import closeEye from "../Assests/closeEye.png";
+import openEye from "../Assests/openEye.png";
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
@@ -14,7 +15,14 @@ function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState(""); 
   const [level_number, setLevelNumber] = useState(0);
   const [errorMessage, setErrorMessage] = useState(""); 
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
+
+  const handleTogglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+};
+const passwordInputType = isPasswordVisible ? 'text' : 'password';
+const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -113,6 +121,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="email"
@@ -122,6 +131,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="text"
@@ -131,6 +141,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="text"
@@ -140,24 +151,39 @@ function SignUpPage() {
             required
           />
         </label>
-        <label>
+        
+        <label className="password-wrapper">
           <input
-            type="password"
+            type={passwordInputType}
             placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
             required
           />
+          <img 
+            src={passwordToggleImage}
+            alt="Toggle Password Visibility"
+            onClick={handleTogglePasswordVisibility}
+            className="toggle-password-visibility"
+          />
         </label>
-        <label>
+        
+        <label className="password-wrapper">
           <input
-            type="password"
+            type={passwordInputType}
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
           />
+          <img 
+            src={passwordToggleImage}
+            alt="Toggle Password Visibility"
+            onClick={handleTogglePasswordVisibility}
+            className="toggle-password-visibility"
+          />
         </label>
+        
         <label>
           <input
             type="number"

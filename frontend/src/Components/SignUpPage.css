@@ -69,3 +69,23 @@
     text-align: center;
 }
 
+.toggle-password-visibility {
+    width: 20px;
+    height: 20px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-password-visibility {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+
