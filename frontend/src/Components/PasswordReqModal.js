@@ -4,8 +4,7 @@ function PasswordModal({ isOpen, onClose }) {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <button className=".close-button" onClick={onClose}>Close</button>
-                <h2>Password Requirements</h2>
+                <button onClick={onClose} className=".close-button">Close</button>
                 <p>Your password should be at least 8 characters, contain both upper and lower case letters, and have at least one number and one special character.</p>
             </div>
         </div>

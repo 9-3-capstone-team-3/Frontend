@@ -76,7 +76,7 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
           />
         </label>
         <button className="button" type="submit">Log In</button>
-        <h5><span>Don't have an Account?</span></h5>
+        <h6><span>Don't have an Account?</span></h6>
         <Link className="create-account-link" to="/signup">Create Account</Link>
       </form>
     </div>
