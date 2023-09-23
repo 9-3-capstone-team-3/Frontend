@@ -12,7 +12,6 @@ function SignUpPage() {
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [level_number, setLevelNumber] = useState(0);
   const [errorMessage, setErrorMessage] = useState(""); 
   const navigate = useNavigate();
 
@@ -38,9 +37,6 @@ function SignUpPage() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-  };
-  const handleLevelIdChange = (event) => {
-    setLevelNumber(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -68,7 +64,6 @@ function SignUpPage() {
       firstname,
       lastname,
       password,
-      level_number,
     };
 
     try {
@@ -156,14 +151,6 @@ function SignUpPage() {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
-          />
-        </label>
-        <label>
-          <input
-            type="number"
-            placeholder="Level Number"
-            value={level_number}
-            onChange={handleLevelIdChange}
           />
         </label>
         <button className="button" type="submit">Sign Up</button>
