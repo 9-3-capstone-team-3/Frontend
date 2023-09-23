@@ -3,14 +3,23 @@ import { useState } from 'react';
 import axios from 'axios';
 import './Signin.css';
 import { Link, useNavigate } from "react-router-dom";
+import closeEye from "../Assests/closeEye.png";
+import openEye from "../Assests/openEye.png";
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
 function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  
   const navigate = useNavigate();
+
+  const handleTogglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+};
+const passwordInputType = isPasswordVisible ? 'text' : 'password';
+const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -50,8 +59,21 @@ function SignInPage() {
         <label>
           <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
         </label>
-        <label>
-          <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        
+        <label className="password-wrapper">
+          <input
+            type={passwordInputType}
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+          <img 
+            src={passwordToggleImage}
+            alt="Toggle Password Visibility"
+            onClick={handleTogglePasswordVisibility}
+            className="toggle-password-visibility"
+          />
         </label>
         <button className="button" type="submit">Log In</button>
         <h5><span>Don't have an Account?</span></h5>
