@@ -13,7 +13,6 @@ function SignUpPage() {
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [level_number, setLevelNumber] = useState(0);
   const [errorMessage, setErrorMessage] = useState(""); 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
@@ -47,9 +46,6 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
   };
-  const handleLevelIdChange = (event) => {
-    setLevelNumber(event.target.value);
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -76,7 +72,6 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
       firstname,
       lastname,
       password,
-      level_number,
     };
 
     try {
@@ -183,15 +178,7 @@ const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
             className="toggle-password-visibility"
           />
         </label>
-        
-        <label>
-          <input
-            type="number"
-            placeholder="Level Number"
-            value={level_number}
-            onChange={handleLevelIdChange}
-          />
-        </label>
+
         <button className="button" type="submit">Sign Up</button>
         <Link className="login-account-link" to="/signin">
           Already have an account? Log in
