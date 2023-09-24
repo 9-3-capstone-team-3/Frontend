@@ -5,16 +5,18 @@ function UserProfile() {
     const { user_id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
     const [newPassword, setNewPassword] = useState(''); // Option to change Password 
+    const [newEmail, setNewEmail] = useState(null);
+    const [newUsername, setNewUserName] = useState(null);
     const navigate = useNavigate();
 
     const handleBackClick = () => {
-        navigate("/dashboard/:user_id");
+        navigate(`/dashboard/${user_id}`);
     };
     
 
     useEffect(() => {
      
-        fetch(`http://localhost:3003/users/profile/${user_id}`)
+        fetch(`http://localhost:3003/users/${user_id}`)
 
             .then((response) => response.json())
             
@@ -57,27 +59,41 @@ function UserProfile() {
             <h2>User Profile</h2>
             <p>Username: {userProfile.username}</p>
             <p>Email: {userProfile.email}</p>
-            <p>Points: {userProfile.points}</p>
+            <p>Points: {userProfile.total_points}</p>
 
             {/* Profile Image */}
-            <div>
+            {/* <div>
                 <img                                                           // Placeholder or actual image URL
                     src={userProfile.profileImage || 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.johnsmithjohnsmith.com%2Fabout&psig=AOvVaw0pb-yg_WlxoIs9sw6aQAkK&ust=1694329317781000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKDzoNz6nIEDFQAAAAAdAAAAABAD'} 
                     alt='Profile'
                     width='100'
                     height='100'
                 />   
-            </div>
+            </div> */}
 
             {/* Password Change Form */}
             <div>
-                <h3>Change Password</h3>
+                {/* <h3>Change Password</h3>
                 <input
                     type='password'
                     placeholder='New Password'
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                />
+                /> */}
+                <h3>Update Profile</h3>
+                <form id="updateProfileForm">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="user@example.com" value={newEmail}/>
+
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="username123" value={newUsername}/>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder='New password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
+                    <br></br>
+                    <input type="submit" value="Update"/>
+                </form>
+
                 <button onClick={handlePasswordChange}>Change Password</button>
                 <button onClick={handleBackClick}>Return to Dashboard</button>
             </div>
