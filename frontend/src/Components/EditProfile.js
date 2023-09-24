@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 
-function EditProfile({ onSave, onCancel }) {
+function EditProfile({ user, onSave, onCancel }) {
+    const [newUsername, setNewUserName] = useState(user.username);
+    const [newEmail, setNewEmail] = useState(user.email);
     const [newPassword, setNewPassword] = useState(''); // Option to change Password 
-    const [newEmail, setNewEmail] = useState(null);
-    const [newUsername, setNewUserName] = useState(null);
     return (
         <div>
-           <form id="updateProfileForm">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="user@example.com" value={newEmail}/>
-
+           <form id="updateProfileForm" onSubmit={(e) => {
+            e.preventDefault();
+            onSave(newUsername,newEmail,newPassword);
+           }}>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="username123" value={newUsername}/>
+                    <input type="text" id="username" name="username" placeholder="username123" value={newUsername} onChange={(e) => setNewUserName(e.target.value)}/>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="user@example.com" value={newEmail} onChange={(e) => setNewEmail(e.target.value)}/>
 
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder='New password' value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
-                    <br></br>
+                    <br/>
                     <input type="submit" value="Update"/>
                 </form>
-            <button onClick={onSave}>Save</button>
-            <button onClick={onCancel}>Cancel</button>
+                
+                <button onClick={onCancel}>Cancel</button>
         </div>
     );
 }
