@@ -8,6 +8,7 @@ import "../Pages/Dashboard.css";
 import pointsIcon from "../Assests/pointsIcon.png";
 import lock from "../Assests/lock.png";
 import star from "../Assests/star.png";
+import DashboardFooter from "../Components/DashboardFooter";
 
 
 const apiUrl = process.env.REACT_APP_API_URL ;
@@ -28,7 +29,8 @@ function Dashboard() {
     navigate(`/quiz/${quiz.quiz_id}/${user_id}`);
   };
   const handleImageClick = () => {
-    setShowProfile((prevState) => !prevState);
+    // setShowProfile((prevState) => !prevState);
+    navigate(`/user/${user.user_id}`)
   };
 
   useEffect(() => {
@@ -168,10 +170,6 @@ function Dashboard() {
           </button>{" "}
           {/* Move some amount to the right */}
         </div>
-        <div className="banner4">
-          <h1>Expert</h1>
-          <p>Master the advanced concepts</p>
-        </div>
         <div className="circle-buttons">
           {quizzes &&
             quizzes.length > 0 &&
@@ -215,7 +213,7 @@ function Dashboard() {
               className="user-icon"
               onClick={handleImageClick}
             />
-            {showProfile && <UserProfile />}
+            {/* {showProfile && <UserProfile />} */}
             <h4>{user && user.username}</h4>
           </div>
         </div>
@@ -224,7 +222,7 @@ function Dashboard() {
 
         {/* Footer */}
 
-        <div className="footer">{/* {<DashboardFooter/>} */}</div>
+        <div className="footer"> {<DashboardFooter/>}</div>
       </div>
     </div>
   );

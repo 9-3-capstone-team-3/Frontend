@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from "react-router-dom";
 
 function UserProfile() {
     const { user_id } = useParams();
     const [userProfile, setUserProfile] = useState(null);
     const [newPassword, setNewPassword] = useState(''); // Option to change Password 
-   
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate("/dashboard/:user_id");
+    };
+    
 
     useEffect(() => {
      
@@ -48,7 +53,7 @@ function UserProfile() {
     }
 
     return (
-        <div>
+        <div className='gray-background'>
             <h2>User Profile</h2>
             <p>Username: {userProfile.username}</p>
             <p>Email: {userProfile.email}</p>
@@ -74,6 +79,7 @@ function UserProfile() {
                     onChange={(e) => setNewPassword(e.target.value)}
                 />
                 <button onClick={handlePasswordChange}>Change Password</button>
+                <button onClick={handleBackClick}>Return to Dashboard</button>
             </div>
         </div>
     );
