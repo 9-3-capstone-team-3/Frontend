@@ -10,14 +10,12 @@ const apiUrl = process.env.REACT_APP_API_URL ;
 function UserProfile() {
     const { user_id } = useParams();
     const [isEditMode, setIsEditMode] = useState(false);
-    const [user, setUser] = useState({
-        username: 'exampleUser',
-        email: 'example@email.com',
-        // ... other user data
-    });
+    const [user, setUser] = useState({});
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
-    const [password, setPassword] = useState(''); // Option to change Password 
+    const [firstname, setFirstname] = useState(user.firstname);
+    const [lastname, setLastname] = useState(user.lastname); 
+    const [password, setPassword] = useState(''); // Option to change Password
 
     const navigate = useNavigate();
     
@@ -31,35 +29,49 @@ function UserProfile() {
                 
                 setUser(data))
             .catch((error) => console.error(error));
-    }, [user_id]);
+    }, []);
+
+    useEffect(()=> {
+        setUsername(user.username)
+        setEmail(user.email)
+        setFirstname(user.firstname)
+        setLastname(user.lastname)
+        setPassword(user.password) 
+    }, [user]);
 
     const handleEdit = () => {
         setIsEditMode(true);
     };
 
     const handleSave = async () => {
+        const currentUserInfo = user
         // 1. Gather the updated data (in this case, it's passed as arguments)
         const updatedUserData = {
             username: username,
             email: email,
+            firstname: firstname,
+            lastname: lastname,
+            password: password,
+
             // ... other updated data
         };
-        console.log(updatedUserData)
+        const userToSave = {...currentUserInfo, ...updatedUserData};
+      console.log(userToSave)
         try {
-            const response = await fetch(`${apiUrl}/users/${user_id}`, {
+            const response = await fetch(`${apiUrl}/users/profile/${user_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(updatedUserData),
+                body: JSON.stringify(userToSave),
             });
-            console.log(response)
+           
             if (!response.ok) {
                 throw new Error('Failed to update user data');
             }
 
             const data = await response.json();
-            console.log(data)
+         
             // 3. Update the user data in the local state with the response from the server
             setUser(data);
 
@@ -90,8 +102,17 @@ function UserProfile() {
             </div>
             <div className='user-profile__subview'>
                 {isEditMode ? (
-                    <EditProfile username={username} email={email} password={password} 
-                    setUsername={setUsername} setEmail={setEmail} setPassword={setPassword}/>
+                    <EditProfile 
+                    username={username} 
+                    email={email}
+                    firstname={firstname}
+                    lastname={lastname} 
+                    password={password} 
+                    setUsername={setUsername} 
+                    setEmail={setEmail} 
+                    setPassword={setPassword}
+                    setFirstname={setFirstname}
+                    setLastname={setLastname}/>
                 ) : (
                     <DisplayProfile user={user} />
                 )}
