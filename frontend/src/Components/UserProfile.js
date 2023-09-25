@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EditProfile from './EditProfile';
 import DisplayProfile from './DisplayProfile';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 const apiUrl = process.env.REACT_APP_API_URL ;
@@ -13,6 +13,8 @@ function UserProfile() {
         email: 'example@email.com',
         // ... other user data
     });
+
+    const navigate = useNavigate();
     
     useEffect(() => {
      
@@ -69,6 +71,11 @@ function UserProfile() {
         setIsEditMode(false);
     };
 
+    const handleButtonClick2 = () => {
+        //returns user to dashboard
+        navigate(`/dashboard/${user.user_id}`)
+      };
+
     return (
         <div className='gray-background'>
             {isEditMode ? (
@@ -76,6 +83,7 @@ function UserProfile() {
             ) : (
                 <DisplayProfile user={user} onEdit={handleEdit} />
             )}
+            <button onClick={handleButtonClick2}>Return to dashboard</button>
         </div>
     );
 }
