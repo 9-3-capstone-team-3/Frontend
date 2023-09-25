@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 import userIcon from "../Assests/userIcon.png";
-import UserProfile from "../Components/UserProfile";
+import UserProfile from "./userProfile/UserProfile";
 import Leaderboard from "../Components/Leaderboard";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
@@ -120,7 +120,7 @@ function Dashboard() {
           <p>Practice the Git process</p>
         </div>
         <div className="circle-buttons">
-          {quizzes &&
+          {/* {quizzes &&
             quizzes.length > 0 &&
             quizzes
               .filter((quiz) => quiz.status_name === "Intermediate")
@@ -142,7 +142,7 @@ function Dashboard() {
                     alt={`Quiz ${quiz.quiz_id}`}
                   />
                 </button>
-              ))}
+              ))} */}
         </div>
         <div className="banner3">
           <h1>Advance</h1>
@@ -171,7 +171,7 @@ function Dashboard() {
           {/* Move some amount to the right */}
         </div>
         <div className="circle-buttons">
-          {quizzes &&
+          {/* {quizzes &&
             quizzes.length > 0 &&
             quizzes
               .filter((quiz) => quiz.status === "Expert")
@@ -193,7 +193,7 @@ function Dashboard() {
                     alt={`Quiz ${quiz.quiz_id}`}
                   />
                 </button>
-              ))}
+              ))} */}
         </div>
       </div>
 

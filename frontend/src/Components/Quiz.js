@@ -54,11 +54,30 @@ function Quiz() {
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+  const [userPoints, setUserPoints] = useState(0);
 
   const { quiz_id, user_id } = useParams();
   const navigate = useNavigate();
 
-  
+  useEffect(() => {
+    async function fetchUserPoints() {
+        try {
+            const response = await axios.get(`${apiUrl}/users/${user_id}/total_points`, {
+                withCredentials: true
+            });
+
+            if (response.status === 200) {
+                setUserPoints(response.data.points);
+            } else {
+                console.error("Failed to fetch user points.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+
+    fetchUserPoints();
+}, [user_id]);
 
   useEffect(() => {
     getQuizVideoUrl(quiz_id, setVideoURL);
@@ -129,6 +148,7 @@ function Quiz() {
 
     if (isCorrect) {
         setFeedback("Correct!");
+        updateUserPoints(user_id, 10);
     } else {
         setFeedback("Wrong answer. Try again!");
     }
@@ -154,8 +174,28 @@ function Quiz() {
         setIsAnswered(false);
         setSelectedAnswer("");
         setFeedback(""); // reset feedback
-    }, 4000);
+    }, 1000);
 };
+
+//function to update user's points
+async function updateUserPoints(user_id, pointsToAdd) {
+  try {
+      const response = await axios.post(`${apiUrl}/users/${user_id}/total_points`, {
+          total_points: pointsToAdd
+      }, {
+          withCredentials: true
+      });
+
+      if (response.status === 200) {
+          console.log("Points updated successfully:", response.data);
+      } else {
+          console.error("Failed to update points.");
+      }
+  } catch (err) {
+      console.error("Error:", err);
+  }
+}
+
 
 
   function startNextQuiz() {
@@ -186,20 +226,20 @@ if (questions.length === 0) {
     return <div>No questions available</div>;
 }
 
-
-
- const currentQuestion = questions[currentIndex];
+const currentQuestion = questions[currentIndex];
 console.log(currentQuestion);
-  return (
+  
+return (
     <div className="quiz-container">
-      <h2>{currentQuestion?.prompt}</h2>
+      <div className="user-points">Total Points: {userPoints}</div>
       <div>
         {videoUrl && (
           <div className="video-section">
-            <YouTube quiz_id={videoUrl} />
+            <YouTube quiz_id={videoUrl}  />
           </div>
         )}
       </div>
+        <h2>{currentQuestion?.prompt}</h2>
   
       <div className="qa-box">
   

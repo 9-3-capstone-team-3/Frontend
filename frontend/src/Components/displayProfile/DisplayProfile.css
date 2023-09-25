@@ -1,0 +1,7 @@
+.display-profile__info div{
+    margin-bottom: 10px;
+}
+
+.display-profile__info div span {
+    font-weight: 600;
+}

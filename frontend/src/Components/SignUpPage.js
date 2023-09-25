@@ -31,7 +31,7 @@ function SignUpPage() {
     setIsPasswordVisible(!isPasswordVisible);
 };
   const passwordInputType = isPasswordVisible ? 'text' : 'password';
-  const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
+  const passwordToggleImage = isPasswordVisible ? openEye : closeEye;
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);

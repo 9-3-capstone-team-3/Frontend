@@ -80,7 +80,7 @@
 .toggle-password-visibility {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 20px;
     right: 10px;
     transform: translateY(-50%);
     z-index: 10;
