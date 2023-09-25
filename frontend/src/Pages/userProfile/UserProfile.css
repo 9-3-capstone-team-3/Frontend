@@ -8,7 +8,7 @@
 
 .user-profile__img {
     height: 120px;
-    background-image: url(/Users/karimah/CodeFusion-Capstone/frontend/frontend/src/Assests/profileBanner.jpeg);
+    background-image: url(/Users/shaniquacoston/Pursuit/module-6/frontend/frontend/src/Assests/pointsIcon.png);
     display: flex;
     justify-content: space-around;
 }

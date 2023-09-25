@@ -349,7 +349,7 @@ return (
       <div>
         {videoUrl && (
           <div className="video-section">
-            <YouTube quiz_id={videoUrl}  />
+            <Youtube quiz_id={videoUrl}  />
           </div>
         )}
       </div>

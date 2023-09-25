@@ -11,6 +11,7 @@ import star from "../Assests/star.png";
 import DashboardFooter from "../Components/DashboardFooter";
 
 
+
 const apiUrl = process.env.REACT_APP_API_URL ;
 function Dashboard() {
   const [showProfile, setShowProfile] = useState(false);
@@ -110,7 +111,7 @@ function Dashboard() {
                           : "-475px",
                   }}
                 >
-                  <QuizImage completedQuizzes={completedQuizzes} quiz={quiz} star={star} lock={lock} />
+                  {/* <QuizImage completedQuizzes={completedQuizzes} quiz={quiz} star={star} lock={lock} /> */}
                 </button>
               ))}
         </div>
