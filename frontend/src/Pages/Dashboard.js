@@ -53,8 +53,13 @@ function Dashboard() {
         const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
         const userData = await userDataResponse.json();
         console.log("User Data:", userData); // Log user data
+
+       
+
+
         setUser(userData);
       
+
         // Fetch completed quizzes here and set them as an array
         const completedQuizzesResponse = await fetch(
           `${apiUrl}/users/completed-quizzes/4`
@@ -65,7 +70,9 @@ function Dashboard() {
         console.error("Error fetching user data:", error);
       }
     };
+
   
+
     fetchUserData();
   }, [user_id]);
   
@@ -198,7 +205,9 @@ function Dashboard() {
             {/* Points */}
 
             <img src={pointsIcon} alt="points icon" className="points-icon" />
+
             <span className="icon-text">{user && user.total_points} pts</span>
+
 
             <img
               src={userIcon}

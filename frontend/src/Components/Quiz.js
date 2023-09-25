@@ -216,6 +216,7 @@ function Quiz() {
   }
  } 
 
+
 function startNextQuiz () {
   setIsAnswered(false);
   setSelectedAnswer("");
@@ -235,6 +236,8 @@ const handleNextQuestion = () => {
   setSelectedAnswer("");
   setFeedback("")
 };
+
+
 
   const handleAnswerSubmission = async (answer) => {
     setIsAnswered(true);
@@ -332,18 +335,10 @@ async function updateUserPoints(user_id, pointsToAdd) {
     navigate(`/quiz/${nextQuizId}`);
   }
 
-  const getAnswerColor = (answer) => {
-    if (!isAnswered) return "defaultColor";
-    if (answer === selectedAnswer && answer.is_correct) return "green";
-    if (answer === selectedAnswer) return "red";
-    if (answer !== selectedAnswer && answer.is_correct) return "green";
-    return "defaultColor";
-  };
+ 
 
-  if (currentIndex < 0 || currentIndex >= questions.length) {
-      return <div>Loading...</div>;
-  }
-}
+  
+
 
 const currentQuestion = questions[currentIndex];
 console.log(currentQuestion);
@@ -360,6 +355,7 @@ return (
       </div>
         <h2>{currentQuestion?.prompt}</h2>
   
+
       <div className="qa-box">
           {questionRenderer({
               question: currentQuestion,
@@ -378,10 +374,14 @@ return (
 
         {feedback && <div className="feedback">{feedback}</div>}
       </div>
+
+
+
         <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
           Return to Dashboard
         </button>
         {isQuizCompleted && (
+
           <div className="result-box">
               <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
               <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
