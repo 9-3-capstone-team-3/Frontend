@@ -44,15 +44,15 @@ function Dashboard() {
     };
     fetchQuizzes();
   }, []);
-  
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
         const userData = await userDataResponse.json();
         console.log("User Data:", userData); // Log user data
-        setUser(userData);
-    
+        setUser(user);
+
         // Fetch completed quizzes here and set them as an array
         const completedQuizzesResponse = await fetch(
           `${apiUrl}/users/completed-quizzes/4`
@@ -63,13 +63,29 @@ function Dashboard() {
         console.error("Error fetching user data:", error);
       }
     };
-    
-    
-  
+
     fetchUserData();
-  }, [user_id]);
-  
-  console.log(user)
+  }, [user_id, user]);
+
+  console.log(user);
+
+  const QuizImage = ({ completedQuizzes, quiz, star, lock }) => (
+    <img
+      src={
+        Array.isArray(completedQuizzes) &&
+          completedQuizzes.includes(quiz.quiz_id)
+          ? star
+          : lock
+      }
+      alt={`Quiz ${quiz.quiz_id}`}
+    />
+  );
+
+  // const marginLeft = index === 0
+  // ? "-300px"
+  // : index === 1
+  // ? "-450px"
+  // : "-475px"
 
   return (
     <div className="container">
@@ -97,18 +113,11 @@ function Dashboard() {
                       index === 0
                         ? "-300px"
                         : index === 1
-                        ? "-450px"
-                        : "-475px",
+                          ? "-450px"
+                          : "-475px",
                   }}
                 >
-                 <img
-  src={
-    Array.isArray(completedQuizzes) && completedQuizzes.includes(quiz.quiz_id)
-      ? star
-      : lock
-  }
-  alt={`Quiz ${quiz.quiz_id}`}
-/>
+                  <QuizImage completedQuizzes={completedQuizzes} quiz={quiz} star={star} lock={lock} />
                 </button>
               ))}
         </div>
@@ -131,8 +140,8 @@ function Dashboard() {
                       index === 0
                         ? "-300px"
                         : index === 1
-                        ? "-450px"
-                        : "-475px",
+                          ? "-450px"
+                          : "-475px",
                   }}
                 >
                   <img
@@ -186,8 +195,8 @@ function Dashboard() {
                       index === 0
                         ? "-300px"
                         : index === 1
-                        ? "-450px"
-                        : "-475px",
+                          ? "-450px"
+                          : "-475px",
                   }}
                 >
                   <img
@@ -207,7 +216,9 @@ function Dashboard() {
             {/* Points */}
 
             <img src={pointsIcon} alt="points icon" className="points-icon" />
-            <span className="icon-text">{user.total_points} pts</span>
+            <span className="icon-text">
+              {/* {user.total_points} pts */}
+              </span>
 
             <img
               src={userIcon}
