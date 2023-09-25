@@ -4,7 +4,7 @@ import axios from "axios";
 import Youtube from "./Youtube";
 import "./Quiz.css";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3003";
+const apiUrl = process.env.REACT_APP_API_URL ;
 
 
 /**
@@ -18,12 +18,14 @@ const handleErrors = (err, message) => {
   return [];
 };
 
+
 /**
  * Fetch data from the specified URL.
  * @param {string} url The URL to fetch data from.
  * @param {Object} [options={}] Axios configuration options.
  * @return {Object|null} Fetched data or 
  */
+
 const fetchData = async (url, options = {}) => {
   try {
     const response = await axios.get(url, { withCredentials: true, ...options });
@@ -139,13 +141,31 @@ function Quiz() {
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-  
-  let { quiz_id } = useParams();
-  let { user_id } = useParams();
-  let { prompt_type_id } = useParams();
-  let navigate = useNavigate();
-  const currentQuestion = questions[currentIndex]
-  
+  const [userPoints, setUserPoints] = useState(0);
+
+  const { quiz_id, user_id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchUserPoints() {
+        try {
+            const response = await axios.get(`${apiUrl}/users/${user_id}/total_points`, {
+                withCredentials: true
+            });
+
+            if (response.status === 200) {
+                setUserPoints(response.data.points);
+            } else {
+                console.error("Failed to fetch user points.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+
+    fetchUserPoints();
+}, [user_id]);
+
   useEffect(() => {
     async function fetchVideoUrl() {
       const videoId = await getQuizVideoUrl(quiz_id);
@@ -216,56 +236,130 @@ const handleNextQuestion = () => {
   setFeedback("")
 };
 
-const handleAnswerSubmission = async (answer) => {
-  setIsAnswered(true);
-
-  let isCorrect;
-
-  if(!answer.hasOwnPropery("is_correct")) {
-    try {
-      const response = await axios.post(
-        `${apiUrl}/answers/questions/${questions[currentIndex].question_id}/validate`,
-        { answer: answer.answer_text },
-        { withCredentials: true }
-      );
-      isCorrect = response.data.is_correct;
-    } catch (error) {
-      console.error("Error validating answer:", error);
-      setFeedback("Wrong answer. Please try again");
-      return;
+  const handleAnswerSubmission = async (answer) => {
+    setIsAnswered(true);
+    
+    let isCorrect;
+    let newCorrectCount;
+    let wrongAnswerOccurred;
+    
+    if (!answer.hasOwnProperty('is_correct')) {
+        // It's a free-text response; validate with the backend
+        try {
+            const response = await axios.post(
+              `${apiUrl}/answers/questions/${questions[currentIndex].question_id}/validate`
+              , 
+                { answer: answer.answer_text }, 
+                { withCredentials: true }
+            );
+            isCorrect = response.data.is_correct;
+        } catch (error) {
+            console.error("Error validating answer:", error);
+            setFeedback("There was an error validating your answer. Please try again.");
+            return;  // exit the function since we encountered an error
+        }
+    } else {
+        // It's a multiple-choice question
+        isCorrect = answer.is_correct;
     }
-  } else {
-    isCorrect = answer.is_correct;
-  }
-  setSelectedAnswer(answer);
-  if (isCorrect) {
-    const pointsEarned = await getPointsForPromptType(currentQuestion.prompt_type_id);
 
-    axios.post("/submission/updateUserPoints", {
-      userId: user_id,
-      points: pointsEarned
-    }).then(response => {
-      console.log("Points updated.");
-      setCorrectAnswersCount(prevCount => prevCount + 1);
-      setFeedback("Correct");
-    }).catch(error => {
-      console.error("Error updating points:", error);
-    });
-  } else {
-    setFeedback("Wrong Answer. Try again!")
+    setSelectedAnswer(answer);
+    newCorrectCount = isCorrect ? correctAnswersCount + 1 : correctAnswersCount;
+    wrongAnswerOccurred = hasWrongAnswer || !isCorrect;
+
+    if (isCorrect) {
+        setFeedback("Correct!");
+        updateUserPoints(user_id, 10);
+    } else {
+        setFeedback("Wrong answer. Try again!");
+    }
+
+    setTimeout(() => {
+        if (currentIndex === questions.length - 1) { // last question
+            if (wrongAnswerOccurred || newCorrectCount !== questions.length) {
+                // Restart the quiz
+                setCurrentIndex(0);
+                setHasWrongAnswer(false);
+                setCorrectAnswersCount(0);
+                setIsQuizCompleted(false);
+            } else {
+                // Mark the quiz as completed
+                setIsQuizCompleted(true);
+            }
+        } else {
+            setCurrentIndex(prevIndex => prevIndex + 1);
+        }
+
+        setHasWrongAnswer(wrongAnswerOccurred);
+        setCorrectAnswersCount(newCorrectCount);
+        setIsAnswered(false);
+        setSelectedAnswer("");
+        setFeedback(""); // reset feedback
+    }, 1000);
+};
+
+//function to update user's points
+async function updateUserPoints(user_id, pointsToAdd) {
+  try {
+      const response = await axios.post(`${apiUrl}/users/${user_id}/total_points`, {
+          total_points: pointsToAdd
+      }, {
+          withCredentials: true
+      });
+
+      if (response.status === 200) {
+          console.log("Points updated successfully:", response.data);
+      } else {
+          console.error("Failed to update points.");
+      }
+  } catch (err) {
+      console.error("Error:", err);
   }
 }
 
+
+
+  function startNextQuiz() {
+    // Reset states for the next quiz
+    setCurrentIndex(0);
+    setHasWrongAnswer(false);
+    setCorrectAnswersCount(0);
+    setSelectedAnswer(null);
+    setFeedback("");
+
+    // Move to the next quiz
+    const nextQuizId = parseInt(quiz_id, 10) + 1;
+    navigate(`/quiz/${nextQuizId}`);
+  }
+
+  const getAnswerColor = (answer) => {
+    if (!isAnswered) return "defaultColor";
+    if (answer === selectedAnswer && answer.is_correct) return "green";
+    if (answer === selectedAnswer) return "red";
+    if (answer !== selectedAnswer && answer.is_correct) return "green";
+    return "defaultColor";
+  };
+
+  if (currentIndex < 0 || currentIndex >= questions.length) {
+      return <div>Loading...</div>;
+  }
+}
+
+const currentQuestion = questions[currentIndex];
+console.log(currentQuestion);
+  
 return (
-  <div className="quiz-container">
-      
-      
-      {videoUrl && (
+    <div className="quiz-container">
+      <div className="user-points">Total Points: {userPoints}</div>
+      <div>
+        {videoUrl && (
           <div className="video-section">
-              <Youtube quiz_id={videoUrl} />
+            <YouTube quiz_id={videoUrl}  />
           </div>
-      )}
-      <h2>{currentQuestion?.prompt}</h2>
+        )}
+      </div>
+        <h2>{currentQuestion?.prompt}</h2>
+  
       <div className="qa-box">
           {questionRenderer({
               question: currentQuestion,
@@ -282,12 +376,12 @@ return (
               </button>
           )}
 
-          <button className="quiz-button" onClick={() => navigate("/dashboard/user_id")}>
-              Return to Dashboard
-          </button>
+        {feedback && <div className="feedback">{feedback}</div>}
       </div>
-
-      {isQuizCompleted && (
+        <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
+          Return to Dashboard
+        </button>
+        {isQuizCompleted && (
           <div className="result-box">
               <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
               <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
