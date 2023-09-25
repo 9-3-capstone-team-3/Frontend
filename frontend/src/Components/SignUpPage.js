@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './SignUpPage.css';
-
+import closeEye from "../Assests/closeEye.png";
+import openEye from "../Assests/openEye.png";
+import PasswordModal from "./PasswordReqModal";
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
@@ -12,9 +14,24 @@ function SignUpPage() {
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [level_number, setLevelNumber] = useState(0);
   const [errorMessage, setErrorMessage] = useState(""); 
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const openModal = () => {
+    setIsModalOpen(true);
+}
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+}
+
+  const handleTogglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+};
+  const passwordInputType = isPasswordVisible ? 'text' : 'password';
+  const passwordToggleImage = isPasswordVisible ? openEye : closeEye;
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -38,9 +55,6 @@ function SignUpPage() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-  };
-  const handleLevelIdChange = (event) => {
-    setLevelNumber(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -68,7 +82,6 @@ function SignUpPage() {
       firstname,
       lastname,
       password,
-      level_number,
     };
 
     try {
@@ -100,6 +113,8 @@ function SignUpPage() {
   };
 
   return (
+    <>
+      <PasswordModal isOpen={isModalOpen} onClose={closeModal} />
     <div className="signup-container">
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form className="signup-form" onSubmit={handleSubmit}>
@@ -113,6 +128,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="email"
@@ -122,6 +138,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="text"
@@ -131,6 +148,7 @@ function SignUpPage() {
             required
           />
         </label>
+        
         <label>
           <input
             type="text"
@@ -140,32 +158,40 @@ function SignUpPage() {
             required
           />
         </label>
-        <label>
+        
+        <label className="password-wrapper">
           <input
-            type="password"
+            type={passwordInputType}
             placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
             required
           />
+          <img 
+            src={passwordToggleImage}
+            alt="Toggle Password Visibility"
+            onClick={handleTogglePasswordVisibility}
+            className="toggle-password-visibility"
+          />
+          <button onClick={openModal}>Password Requirements</button>
         </label>
-        <label>
+        
+        <label className="password-wrapper">
           <input
-            type="password"
+            type={passwordInputType}
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
             required
           />
-        </label>
-        <label>
-          <input
-            type="number"
-            placeholder="Level Number"
-            value={level_number}
-            onChange={handleLevelIdChange}
+          <img 
+            src={passwordToggleImage}
+            alt="Toggle Password Visibility"
+            onClick={handleTogglePasswordVisibility}
+            className="toggle-password-visibility"
           />
         </label>
+
         <button className="button" type="submit">Sign Up</button>
         <Link className="login-account-link" to="/signin">
           Already have an account? Log in
@@ -173,6 +199,7 @@ function SignUpPage() {
       </form>
       <button onClick={handleSubmit}>Test Signup</button>
     </div>
+    </>
   );
 }
 

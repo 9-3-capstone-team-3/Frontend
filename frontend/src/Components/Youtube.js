@@ -2,16 +2,16 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
 
-const YouTube = ({quiz_id}) => {
+const YouTube = ({ quiz_id }) => {
   const ref = useRef();
   const [videoID, setVideoID] = useState('');
 
   useEffect(() => {
     const fetchVideoID = async () => {
-      const endpoint = `${apiUrl}/quiz/2`; // Move endpoint definition outside the try block.
+      const endpoint = `${apiUrl}/quiz/${quiz_id}`;
 
       try {
-        const response = await fetch(endpoint); 
+        const response = await fetch(endpoint);
         if (response.ok) {
           const data = await response.json();
           setVideoID(data.video_id);
@@ -29,16 +29,18 @@ const YouTube = ({quiz_id}) => {
   }, [quiz_id]);
 
   useEffect(() => {
-    if (!window.YT) {
+    const loadYoutubeScript = () => {
+      if (document.getElementById('youtube-iframe-api')) return;
       const script = document.createElement('script');
+      script.id = 'youtube-iframe-api';
       script.src = 'https://www.youtube.com/iframe_api';
       script.async = true;
       const firstScript = document.getElementsByTagName('script')[0];
       firstScript.parentNode.insertBefore(script, firstScript);
-    }
+    };
 
-    window.onYouTubeIframeAPIReady = () => {
-      if (videoID) {
+    const initializePlayer = () => {
+      if (videoID && window.YT) {
         new window.YT.Player(ref.current, {
           videoId: videoID,
           width: '640',
@@ -53,6 +55,13 @@ const YouTube = ({quiz_id}) => {
         });
       }
     };
+
+    if (!window.YT) {
+      window.onYouTubeIframeAPIReady = initializePlayer;
+      loadYoutubeScript();
+    } else {
+      initializePlayer();
+    }
   }, [videoID]);
 
   return (
@@ -60,6 +69,6 @@ const YouTube = ({quiz_id}) => {
       <div ref={ref}></div>
     </div>
   );
-}
+};
 
 export default YouTube;

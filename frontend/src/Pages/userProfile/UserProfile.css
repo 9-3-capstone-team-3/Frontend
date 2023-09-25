@@ -1,0 +1,56 @@
+.user-profile {
+    margin: 40px auto;
+    box-shadow: 0 0 8px black;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 700px;
+}
+
+.user-profile__img {
+    height: 120px;
+    background-image: url(/Users/karimah/CodeFusion-Capstone/frontend/frontend/src/Assests/profileBanner.jpeg);
+    display: flex;
+    justify-content: space-around;
+}
+
+.user-profile__avatar {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 3px black;
+    position: relative;
+    top: 70px;
+}
+
+.user-profile__avatar img {
+    width: 80px;
+    height: 80px;
+}
+
+.user-profile__subview {
+    margin: 55px 15px 15px;
+}
+
+.user-profile__buttons {
+    display: flex;
+    justify-content: right;
+}
+
+.user-profile__buttons button {
+    margin: 0 15px 15px 0;
+    padding: 10px 20px;
+    background-color: #084d96;
+    color: #ffffff;
+    text-decoration: none; 
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.1s ease;
+}
+
+.user-profile__buttons button:hover {
+    background-color: #3b84d2;
+}
