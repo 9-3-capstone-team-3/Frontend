@@ -5,7 +5,7 @@ import OpeningPage from './Pages/OpeningPage';
 import FourOFour from "./Pages/FourOFour";
 import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
-import UserProfile from "./Components/UserProfile";
+import UserProfile from "./Pages/userProfile/UserProfile";
 import Quiz from "./Components/Quiz";
 
 
