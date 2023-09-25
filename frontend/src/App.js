@@ -11,7 +11,6 @@ import Quiz from "./Components/Quiz";
 
 import Dashboard from "./Pages/Dashboard";
 import Header from "./Components/Header";
-import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
             <Route path="/quiz/:quiz_id/:user_id" element={ <Quiz />} />
             <Route path="/dashboard/:user_id" element={ <Dashboard />} />
           </Routes>
-        <Footer/>
       </Router>
     </div>
   );
