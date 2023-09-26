@@ -31,7 +31,7 @@ function Dashboard() {
   };
   const handleImageClick = () => {
     // setShowProfile((prevState) => !prevState);
-    navigate(`/user/${user.user_id}`)
+    navigate(`/users/profile/${user.user_id}`)
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Dashboard() {
       try {
         const response = await fetch(`${apiUrl}/quiz`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setQuizzes(data);
       } catch (error) {
         console.error("Error fetching quizzes:", error);
@@ -53,7 +53,7 @@ function Dashboard() {
       try {
         const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
         const userData = await userDataResponse.json();
-        console.log("User Data:", userData); // Log user data
+        // console.log("User Data:", userData); // Log user data
 
        
 
@@ -72,12 +72,10 @@ function Dashboard() {
       }
     };
 
-  
-
     fetchUserData();
   }, [user_id]);
   
-  console.log(user)
+  // console.log(user)
 
 
 

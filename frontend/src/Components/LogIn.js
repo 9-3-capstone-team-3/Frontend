@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../Components/UserProvider.js";
+import { UserContext } from "../providers/userProvider.js";
 import { useNavigate } from "react-router-dom";
 import {
   signInWithGoogle,
