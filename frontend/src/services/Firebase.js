@@ -1,11 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, signInWithPopup, getAuth, signOut } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // Import Firestore
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -15,34 +13,37 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
-console.log(firebaseConfig)
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
 
 export const auth = getAuth();
 auth.useDeviceLanguage();
 
 const googleProvider = new GoogleAuthProvider();
 
-
-export const signInWithGoogle =  () => {
-    try {
-      console.log(googleProvider)
-  //the signInWithPopUp() method accepts ANY provider we create. This is all our authentication logic
-    signInWithPopup(googleProvider, auth).then((res) => {
+export const signInWithGoogle = async () => {
+  try {
+    const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    console.log(user)
-  })
-     } catch (err) {
-      console.log(err);
-    }
-  };
-
-  export const logOut = async () =>{
-    try {
-      await auth.signOut()
-      alert("you've signed out - congrats.")
-    } catch(err) {
-      console.log(err)
-    }
+    console.log(user);
+  } catch (err) {
+    console.error(err);
   }
+};
+
+export const logOut = async () => {
+  try {
+    await auth.signOut();
+    alert("You've signed out - congrats.");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// Initialize Firestore
+export const firestore = getFirestore();
+
+export default app; // You can export 'app' if needed for other parts of your app

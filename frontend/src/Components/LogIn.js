@@ -11,7 +11,7 @@ export const Login = () => {
     const user = useContext(UserContext);
      useEffect(() => {
       if (user) {
-        navigate("/dashboard");
+        navigate("/loggedin");
       }
     }, [user]);
       return (

@@ -1,27 +1,29 @@
 import React, { useContext, useEffect } from "react";
-import { UserContext } from "../Providers/UserProvider";
+import { UserContext } from "../providers/userProvider.js";
 import { useNavigate} from "react-router-dom";
-import { signOut } from "../Services/Firebase";
+import { logOut } from "../services/Firebase.js";
 
 
 export const LoggedInPage = () => {
+    
   const imgStyle = {
       width:'30vh',
       height:'30vh'
   }
+
   const navigate = useNavigate();
   const user = useContext(UserContext);
   
   useEffect(() => { 
     if(!user) {
         alert("not logged in - redirecting")
-        naviagate("/");
+        navigate(`/loggedin`);
       }
     }, [user, navigate]);
 
   
   const handleLogout = async () => {
-    signOut()
+    logOut()
     alert("you've been logged out")
   };
   if ( user ){
