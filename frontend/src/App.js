@@ -11,6 +11,8 @@ import Quiz from "./Components/Quiz";
 
 import Dashboard from "./Pages/Dashboard";
 import Header from "./Components/Header";
+import { Login } from "./Components/LogIn";
+import { LoggedInPage } from "./Components/LoggedIn";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/loggedin' element={<LoggedInPage/>}/>
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />

@@ -141,7 +141,7 @@ function Quiz() {
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-  const [userPoints, setUserPoints] = useState(0);
+  const [user, setUser] = useState([]);
 
   const { quiz_id, user_id } = useParams();
   const navigate = useNavigate();
@@ -149,12 +149,13 @@ function Quiz() {
   useEffect(() => {
     async function fetchUserPoints() {
         try {
-            const response = await axios.get(`${apiUrl}/users/${user_id}/total_points`, {
+            const response = await axios.get(`${apiUrl}/users/${user_id}`, {
                 withCredentials: true
             });
 
             if (response.status === 200) {
-                setUserPoints(response.data.points);
+                setUser(response.data);
+                
             } else {
                 console.error("Failed to fetch user points.");
             }
@@ -165,6 +166,7 @@ function Quiz() {
 
     fetchUserPoints();
 }, [user_id]);
+
 
   useEffect(() => {
     async function fetchVideoUrl() {
@@ -341,11 +343,11 @@ async function updateUserPoints(user_id, pointsToAdd) {
 
 
 const currentQuestion = questions[currentIndex];
-console.log(currentQuestion);
+// console.log(currentQuestion);
   
 return (
     <div className="quiz-container">
-      <div className="user-points">Total Points: {userPoints}</div>
+      <div className="user-points">Total Points: {user.total_points}</div>
       <div>
         {videoUrl && (
           <div className="video-section">
