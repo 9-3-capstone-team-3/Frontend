@@ -10,7 +10,7 @@ import { db } from "../services/Firebase.js";
 export default function Leaderboard() {
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
+
     // Query the "users" collection in Firestore
     const getUsers = async () => {
       try {
@@ -33,13 +33,12 @@ export default function Leaderboard() {
 
   console.log(users)
 
-  
-
   return (
     <div className="leaderboard">
       <h1>Leaderboard</h1>
       {users.map((user, index) => (
-        <LeaderboardItem key={user.user_id} user={user} index={index + 1} />
+        <LeaderboardItem key={user.id} user={user} index={index + 1} />
+
       ))}
     </div>
   );
