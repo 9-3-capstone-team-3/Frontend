@@ -11,6 +11,7 @@ import Quiz from "./Components/Quiz";
 
 import Dashboard from "./Pages/Dashboard";
 import Header from "./Components/Header";
+import { Login } from "./Components/LogIn";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
+            <Route path='/login' element={<Login/>}/>
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
