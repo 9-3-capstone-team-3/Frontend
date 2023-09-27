@@ -4,7 +4,7 @@ import axios from "axios";
 import Youtube from "./Youtube";
 import "./Quiz.css";
 
-const apiUrl = process.env.REACT_APP_API_URL ;
+const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 
 
 /**
@@ -208,6 +208,22 @@ function Quiz() {
   
     fetchAnswers();
   }, [questions, currentIndex]);
+
+  async function recordSubmission(user_id, user_answer, is_correct) {
+    try {
+      const response = await axios.post(`${apiUrl}/submission`, {
+        user_id,
+        user_answer,
+        is_correct
+      }, { withCredentials: true});
+      if (response.status !== 201) {
+        console.error("Failed to record submission.");
+      } 
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
+
  async function getPointsForPromptType(prompt_type_id) {
   try {
     const response = await axios.get(`${apiUrl}/promptType/${prompt_type_id}`);
@@ -238,6 +254,7 @@ const handleNextQuestion = () => {
   setSelectedAnswer("");
   setFeedback("")
 };
+
 
 
 
@@ -278,7 +295,7 @@ const handleNextQuestion = () => {
     } else {
         setFeedback("Wrong answer. Try again!");
     }
-
+    recordSubmission(user_id, answer, isCorrect);
     setTimeout(() => {
         if (currentIndex === questions.length - 1) { // last question
             if (wrongAnswerOccurred || newCorrectCount !== questions.length) {
@@ -314,6 +331,7 @@ async function updateUserPoints(user_id, pointsToAdd) {
 
       if (response.status === 200) {
           console.log("Points updated successfully:", response.data);
+          setUserPoints(response.data.total_points)
       } else {
           console.error("Failed to update points.");
       }

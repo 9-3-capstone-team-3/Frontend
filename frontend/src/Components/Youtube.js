@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3003';
+const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 
 const YouTube = ({ quiz_id }) => {
   const ref = useRef();
@@ -9,12 +9,14 @@ const YouTube = ({ quiz_id }) => {
   useEffect(() => {
     const fetchVideoID = async () => {
       const endpoint = `${apiUrl}/quiz/${quiz_id}`;
-
+      // console.log(endpoint)
       try {
-        const response = await fetch(endpoint);
+        const response = await fetch(`${apiUrl}/quiz/${quiz_id}`);
         if (response.ok) {
           const data = await response.json();
+          console.log("data:", data)
           setVideoID(data.video_id);
+
         } else {
           console.error('Error fetching video ID:', response.statusText, 'From URL:', endpoint);
         }
@@ -24,7 +26,7 @@ const YouTube = ({ quiz_id }) => {
     };
 
     if (quiz_id) {
-      fetchVideoID();
+      fetchVideoID(videoID);
     }
   }, [quiz_id]);
 
