@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react"
 import LeaderboardItem from "./LeaderboardItem.js";
 import './Leaderboard.css';
-import { collection, query, getDocs } from "firebase/firestore";
-import { db } from "../services/Firebase.js";
-import { UserContext } from "../providers/userProvider.js";
+// import { collection, query, getDocs } from "firebase/firestore";
+// import { db } from "../services/Firebase.js";
+// import { UserContext } from "../providers/userProvider.js";
 import axios from "axios";
 
 export default function Leaderboard(){
 
     const [ users, setUsers ] = useState([])
-    const currentUser = useContext(UserContext);
+    // const currentUser = useContext(UserContext);
 
     useEffect(() => {
       axios.get(`${process.env.REACT_APP_API_URL}/users`)

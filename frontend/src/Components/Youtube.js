@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 
-const YouTube = ({ quiz_id }) => {
+const YouTube = () => {
   const ref = useRef();
   const [videoID, setVideoID] = useState('');
+  const { quiz_id, user_id } = useParams();
 
   useEffect(() => {
     const fetchVideoID = async () => {
