@@ -1,0 +1,209 @@
+.fork-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .fork-wrapper img {
+    width: 800px;
+  }
+  
+  .fork-button {
+    position: absolute;
+    top: 10%;  /* 50% from the top */
+    left: 82%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 2px 37px;
+    background-color: rgb(237, 240, 238); /* semi-transparent black */
+    color: black;
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .fork-button:hover {
+    background-color: rgb(158, 158, 165);
+  }
+  
+  .clone-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .clone-wrapper img {
+    width: 800px;
+  }
+  
+  .clone-button {
+    position: absolute;
+    top: 18.5%;  /* 50% from the top */
+    left: 69.5%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 1px 14px;
+    background-color: rgb(21, 148, 63); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .clone-button:hover {
+    background-color: rgb(158, 158, 165);
+  }
+  
+  .branch-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .branch-wrapper img {
+    width: 800px;
+  }
+  
+  .branch-button {
+    position: absolute;
+    top: 50%;  /* 50% from the top */
+    left: 70%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 10px 20px;
+    background-color: rgb(20, 137, 183); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .branch-button:hover {
+    background-color: rgb(106, 171, 212);
+  }
+  
+  .change-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .change-wrapper img {
+    width: 800px;
+  }
+  
+  .change-button {
+    position: absolute;
+    top: 50%;  /* 50% from the top */
+    left: 70%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 10px 20px;
+    background-color: rgb(20, 137, 183); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .change-button:hover {
+    background-color: rgb(106, 171, 212);
+  }
+  
+  .commit-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .commit-wrapper img {
+    width: 800px;
+  }
+  
+  .commit-button {
+    position: absolute;
+    top: 90%;  /* 50% from the top */
+    left: 70%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 10px 20px;
+    background-color: rgb(20, 137, 183); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .commit-button:hover {
+    background-color: rgb(106, 171, 212);
+  }
+  
+  .push-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .push-wrapper img {
+    width: 800px;
+  }
+  
+  .push-button {
+    position: absolute;
+    top: 90%;  /* 50% from the top */
+    left: 90%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 10px 20px;
+    background-color: rgb(20, 137, 183); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .push-button:hover {
+    background-color: rgb(106, 171, 212);
+  }
+  
+  .pull-wrapper {
+    position: relative;
+    display: inline-block; /* This makes the wrapper size adapt to the image */
+   
+  }
+  
+  .pull-wrapper img {
+    width: 800px;
+  }
+  
+  .pull-button {
+    position: absolute;
+    top: 17%;  /* 50% from the top */
+    left: 60.5%; /* 50% from the left */
+    transform: translate(-50%, -50%); /* This centers the button */
+    
+    /* Add any additional styling for the button here */
+    padding: 2px 10px;
+    background-color: rgb(7, 142, 83); /* semi-transparent black */
+    color: rgb(255, 253, 253);
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+  }
+  
+  .pull-button:hover {
+    background-color: rgb(106, 171, 212);
+  }
+  
+  .pull-alert {
+    background-color: aqua;
+    color: black;
+    border-color: black;
+    border-radius: 5px;
+  }

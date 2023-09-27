@@ -30,7 +30,7 @@ function Dashboard() {
   };
   const handleImageClick = () => {
     // setShowProfile((prevState) => !prevState);
-    navigate(`/user/${user.user_id}`)
+    navigate(`/users/profile/${user.user_id}`)
   };
 
   useEffect(() => {
