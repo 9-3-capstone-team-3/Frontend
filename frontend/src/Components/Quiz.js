@@ -6,42 +6,129 @@ import "./Quiz.css";
 
 const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 
-async function getQuizDetails(quiz_id) {
-  try {
-    const response = await axios.get(`${apiUrl}/quiz/${quiz_id}/questions`, {
-      withCredentials: true,
-    });
-    console.log(response);
 
+/**
+ * Handles errors by logging them.
+ * @param {Error} err The error object.
+ * @param {string} message The custom error message.
+ * @return {Array} Empty array.
+ */
+const handleErrors = (err, message) => {
+  console.error(message, err);
+  return [];
+};
+
+
+/**
+ * Fetch data from the specified URL.
+ * @param {string} url The URL to fetch data from.
+ * @param {Object} [options={}] Axios configuration options.
+ * @return {Object|null} Fetched data or 
+ */
+
+const fetchData = async (url, options = {}) => {
+  try {
+    const response = await axios.get(url, { withCredentials: true, ...options });
     if (response.status === 200) {
       return response.data;
-    } else {
-      console.error("Failed to fetch quiz details.");
-      return [];
     }
   } catch (err) {
-    console.error("Error:", err);
-    return [];
+    handleErrors(err, "Failed to fetch data from: " + url);
   }
+  return null;
+};
+
+/**
+ * Retrieves quiz details for a given quiz ID
+ * @param {string} quiz_id The quiz ID.
+ * @return {Array} List of quiz questions.
+ */
+async function getQuizDetails(quiz_id) {
+  const data = await fetchData(`${apiUrl}/quiz/${quiz_id}/questions`);
+  return data || [];
+};
+
+/**
+ * Retrieves the video URL for a given quiz ID.
+ * @param {string} quiz_id The quiz ID.
+ * @return {string} Video URL.
+ */
+async function getQuizVideoUrl(quiz_id) {
+  const data = await fetchData(`${apiUrl}/quiz/${quiz_id}`);
+  return data?.video_id || "";
+};
+
+/**
+ * Component to render quiz questions based on their type.
+ * @param {Object} props
+ * @returns {React.Element}
+ */
+const questionRenderer = ({ question, isAnswered, selectedAnswer, answers, handleAnswerSubmission, setSelectedAnswer }) => {
+  
+  if (!question) return null;
+
+  if (question.prompt_type_id === 2) {
+    return (
+      <div>
+        <h2>{question?.prompt}</h2>
+        <input
+          type="text"
+          value={selectedAnswer}
+          onChange={(e) => setSelectedAnswer(e.target.value)}
+          placeholder="Type your answer here"
+          disabled={isAnswered}
+        />
+        <button
+          className="quiz-button"
+          onClick={() => handleAnswerSubmission({ answer_text: selectedAnswer })}
+          disabled={isAnswered}
+        >
+          Submit
+        </button>
+      </div>
+    );
+  }
+  if (question.prompt_type_id === 3) {
+    return (
+      <div>
+        <p className="question-prompt">{question?.prompt}</p>
+        <button
+          className="quiz-button"
+          disabled={isAnswered}
+          onClick={() => handleAnswerSubmission({ answer_text: "True" })}
+        >
+          True
+        </button>
+        <button
+          className="quiz-button"
+          disabled={isAnswered}
+          onClick={() => handleAnswerSubmission({ answer_text: "False" })}
+        >
+          False
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div>
+      {answers.map((answer) => (
+        <button
+          key={answer.answer_id}
+          className="quiz-button"
+          disabled={isAnswered}
+          onClick={() => handleAnswerSubmission(answer)}
+        >
+          {answer.answer_text}
+        </button>
+      ))}
+    </div>
+  )
 }
 
-// const baseURL = "https://www.youtube.com/watch?v=";
-
-async function getQuizVideoUrl(quiz_id, setVideoId) {
-  try {
-    const response = await axios.get(`${apiUrl}/quiz/${quiz_id}`, {
-      withCredentials: true,
-    });
-
-    if (response.status === 200 && response.data.video_id) {
-      setVideoId(response.data.video_id);
-    } else {
-      console.error("Failed to fetch video URL.");
-    }
-  } catch (err) {
-    console.error("Error:", err);
-  }
-}
+/**
+ * The main Quiz component.
+ * @return {React.Element} Rendered component.
+ */
 
 function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -54,7 +141,7 @@ function Quiz() {
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-  const [userPoints, setUserPoints] = useState(0);
+  const [user, setUser] = useState([]);
 
   const { quiz_id, user_id } = useParams();
   const navigate = useNavigate();
@@ -62,12 +149,13 @@ function Quiz() {
   useEffect(() => {
     async function fetchUserPoints() {
         try {
-            const response = await axios.get(`${apiUrl}/users/${user_id}/total_points`, {
+            const response = await axios.get(`${apiUrl}/users/${user_id}`, {
                 withCredentials: true
             });
 
             if (response.status === 200) {
-                setUserPoints(response.data.points);
+                setUser(response.data);
+                
             } else {
                 console.error("Failed to fetch user points.");
             }
@@ -79,9 +167,15 @@ function Quiz() {
     fetchUserPoints();
 }, [user_id]);
 
+
   useEffect(() => {
-    getQuizVideoUrl(quiz_id, setVideoURL);
+    async function fetchVideoUrl() {
+      const videoId = await getQuizVideoUrl(quiz_id);
+      setVideoURL(videoId);
+    }
+    fetchVideoUrl();
   }, [quiz_id]);
+  
 
   useEffect(() => {
     const fetchQuizDetails = async () => {
@@ -90,7 +184,7 @@ function Quiz() {
     };
     fetchQuizDetails();
   
-    getQuizVideoUrl(quiz_id, setVideoURL);
+    
   }, [quiz_id]);
 
   function shuffleArray(array) {
@@ -114,6 +208,7 @@ function Quiz() {
   
     fetchAnswers();
   }, [questions, currentIndex]);
+
   async function recordSubmission(user_id, user_answer, is_correct) {
     try {
       const response = await axios.post(`${apiUrl}/submission`, {
@@ -128,6 +223,40 @@ function Quiz() {
       console.error("Error:", err);
     }
   };
+
+ async function getPointsForPromptType(prompt_type_id) {
+  try {
+    const response = await axios.get(`${apiUrl}/promptType/${prompt_type_id}`);
+    return response.data.points || 0;
+  } catch (error) {
+    console.error("Error fetching points for prompt type:", error);
+    return 0;
+  }
+ } 
+
+
+function startNextQuiz () {
+  setIsAnswered(false);
+  setSelectedAnswer("");
+  setFeedback("");
+  setCorrectAnswersCount(0);
+  navigate(`${apiUrl}`)
+} 
+
+const handleNextQuestion = () => {
+  if (currentIndex === questions.length -1) {
+    setIsQuizCompleted(true);
+    setCurrentIndex(0);
+  } else {
+    setCurrentIndex(prevIndex => prevIndex + 1);
+  }
+  setIsAnswered(false);
+  setSelectedAnswer("");
+  setFeedback("")
+};
+
+
+
 
   const handleAnswerSubmission = async (answer) => {
     setIsAnswered(true);
@@ -226,27 +355,17 @@ async function updateUserPoints(user_id, pointsToAdd) {
     navigate(`/quiz/${nextQuizId}`);
   }
 
-  const getAnswerColor = (answer) => {
-    if (!isAnswered) return "defaultColor";
-    if (answer === selectedAnswer && answer.is_correct) return "green";
-    if (answer === selectedAnswer) return "red";
-    if (answer !== selectedAnswer && answer.is_correct) return "green";
-    return "defaultColor";
-  };
+ 
 
-  if (currentIndex < 0 || currentIndex >= questions.length) {
-      return <div>Loading...</div>;
-  }
-if (questions.length === 0) {
-    return <div>No questions available</div>;
-}
+  
+
 
 const currentQuestion = questions[currentIndex];
-console.log(currentQuestion);
+// console.log(currentQuestion);
   
 return (
     <div className="quiz-container">
-      <div className="user-points">Total Points: {userPoints}</div>
+      <div className="user-points">Total Points: {user.total_points}</div>
       <div>
         {videoUrl && (
           <div className="video-section">
@@ -256,74 +375,42 @@ return (
       </div>
         <h2>{currentQuestion?.prompt}</h2>
   
+
       <div className="qa-box">
-  
-      {currentQuestion.prompt_type_id === 2 ? (
-    <div>
-        <div>TEST RENDERING</div>
-        <h2>{currentQuestion?.prompt}</h2>        
-          <input 
-            type="text" 
-            value={selectedAnswer}
-            onChange={(e) => setSelectedAnswer(e.target.value)} 
-            placeholder="Type your answer here"
-            disabled={isAnswered}
-        />
-        <button 
-            className="quiz-button"
-            onClick={() => handleAnswerSubmission({ answer_text: selectedAnswer })}
-            disabled={isAnswered}
-        >
-            Submit
-        </button>
-    </div>
-) : currentQuestion.prompt_type_id === 3 ? (
-    <div>
-        <p className="question-prompt">{currentQuestion?.prompt}</p>
-        <button
-            className={`quiz-button ${getAnswerColor({answer_text: "True"})}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission({ answer_text: "True" })}
-            style={{ backgroundColor: getAnswerColor({answer_text: "True"}), margin: "5px" }}
-        >
-            True
-        </button>
-        <button
-            className={`quiz-button ${getAnswerColor({answer_text: "False"})}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission({ answer_text: "False" })}
-            style={{ backgroundColor: getAnswerColor({answer_text: "False"}), margin: "5px" }}
-        >
-            False
-        </button>
-    </div>
-) : (
-    answers.map((answer) => (
-        <button
-            key={answer.answer_id}
-            className={`quiz-button ${getAnswerColor(answer)}`}
-            disabled={isAnswered}
-            onClick={() => handleAnswerSubmission(answer)}
-            style={{ backgroundColor: getAnswerColor(answer), margin: "5px" }}
-        >
-            {answer.answer_text}
-        </button>
-    ))
-)}
+          {questionRenderer({
+              question: currentQuestion,
+              isAnswered,
+              selectedAnswer,
+              answers,
+              handleAnswerSubmission
+          })}
+          {feedback && <div className="feedback">{feedback}</div>}
+          
+          {isAnswered && (
+              <button className="quiz-button" onClick={handleNextQuestion}>
+                  Next Question
+              </button>
+          )}
 
         {feedback && <div className="feedback">{feedback}</div>}
       </div>
+
+
+
         <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
           Return to Dashboard
         </button>
         {isQuizCompleted && (
+
           <div className="result-box">
-            <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
-            <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
+              <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
+              <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
           </div>
-        )}
-    </div>
-  );
-  
+      )}
+  </div>
+);
+
+
 }
+
 export default Quiz;
