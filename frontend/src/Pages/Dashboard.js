@@ -11,7 +11,7 @@ import star from "../Assests/star.png";
 import DashboardFooter from "../Components/DashboardFooter";
 
 
-const apiUrl = process.env.REACT_APP_API_URL ;
+const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 function Dashboard() {
   const [showProfile, setShowProfile] = useState(false);
   const [user, setUser] = useState(null);
@@ -38,7 +38,6 @@ function Dashboard() {
       try {
         const response = await fetch(`${apiUrl}/quiz`);
         const data = await response.json();
-        console.log(data);
         setQuizzes(data);
       } catch (error) {
         console.error("Error fetching quizzes:", error);
@@ -52,7 +51,7 @@ function Dashboard() {
       try {
         const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
         const userData = await userDataResponse.json();
-        console.log("User Data:", userData); // Log user data
+        // console.log("User Data:", userData); // Log user data
         setUser(userData);
       
         // Fetch completed quizzes here and set them as an array
@@ -69,7 +68,7 @@ function Dashboard() {
     fetchUserData();
   }, [user_id]);
   
-  console.log(user)
+  
 
 
 

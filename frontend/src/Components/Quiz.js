@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import YouTube from "./Youtube";
+import Youtube from "./Youtube";
 import "./Quiz.css";
 
-const apiUrl = process.env.REACT_APP_API_URL ;
+const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
 
 async function getQuizDetails(quiz_id) {
   try {
@@ -114,6 +114,20 @@ function Quiz() {
   
     fetchAnswers();
   }, [questions, currentIndex]);
+  async function recordSubmission(user_id, user_answer, is_correct) {
+    try {
+      const response = await axios.post(`${apiUrl}/submission`, {
+        user_id,
+        user_answer,
+        is_correct
+      }, { withCredentials: true});
+      if (response.status !== 201) {
+        console.error("Failed to record submission.");
+      } 
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
 
   const handleAnswerSubmission = async (answer) => {
     setIsAnswered(true);
@@ -152,7 +166,7 @@ function Quiz() {
     } else {
         setFeedback("Wrong answer. Try again!");
     }
-
+    recordSubmission(user_id, answer, isCorrect);
     setTimeout(() => {
         if (currentIndex === questions.length - 1) { // last question
             if (wrongAnswerOccurred || newCorrectCount !== questions.length) {
@@ -188,6 +202,7 @@ async function updateUserPoints(user_id, pointsToAdd) {
 
       if (response.status === 200) {
           console.log("Points updated successfully:", response.data);
+          setUserPoints(response.data.total_points)
       } else {
           console.error("Failed to update points.");
       }
@@ -235,7 +250,7 @@ return (
       <div>
         {videoUrl && (
           <div className="video-section">
-            <YouTube quiz_id={videoUrl}  />
+            <Youtube quiz_id={videoUrl}  />
           </div>
         )}
       </div>
