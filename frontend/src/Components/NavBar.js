@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../Assests/Logo2.png"
 import "../Components/NavBar.css"
+import { useParams } from "react-router-dom";
 
 
 export default function NavBar() {
-
+    const { quiz_id, user_id } = useParams();
     return(
         <nav className="nav-bar">
             <div id="logo">   
@@ -15,14 +16,14 @@ export default function NavBar() {
 
             <br></br>
 
-                <Link className="home-link" to="/">
+                <Link className="home-link" to={`/dashboard/${user_id}`}>
                     Home
                 </Link>
 
             <br></br>
 
                 <Link className="about-link" to="/about">
-                    About us
+                    About Us
                 </Link>
 
             <br></br>
