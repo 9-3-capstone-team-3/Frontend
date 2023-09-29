@@ -142,6 +142,7 @@ function Quiz() {
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
   const [user, setUser] = useState([]);
+  const [userPoints, setUserPoints] = useState(0);
 
   const { quiz_id, user_id } = useParams();
   const navigate = useNavigate();

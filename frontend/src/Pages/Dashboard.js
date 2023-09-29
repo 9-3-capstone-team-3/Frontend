@@ -64,7 +64,7 @@ function Dashboard() {
 
         // Fetch completed quizzes here and set them as an array
         const completedQuizzesResponse = await fetch(
-          `${apiUrl}/users/completed-quizzes/4`
+          `${apiUrl}/users/completed-quizzes/${user_id}`
         );
         const completedQuizzesData = await completedQuizzesResponse.json();
         setCompletedQuizzes(completedQuizzesData); // Ensure this is an array
@@ -108,7 +108,10 @@ function Dashboard() {
                           : "-475px",
                   }}
                 >
-                  {/* <QuizImage completedQuizzes={completedQuizzes} quiz={quiz} star={star} lock={lock} /> */}
+                  <img
+                    src={user && user.total_points > 25 ? star : lock}
+                    alt={`Quiz ${quiz.quiz_id}`}
+                  />
                 </button>
               ))}
         </div>
@@ -118,7 +121,7 @@ function Dashboard() {
           <p>Practice the Git process</p>
         </div>
         <div className="circle-buttons">
-          {/* {quizzes &&
+          {quizzes &&
             quizzes.length > 0 &&
             quizzes
               .filter((quiz) => quiz.status_name === "Intermediate")
@@ -136,11 +139,11 @@ function Dashboard() {
                   }}
                 >
                   <img
-                    src={user && user.total_points > 5 ? star : lock}
+                    src={user && user.total_points > 70 ? star : lock}
                     alt={`Quiz ${quiz.quiz_id}`}
                   />
                 </button>
-              ))} */}
+              ))}
         </div>
         <div className="banner3">
           <h1>Advance</h1>
