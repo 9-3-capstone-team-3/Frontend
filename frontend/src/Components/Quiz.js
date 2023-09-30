@@ -1,11 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Youtube from "./Youtube";
 import "./Quiz.css";
 
-const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 /**
@@ -19,12 +18,12 @@ const handleErrors = (err, message) => {
   return [];
 };
 
-
 /**
  * Fetch data from the specified URL.
- * @param {string} url The URL to fetch data from.
+ * @param {string} url The URL t
+ * o fetch data from.
  * @param {Object} [options={}] Axios configuration options.
- * @return {Object|null} Fetched data or 
+ * @return {Object|null} Fetched data or
  */
 
 const fetchData = async (url, options = {}) => {
@@ -65,9 +64,9 @@ async function getQuizVideoUrl(quiz_id) {
  * @returns {React.Element}
  */
 const questionRenderer = ({ question, isAnswered, selectedAnswer, answers, handleAnswerSubmission, setSelectedAnswer }) => {
-  
-  if (!question) return null;
 
+  if (!question) return null;
+  
   if (question.prompt_type_id === 2) {
     return (
       <div>
@@ -157,7 +156,7 @@ function Quiz() {
 
             if (response.status === 200) {
                 setUser(response.data);
-                
+
             } else {
                 console.error("Failed to fetch user points.");
             }
@@ -177,7 +176,7 @@ function Quiz() {
     }
     fetchVideoUrl();
   }, [quiz_id]);
-  
+
 
   useEffect(() => {
     const fetchQuizDetails = async () => {
@@ -185,8 +184,6 @@ function Quiz() {
       setQuestions(fetchedQuestions);
     };
     fetchQuizDetails();
-  
-    
   }, [quiz_id]);
 
   function shuffleArray(array) {
@@ -196,7 +193,6 @@ function Quiz() {
   useEffect(() => {
     async function fetchAnswers() {
       if (currentIndex < 0 || currentIndex >= questions.length) return;
-  
       try {
           const response = await axios.get(
               `${apiUrl}/questions/${questions[currentIndex].question_id}/answers`
@@ -207,7 +203,7 @@ function Quiz() {
           console.error("Error fetching answers:", error);
       }
   }
-  
+
     fetchAnswers();
   }, [questions, currentIndex]);
 
@@ -220,7 +216,7 @@ function Quiz() {
       }, { withCredentials: true});
       if (response.status !== 201) {
         console.error("Failed to record submission.");
-      } 
+      }
     } catch (err) {
       console.error("Error:", err);
     }
@@ -234,7 +230,7 @@ function Quiz() {
     console.error("Error fetching points for prompt type:", error);
     return 0;
   }
- } 
+ }
 
 
 function startNextQuiz () {
@@ -243,7 +239,7 @@ function startNextQuiz () {
   setFeedback("");
   setCorrectAnswersCount(0);
   navigate(`${apiUrl}`)
-} 
+}
 
 const handleNextQuestion = () => {
   if (currentIndex === questions.length -1) {
@@ -258,22 +254,20 @@ const handleNextQuestion = () => {
 };
 
 
-
-
   const handleAnswerSubmission = async (answer) => {
     setIsAnswered(true);
-    
+
     let isCorrect;
     let newCorrectCount;
     let wrongAnswerOccurred;
-    
+
     if (!answer.hasOwnProperty('is_correct')) {
         // It's a free-text response; validate with the backend
         try {
             const response = await axios.post(
               `${apiUrl}/answers/questions/${questions[currentIndex].question_id}/validate`
-              , 
-                { answer: answer.answer_text }, 
+              ,
+                { answer: answer.answer_text },
                 { withCredentials: true }
             );
             isCorrect = response.data.is_correct;
@@ -357,14 +351,14 @@ async function updateUserPoints(user_id, pointsToAdd) {
     navigate(`/quiz/${nextQuizId}`);
   }
 
- 
 
-  
+
+
 
 
 const currentQuestion = questions[currentIndex];
 // console.log(currentQuestion);
-  
+
 return (
     <div className="quiz-container">
       <div className="user-points">Total Points: {user.total_points}</div>
@@ -376,7 +370,7 @@ return (
         )}
       </div>
         <h2>{currentQuestion?.prompt}</h2>
-  
+
 
       <div className="qa-box">
           {questionRenderer({
@@ -387,7 +381,7 @@ return (
               handleAnswerSubmission
           })}
           {feedback && <div className="feedback">{feedback}</div>}
-          
+
           {isAnswered && (
               <button className="quiz-button" onClick={handleNextQuestion}>
                   Next Question
