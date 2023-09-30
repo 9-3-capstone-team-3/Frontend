@@ -1,3 +1,4 @@
+import React from 'react';
 import './DisplayProfile.css';
 
 function DisplayProfile({ user }) {

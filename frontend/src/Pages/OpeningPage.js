@@ -1,3 +1,4 @@
+import React from 'react';
 import "./OpeningPage.css"
 import CenterOfPage from "../Components/CenterOfPage";
 import Footer from "../Components/Footer";

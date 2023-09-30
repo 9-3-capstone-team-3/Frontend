@@ -1,3 +1,5 @@
+import React from 'react';
+
 function PasswordModal({ isOpen, onClose }) {
     if (!isOpen) return null;
 

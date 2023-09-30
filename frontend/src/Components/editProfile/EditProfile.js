@@ -1,3 +1,4 @@
+import React from 'react';
 import './EditProfile.css';
 
 function EditProfile({username, setUsername, email, setEmail,firstname, setFirstname,lastname, setLastname, password, setPassword}) {
