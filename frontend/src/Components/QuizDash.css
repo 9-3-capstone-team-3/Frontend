@@ -1,0 +1,172 @@
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    flex: 1;
+    background-color: #c2ddf4;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  main {
+    flex: 3;
+    padding: 20px;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #d5a20a;
+    margin-bottom: 20px;
+  }
+  
+  .boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .box {
+    border: 1px solid #333;
+    padding: 15px;
+    box-shadow: 5px 5px 5px #c2ddf4;
+    margin: 0px 10px;
+    width: 350px;
+    height: 250px;  /* Example fixed height. Adjust as needed */
+    overflow: hidden;  /* Hides excess content */
+  }
+  
+  .medium {
+    flex: 1;
+    margin-right: 20px;
+    overflow: auto;
+  }
+
+  .document {
+    margin-top: 90px;
+    overflow: auto;
+  }
+  
+  p {
+    font-size: 11px;
+    padding: 0;
+    margin: 0;  /* To ensure there's no default margin expanding the box */
+    overflow: hidden;  /* Hides the overflowing text */
+    max-height: calc(100% - 10px); /* Ensures paragraph stays within the box bounds considering padding */
+}
+
+h1 {
+    background-color: #e9f8ee;
+}
+
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .youtube-frame {
+   
+    margin-top: 30px;
+    
+  }
+  
+  .small {
+    flex: 1;
+    margin-right: 20px;
+    margin-top: 30px;
+    overflow: auto;
+  }
+  
+  .progress-bar {
+    height: 30px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: pink;
+    position: absolute; 
+    left: 0; 
+    top: 0;
+  }
+
+  .paragraph-wrapper {
+    margin-top: 60px;
+  }
+
+  .result-box {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+  
+    .feedback {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+  /* Mobile Responsive styles */
+@media (max-width: 768px) {  /* This breakpoint is typical for tablets and below. Adjust as needed */
+  
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebar, main {
+      width: 100%;
+    }
+  
+    .boxes, .bottom-row {
+      flex-direction: column;
+    }
+
+    .boxes {
+        width: auto;
+        height: 450px;
+    }
+  
+    .medium, .small, .youtube-frame {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%; /* This ensures any fixed widths previously set are overridden */
+    }
+
+    .paragraph-wrapper {
+        margin-top: 70px;
+        margin-bottom: -40px;
+      }
+
+    .document {
+        margin-top: 70px;
+        margin-bottom: 0;
+        overflow: auto;
+    }
+  
+  }
