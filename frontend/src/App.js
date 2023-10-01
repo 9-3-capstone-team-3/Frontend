@@ -17,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
             <Route path='/login' element={<Login/>}/>
