@@ -13,10 +13,12 @@ import { LoggedInPage } from "./Components/LoggedIn";
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 
+
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header/>
           <Routes>
             <Route path="/" element={<OpeningPage />} /> 
             <Route path='/login' element={<Login/>}/>
