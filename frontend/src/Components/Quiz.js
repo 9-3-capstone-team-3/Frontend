@@ -3,8 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Youtube from "./Youtube";
 import "./Quiz.css";
+import TextBox from "./textBox/TextBox";
 
-const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 /**
@@ -366,7 +367,14 @@ const currentQuestion = questions[currentIndex];
   
 return (
     <div className="quiz-container">
-      <div className="user-points">Total Points: {user.total_points}</div>
+     <div>
+       <TextBox />
+    </div>
+
+      {/* <div>
+      <ResourceBox text="Hello, World!" />
+    </div> */}
+
       <div>
         {videoUrl && (
           <div className="video-section">
@@ -408,6 +416,9 @@ return (
               <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
           </div>
       )}
+      
+      
+   
   </div>
 );
 
