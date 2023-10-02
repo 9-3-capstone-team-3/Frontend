@@ -1,11 +1,11 @@
 .footer {
     padding: 20px 0;
     transition: transform 0.3s; /* Add a smooth transition effect */
-     
+    margin-left: 0; 
 }
 
 .footer-container {
-    background: linear-gradient(to right, #0276a0, #47d0f9);
+    background: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

@@ -59,10 +59,8 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-info">
-                    <p>&copy; {new Date().getFullYear()} Capstone Team 3. All rights reserved.</p>
-                    <p>Karimah Reavis | Shaniqua Coston</p>
-                    <p>Markeya Mckoy-Carree | Marangely Rosas</p>
-                    <p>SangUn Park</p>
+                    <p>Copyright &copy; {new Date().getFullYear()} Capstone Team 3. All rights reserved.</p>
+                    <p></p>
                 </div>
             </div>
         </footer>
