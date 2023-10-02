@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 import userIcon from "../Assests/userIcon.png";
 import UserProfile from "./userProfile/UserProfile";
-import Leaderboard from "../Components/Leaderboard";
+import Leaderboard from "./leaderboard/Leaderboard";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
 import pointsIcon from "../Assests/pointsIcon.png";

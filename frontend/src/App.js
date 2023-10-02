@@ -10,7 +10,9 @@ import Simulation from "./Pages/simulation/Simulation";
 import Dashboard from "./Pages/Dashboard";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
-import Header from "./Components/Header";
+import QuizDash from "./Components/QuizDash";
+import Leaderboard from "./Pages/leaderboard/Leaderboard";
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path="/quiz/:quiz_id/:user_id" element={ <Quiz />} />
             <Route path="/dashboard/:user_id" element={ <Dashboard />} />
             <Route path="/simulation/:user_id" element={<Simulation />} />
+            <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
+            <Route path="/leaderboard/users" element={<Leaderboard/>} />
           </Routes>
       </Router>
     </div>
