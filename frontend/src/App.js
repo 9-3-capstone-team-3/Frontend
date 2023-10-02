@@ -8,6 +8,7 @@ import UserProfile from "./Pages/userProfile/UserProfile";
 import Quiz from "./Components/Quiz";
 import Simulation from "./Pages/simulation/Simulation";
 import Dashboard from "./Pages/Dashboard";
+import Header from "./Components/Header";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
 import QuizDash from "./Components/QuizDash";
