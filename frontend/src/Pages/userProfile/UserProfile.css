@@ -8,7 +8,10 @@
 
 .user-profile__img {
     height: 120px;
-    background-image: url(/Users/karimah/CodeFusion-Capstone/frontend/frontend/src/Assests/profileBanner.jpeg);
+
+
+    background-image: url(../../Assests/profileBanner.jpeg);
+
     display: flex;
     justify-content: space-around;
 }
