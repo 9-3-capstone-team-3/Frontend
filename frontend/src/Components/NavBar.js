@@ -22,14 +22,20 @@ export default function NavBar() {
 
             <br></br>
 
-                <Link className="about-link" to="/about">
-                    About Us
+                <Link className="completed-link" to="/completed">
+                    Completed Quizzes
+                </Link>
+
+            <br></br>
+
+                <Link className="leaderboard-link" to="/leaderboard">
+                    Leaderboard
                 </Link>
 
             <br></br>
 
                 <Link className="contact-link" to="/contact">
-                    Contact
+                    Contact Us
                 </Link>
 
             <br></br>

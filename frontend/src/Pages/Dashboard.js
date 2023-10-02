@@ -220,8 +220,6 @@ function Dashboard() {
             <h4>{user && user.username}</h4>
           </div>
         </div>
-        {/* Leaderboard */}
-        <div className="leaderboard">{<Leaderboard />}</div>
 
         {/* Footer */}
 

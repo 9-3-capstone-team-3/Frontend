@@ -10,6 +10,8 @@ import Simulation from "./Pages/simulation/Simulation";
 import Dashboard from "./Pages/Dashboard";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
+import Header from "./Components/Header";
+import Leaderboard from "./Components/Leaderboard";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
             <Route path="/" element={<OpeningPage />} /> 
             <Route path='/login' element={<Login/>}/>
             <Route path='/loggedin' element={<LoggedInPage/>}/>
+            <Route path='/leaderboard' element={<Leaderboard/>}/>
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
