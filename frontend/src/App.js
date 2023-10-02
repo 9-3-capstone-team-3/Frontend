@@ -12,6 +12,7 @@ import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
           </Routes>
+          <Footer/>
       </Router>
     </div>
   );

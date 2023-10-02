@@ -278,7 +278,7 @@ function QuizDash() {
             .catch(err => console.error(err));
     }, [user_id]); // Re-fetch when userId changes
 
-    const TOTAL_QUESTIONS = 5; // Update this to the correct number if different
+    const TOTAL_QUESTIONS = questions.length; // Update this to the correct number if different
     const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
 
     return (
@@ -288,6 +288,7 @@ function QuizDash() {
                     <li><a href="/">Home</a></li>
                     <li><a href="/leaderboard/users">Leaderboard</a></li>
                     <li><a href="/">Document</a></li>
+                    <li><a href="/dashboard/:user_id">Dashboard</a></li>
                 </ul>
             </aside>
             <main>
