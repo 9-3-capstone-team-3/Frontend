@@ -8,6 +8,7 @@ import { UserContext } from "../providers/userProvider.js";
 import {
   signInWithGoogle
 } from "../services/Firebase.js";
+import axios from "axios";
 
 function OpeningPage() {
   const apiUrl = process.env.REACT_APP_API_URL  
@@ -44,6 +45,28 @@ const checkUserEmail = async (userData) => {
       console.log('Get Request Succesful');
       const responseData = await response.json(); // Parse the response as JSON
       const user_id = responseData.user_id;
+      const timestamp = new Date().toISOString(); // Get the current timestamp as a string
+
+      try {
+        // Send the timestamp to your backend
+        const response = await axios.post(
+          `${apiUrl}/users/${user_id}/last_login`,
+          {
+            timestamp: timestamp,
+          }
+        );
+  
+        if (response.status === 200) {
+          console.log("Timestamp updated successfully:", response.data);
+        } else {
+          console.error("Failed to update last login.");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+  
+     
+      
       navigate(`/dashboard/${user_id}`);
     } else {
       // Handle the error case here
