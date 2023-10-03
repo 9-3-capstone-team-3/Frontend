@@ -1,16 +1,19 @@
 .footer {
     padding: 20px 0;
     transition: transform 0.3s; /* Add a smooth transition effect */
-     
+    margin-left: 0;
+    border-top: 1px solid gray; 
 }
 
 .footer-container {
-    background: linear-gradient(to right, #0276a0, #47d0f9);
+    background: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     max-width: auto;
     margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer.show {
@@ -25,6 +28,8 @@
 .footer-links {
     display: flex;
     flex-wrap: wrap;
+    justify-items: center;
+    width: 100%;
 }
 
 .footer-section {
@@ -48,6 +53,7 @@
 
 .footer-info {
     text-align: center;
+    margin-top: 20px;
 }
 
 .footer-info p {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
-import LeaderboardItem from "./LeaderboardItem.js";
-import './Leaderboard.css';
+import LeaderboardItem from "../leaderboard/LeaderboardItem";
+import "../leaderboard/Leaderboard.css";
 // import { collection, query, getDocs } from "firebase/firestore";
 // import { db } from "../services/Firebase.js";
 // import { UserContext } from "../providers/userProvider.js";
