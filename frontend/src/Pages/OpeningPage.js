@@ -1,4 +1,6 @@
 import "./OpeningPage.css"
+import logo3 from '../Assests/Logo3.png';
+import { Link} from "react-router-dom";
 // import CenterOfPage from "../Components/CenterOfPage";
 // import Footer from "../Components/Footer";
 // import Header from "../Components/Header";
@@ -26,13 +28,13 @@ function OpeningPage() {
   <div class="landing-page">
   <header>
     <div class="container">
-      <a href="#" class="logo">Code <b>Fusion</b></a>
+      <img src={logo3} alt="logo3" className="logo-image"></img>
+      <a href="/" class="logo">CodeFusion</a>
       <ul class="links">
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Work</li>
-        <li>Info</li>
-        <li>Sign In</li>
+        <a href="/"><li>Home</li></a>
+        <Link to="/aboutus"><li>About Us</li></Link>
+        <a href="https://www.youtube.com/channel/UCX-6L6UBdZTJ2CeQVSL3uKw"><li>Youtube</li></a>
+        <Link to="/signin"><li>Sign In</li></Link>
       </ul>
     </div>
   </header>
@@ -40,12 +42,14 @@ function OpeningPage() {
     <div class="container">
       <div class="info">
         <h2 className="htwo-font">Fun. Easy. Collaboration</h2>
-        <p>Learn to collaborate with ease. Just sign up!
-           Watch Git tutorials and answer questions. Practice contributing to open source projects through fun easy simulations.</p>
+        <p>Learn to collaborate with ease.<br></br>
+           Watch Git tutorials and answer questions.<br/> Practice contributing to open source projects through fun easy simulations.<br/>Just sign up!</p>
+        <Link to="/signup">
         <button>Sign Up</button>
+        </Link>
       </div>
       <div class="image">
-        <img src="https://i.postimg.cc/4dn7GjXC/handshack-removebg-preview.png" />
+        <img src="https://i.postimg.cc/4dn7GjXC/handshack-removebg-preview.png" alt=""/>
       </div>
     </div>
   </div>

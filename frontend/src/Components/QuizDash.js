@@ -326,7 +326,7 @@ function QuizDash() {
                 </div>
             <div className='bottom-row'>
                     {videoUrl && (
-                        <div className="youtube-frame box medium">
+                        <div className="youtube-frame">
                             <Youtube quiz_id={videoUrl} />
                         </div>
                     )}
@@ -353,9 +353,9 @@ function QuizDash() {
                 </div>
        
                 </div>
-                <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
+                {/* <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
                     Return to Dashboard
-                </button>
+                </button> */}
                         {isQuizCompleted && (
                             
                             <div className="result-box">

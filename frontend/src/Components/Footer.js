@@ -59,7 +59,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="footer-info">
-                    <p>Copyright &copy; {new Date().getFullYear()} Capstone Team 3. All rights reserved.</p>
+                    <p>Copyright &copy; {new Date().getFullYear()}  All rights reserved.</p>
                     <p></p>
                 </div>
             </div>

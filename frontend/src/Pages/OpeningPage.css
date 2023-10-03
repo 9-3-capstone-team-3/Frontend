@@ -39,6 +39,23 @@ ul {
 /* End Global Rules */
 
 /* Start Landing Page */
+.logo-image {
+  width: 70px;
+  min-height: 30px;
+}
+@media (max-width: 767px) {
+  .landing-page .logo-image {
+    min-height: auto;
+    display: initial;
+    flex-direction: column;
+    margin-top: -490px;
+  }
+}
+.logo {
+  margin-left: -25%;
+  z-index: 1;
+}
+
 .landing-page header {
   margin-top: -340px;
   min-height: 30px;
@@ -76,6 +93,7 @@ ul {
 .landing-page header .links {
   display: flex;
   align-items: center;
+  margin-inline-end: -190px;
 }
 @media (max-width: 767px) {
   .landing-page header .links {

@@ -62,7 +62,7 @@
   }
 
   .document {
-    margin-top: 90px;
+    margin-top: 20px;
     overflow: auto;
   }
   
@@ -85,7 +85,7 @@ h1 {
   }
   
   .youtube-frame {
-   
+    margin-left: 20px;
     margin-top: 30px;
     
   }
@@ -113,7 +113,7 @@ h1 {
   }
 
   .paragraph-wrapper {
-    margin-top: 60px;
+    margin-top: 20px;
   }
 
   .result-box {
@@ -159,12 +159,12 @@ h1 {
     }
 
     .paragraph-wrapper {
-        margin-top: 70px;
+        margin-top: 20px;
         margin-bottom: -40px;
       }
 
     .document {
-        margin-top: 70px;
+        margin-top: 20px;
         margin-bottom: 0;
         overflow: auto;
     }
