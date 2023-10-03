@@ -426,3 +426,4 @@ return (
 }
 
 export default Quiz;
+

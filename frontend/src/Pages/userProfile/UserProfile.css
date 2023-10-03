@@ -8,9 +8,7 @@
 
 .user-profile__img {
     height: 120px;
-    background-color: #63b6ff;
-    /* background-image: url(../../Assests/profileBanner.jpeg); */
-
+    background-image: url(../../Assests/profileBanner.jpeg);
     display: flex;
     justify-content: space-around;
 }

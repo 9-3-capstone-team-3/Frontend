@@ -11,6 +11,7 @@ import Dashboard from "./Pages/Dashboard";
 import Header from "./Components/Header";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
+import Header from "./Components/Header";
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import Footer from "./Components/Footer";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<OpeningPage />} /> 
             <Route path='/login' element={<Login/>}/>
             <Route path='/loggedin' element={<LoggedInPage/>}/>
+            <Route path='/leaderboard' element={<Leaderboard/>}/>
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="*" element={<FourOFour/>} />
