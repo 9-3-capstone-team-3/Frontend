@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Youtube from "./Youtube";
 import "../Components/QuizDash.css";
+import QuizDetails from "../Components/QuizDetails";
+import QuizSummary from './QuizSummary';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -285,10 +287,9 @@ function QuizDash() {
         <div className="container">
             <aside className="sidebar">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/leaderboard/users">Leaderboard</a></li>
-                    <li><a href="/">Document</a></li>
                     <li><a href="/dashboard/:user_id">Dashboard</a></li>
+                    <li><a href="/leaderboard/users">Leaderboard</a></li>
+                    <li><a href="/resources">Resources</a></li>
                 </ul>
             </aside>
             <main>
@@ -296,33 +297,8 @@ function QuizDash() {
                     <div className="progress" style={{ width: progressBarWidth }}></div>
                 </div>
                 <div className="boxes">
-                    <div className="box medium">
-                        <h1>Git Basics</h1>
-                        <p className='paragraph-wrapper'>Git, a dominant Version Control System utilized by over 90% of developers, allows meticulous tracking of code changes, facilitating version management, undoing modifications, and collaborative teamwork. In contrast, GitHub is a platform for remotely storing and sharing code repositories. Mastering Git is pivotal for budding software engineers, as it not only serves as a safety net for broken code but also provides detailed insights into code versions and changes.</p>
-                    </div>
-                    <div className="box medium">
-                        <h1>Read about Git Basics</h1>
-                        {/* <p>{<MediumBox/>}</p> */}
-                        <p className='document'>Git is a Version Control System
-                            Git allows you to track changes you make in your code
-                            You can swap back and forth between different versions of your code
-                            You can UNDO changes you made to your code
-                            Git is great for teams because it allows team members to work on the same project or even the same file.
-                            Git versus GitHub
-                            Git is a version control system that you download to your local computer and allow it to track every version of your code that you want saved.
-                            WHILE…
-                            GitHub is just a website that allows developers to store their projects also known as “Repositories”, remotely, to share with other developers. Allowing other developers to have access to their code/project/repository.
-                            GitHub ONLY STORES CODE.
-                            Why should we learn how to use Git?
-                            Since Git tracks all the changes/versions you make in your coding project, it is a lifesaving tool to use in case you break your code and need to get back to a version of your code that was working and not broke.
-                            Git will show you all the changes you have made
-                            Git will show you exactly what you changed in each version of your code
-                            Git also allows you to change back to previous version of your code with the use of one single command.
-                            Git is used by over 90% of developers today. Git is the dominant choice for version control for developers today.
-                            What this means for future developers…
-                            You should know git if you want to get a job as a software engineer!!!!
-                        </p>
-                    </div>
+                    <QuizSummary quizId={quiz_id}/>
+                    <QuizDetails quizId={quiz_id} />
                 </div>
             <div className='bottom-row'>
                     {videoUrl && (
