@@ -5,6 +5,8 @@ import Youtube from "./Youtube";
 import "../Components/QuizDash.css";
 import QuizDetails from "../Components/QuizDetails";
 import QuizSummary from './QuizSummary';
+import { Link } from 'react-router-dom';
+
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -290,6 +292,7 @@ function QuizDash() {
                     <li><a href="/dashboard/:user_id">Dashboard</a></li>
                     <li><a href="/leaderboard/users">Leaderboard</a></li>
                     <li><a href="/resources">Resources</a></li>
+
                 </ul>
             </aside>
             <main>
