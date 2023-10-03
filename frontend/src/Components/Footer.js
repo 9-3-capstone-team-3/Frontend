@@ -38,18 +38,17 @@ function Footer() {
                     <div className="footer-section">
                         <h4>About Us</h4>
                         <ul>
-                            <li><Link to="/about">Our Story</Link></li>
                             <li><Link to="/team">Our Team</Link></li>
                         </ul>
                     </div>
-                    <div className="footer-section">
+                    {/* <div className="footer-section">
                         <h4>Our Vision</h4>
                         <ul>
                             <li><Link to="/personal">Learning Git</Link></li>
                             <li><Link to="/business">Learning Collaboration</Link></li>
                             <li><Link to="/loans">Going out to Collab!</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
                     <div className="footer-section">
                         <h4>Contact Us</h4>
                         <ul>
