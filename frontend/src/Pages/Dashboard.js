@@ -31,7 +31,7 @@ function Dashboard() {
     setQuiz(quiz);
     console.log(quiz);
     // console.log(quiz.quiz_id)
-    navigate(`/quiz/${quiz.quiz_id}/${user_id}`);
+    navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
   };
   const handleImageClick = () => {
     // setShowProfile((prevState) => !prevState);

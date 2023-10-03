@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Youtube from "./Youtube";
 import "../Components/QuizDash.css";
+import { Link } from 'react-router-dom';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -285,10 +286,10 @@ function QuizDash() {
         <div className="container">
             <aside className="sidebar">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/leaderboard/users">Leaderboard</a></li>
+                <li><Link className="home-link" to={`/dashboard/${user_id}`}>Home</Link></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
                     <li><a href="/">Document</a></li>
-                    <li><a href="/dashboard/:user_id">Dashboard</a></li>
+                    
                 </ul>
             </aside>
             <main>
