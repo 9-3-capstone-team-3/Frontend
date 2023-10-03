@@ -19,7 +19,7 @@ function SignInPage() {
     setIsPasswordVisible(!isPasswordVisible);
 };
 const passwordInputType = isPasswordVisible ? 'text' : 'password';
-const passwordToggleImage = isPasswordVisible ? {closeEye} : {openEye};
+const passwordToggleImage = isPasswordVisible ? openEye : closeEye;
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);

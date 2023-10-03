@@ -11,7 +11,7 @@ import Dashboard from "./Pages/Dashboard";
 import Header from "./Components/Header";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
-import Header from "./Components/Header";
+// import Header from "./Components/Header";
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import Footer from "./Components/Footer";
