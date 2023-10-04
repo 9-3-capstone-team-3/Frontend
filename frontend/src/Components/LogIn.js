@@ -8,7 +8,7 @@ import {
 
 
 export const Login = () => {
-  const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = process.env.REACT_APP_API_URL  
   const navigate = useNavigate();
   const user = useContext(UserContext);
 
@@ -40,7 +40,9 @@ const checkUserEmail = async (userData) => {
     if (response.ok) {
       // Data successfully sent to the backend
       console.log('Get Request Succesful');
-      navigate(`/loggedin`);
+      const responseData = await response.json(); // Parse the response as JSON
+      const user_id = responseData.user_id;
+      navigate(`/dashboard/${user_id}`);
     } else {
       // Handle the error case here
       console.error('Failed to fetch data');
@@ -64,9 +66,11 @@ const postUserDataToBackend = async (userData) => {
       });
       
       if (response.ok) {
+        const responseData = await response.json(); // Parse the response as JSON
+        const user_id = responseData.user_id;
         // Data successfully sent to the backend
         console.log('User data sent to backend successfully');
-        navigate(`/loggedin`);
+        navigate(`/dashboard/${user_id}`);
       } else {
         // Handle the error case here
         console.error('Failed to send user data to backend');

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../Assests/Logo2.png"
 import "../Components/NavBar.css"
 import { useParams } from "react-router-dom";
+import { logOut } from "../services/Firebase.js";
 
 
 export default function NavBar() {
@@ -40,6 +41,11 @@ export default function NavBar() {
                 </Link>
 
             <br></br>
+
+
+            <button onClick={logOut}> sign out</button>
+
+
         </nav>
     );
 }
