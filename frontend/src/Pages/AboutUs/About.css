@@ -1,0 +1,91 @@
+
+.developers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.codefusion-developer {
+    background-color: #c2ddf4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.codefusion-developer:hover {
+    transform: translateY(-5px);
+}
+
+.codefusion-developer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.codefusion-developer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Makes the image round */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.codefusion-developer p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.social-links a:last-child {
+    margin-right: 0;
+}
+
+/* Style the social buttons to look like buttons */
+.social-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 20px; /* Adjust the value to control the oval shape */
+}
+
+/* Hover effect for the buttons */
+.social-button:hover {
+    background-color: #0056b3;
+}
+
+/* Remove default link styles within the buttons */
+.social-button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 2rem; /* Optional: Adjust the font size */
+    color: #007BFF;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+    justify-content: center;
+    height: 10vh; /* Optional: Makes sure the container fills the entire viewport height */
+}
+
+h2 {
+    color: #007BFF;
+}

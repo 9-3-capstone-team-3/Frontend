@@ -5,9 +5,9 @@ function DashboardFooter() {
     return (
 
         <div className="footer">
-                <Link to="/page1">About Us</Link>
+                <Link to="/about">About Us</Link>
                 <Link to="/page2">Mission</Link>
-                <Link to="/page3">Contact Us</Link>
+                <Link to="/about">Contact Us</Link>
                 {/* Add more links as needed */}
         </div>
     
