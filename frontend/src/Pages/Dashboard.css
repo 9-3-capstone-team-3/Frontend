@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    width: 100%;
+    width: 80%;
     height: 100vh;
     overflow-x: hidden;
   }
@@ -20,12 +20,15 @@
     background-color: #ffffff; /* for visualization */
     z-index: 1;
     height: 20%;
+    margin-left: -20px;
     /* other styles, possibly some padding */
   }
 
   .header img {
     cursor: pointer;
+    margin-right: 5px;
     /* ... any other styles ... */
+    
 }
 .icon-container {
     display: flex;            /* Enable flexbox */
@@ -64,7 +67,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 25%; /* adjust as needed */
+    width: 10%; /* adjust as needed */
     height: 100vh;
     background-color: #ffffff; /* for visualization */
     display: flex;

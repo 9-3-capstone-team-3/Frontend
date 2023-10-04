@@ -1,9 +1,8 @@
 import "./OpeningPage.css"
 import logo3 from '../Assests/Logo3.png';
 import { Link} from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 import { UserContext } from "../providers/userProvider.js";
 import {
   signInWithGoogle

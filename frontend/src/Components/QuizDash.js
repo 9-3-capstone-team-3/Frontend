@@ -6,6 +6,7 @@ import "../Components/QuizDash.css";
 import QuizDetails from "../Components/QuizDetails";
 import QuizSummary from './QuizSummary';
 import { Link } from 'react-router-dom';
+import NavBar from './NavBar';
 
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -287,13 +288,8 @@ function QuizDash() {
 
     return (
         <div className="container">
-            <aside className="sidebar">
-                <ul>
-                    <li><a href="/dashboard/:user_id">Dashboard</a></li>
-                    <li><a href="/leaderboard/users">Leaderboard</a></li>
-                    <li><a href="/resources">Resources</a></li>
-
-                </ul>
+            <aside >
+                <NavBar/>
             </aside>
             <main>
                 <div className="progress-bar">

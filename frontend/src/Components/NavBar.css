@@ -1,5 +1,6 @@
 #logo{ 
-	top:0;     
+	top:0;    
+    margin-left: 60px; 
 } 
 .nav-bar {
     display: flex;
@@ -53,6 +54,48 @@
 }
 
 .home-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+
+.completed-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  0;
+   
+}
+
+.completed-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+
+.leaderboard-link {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  0;
+   
+}
+
+.leaderboard-link:hover {
+    color: #024A94ff;
+    transform: translateY(-10px)
+} 
+
+.link-list {
+    text-decoration: none;
+    color: #020C1Cff;
+    font-size: large;
+    transition:  transform .3s;
+    padding:  0;
+   
+}
+
+.link-list:hover {
     color: #024A94ff;
     transform: translateY(-10px)
 } 

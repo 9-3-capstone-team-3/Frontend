@@ -123,7 +123,7 @@ function UserProfile() {
                 {isEditMode && <button onClick={handleCancel}>Cancel</button>}
                 {isEditMode && <button onClick={handleSave}>Update</button>}
 
-                <button onClick={handleButtonClick2}>Return to dashboard</button>
+                <button onClick={handleButtonClick2}>Return to Dashboard</button>
             </div>
         </div>
     );

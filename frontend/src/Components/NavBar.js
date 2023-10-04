@@ -4,10 +4,14 @@ import logo from "../Assests/Logo2.png";
 import "../Components/NavBar.css";
 import { useParams } from "react-router-dom";
 import { logOut } from "../services/Firebase";
-
+import { useContext } from "react";
+import { UserContext } from "../providers/userProvider.js";
 
 export default function NavBar() {
   const { user_id } = useParams();
+  const user = useContext(UserContext);
+
+  console.log(user)
 
 
   return (
@@ -18,8 +22,8 @@ export default function NavBar() {
             className="logo"
             src={logo}
             alt="logo"
-            width="120"
-            height="70"
+            width="150"
+            height="90"
           ></img>
         </Link>
       </div>
