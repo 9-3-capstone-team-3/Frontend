@@ -101,7 +101,7 @@ const postUserDataToBackend = async (userData) => {
         <a href="/"><li>Home</li></a>
         <Link to="/aboutus"><li>About Us</li></Link>
         <a href="https://www.youtube.com/channel/UCX-6L6UBdZTJ2CeQVSL3uKw"><li>Youtube</li></a>
-        <button onClick={signInWithGoogle} className="link-button">Sign In</button>
+        <button className="google-button" onClick={signInWithGoogle}><li>Sign In</li></button>
       </ul>
     </div>
   </header>

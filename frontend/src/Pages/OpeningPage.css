@@ -93,7 +93,7 @@ ul {
 .landing-page header .links {
   display: flex;
   align-items: center;
-  margin-inline-end: -190px;
+  margin-right: -20%;
 }
 @media (max-width: 767px) {
   .landing-page header .links {
@@ -125,7 +125,7 @@ ul {
   font-size: 48px;
 }
 .landing-page .content .container {
-  margin-top: -500px;
+  margin-top: -400px;
   display: flex;
   align-items: center;
   justify-content: space-between;

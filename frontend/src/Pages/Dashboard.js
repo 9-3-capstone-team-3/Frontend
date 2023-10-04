@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
 import userIcon from "../Assests/userIcon.png";
-import UserProfile from "./userProfile/UserProfile";
-import Leaderboard from "./leaderboard/Leaderboard";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
-import pointsIcon from "../Assests/pointsIcon.png";
-import lock from "../Assests/lock.png";
-import star from "../Assests/star.png";
-import DashboardFooter from "../Components/DashboardFooter";
 
 
-
-const apiUrl = process.env.REACT_APP_API_URL_LOCAL || process.env.REACT_APP_API_URL;
-
-
-
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Dashboard() {
   const [showProfile, setShowProfile] = useState(false);
@@ -36,6 +26,11 @@ function Dashboard() {
   const handleImageClick = () => {
     // setShowProfile((prevState) => !prevState);
     navigate(`/users/profile/${user.user_id}`)
+  };
+
+  const handleClick = () => {
+    // setShowProfile((prevState) => !prevState);
+    navigate(`/simulation/${user.user_id}`)
   };
 
   useEffect(() => {
@@ -86,115 +81,32 @@ function Dashboard() {
       {/* Main Body */}
       <div className="body-section">
         {/* ...contents of main body... */}
-        <div className="banner">
-          <h1>Beginner</h1>
-          <p>Learn the basics of Git!</p>
+        <div>
+          <h1>Learn the basics of Git!</h1>
         </div>
-        <div className="circle-buttons">
+        <div>
           {quizzes &&
             quizzes.length > 0 &&
             quizzes
               .filter((quiz) => quiz.status_name === "Beginner")
               .map((quiz, index) => (
                 <button
+                  className="dash-buttons"
                   key={quiz.quiz_id}
-                  onClick={() => handleButtonClick(quiz)}
-                  style={{
-                    marginLeft:
-                      index === 0
-                        ? "-300px"
-                        : index === 1
-                          ? "-450px"
-                          : "-475px",
-                  }}
-                >
-                  <img
-                    src={user && user.total_points > 25 ? star : lock}
-                    alt={`Quiz ${quiz.quiz_id}`}
-                  />
+                  onClick={() => handleButtonClick(quiz)}>{quiz.name}
                 </button>
               ))}
         </div>
 
-        <div className="banner2">
-          <h1>Intermediate</h1>
-          <p>Practice the Git process</p>
+        <div>
+          <h1>Practice the Git process</h1>
+          <button onClick={() => handleClick()} >Simulate the git process</button>
         </div>
-        <div className="circle-buttons">
-          {quizzes &&
-            quizzes.length > 0 &&
-            quizzes
-              .filter((quiz) => quiz.status_name === "Intermediate")
-              .map((quiz, index) => (
-                <button
-                  key={quiz.quiz_id}
-                  onClick={() => handleButtonClick(quiz)}
-                  style={{
-                    marginLeft:
-                      index === 0
-                        ? "-300px"
-                        : index === 1
-                          ? "-450px"
-                          : "-475px",
-                  }}
-                >
-                  <img
-                    src={user && user.total_points > 70 ? star : lock}
-                    alt={`Quiz ${quiz.quiz_id}`}
-                  />
-                </button>
-              ))}
-        </div>
-        <div className="banner3">
-          <h1>Advance</h1>
-          <p>
-            Collab on GitHub <br />
-            and gain points
-          </p>
-        </div>
-        <div className="circle-buttons">
-          <button style={{ marginLeft: "-300px" }}>
-            <img src={lock} alt="lock icon" />
-          </button>{" "}
-          {/* Move a bit to the right */}
-          <button style={{ marginLeft: "-450px" }}>
-            <img src={lock} alt="lock icon" />
-          </button>{" "}
-          {/* Move further to the right */}
-          <button
-            style={{ marginLeft: "-475px" } /* Default position (start) */}
-          >
-            <img src={lock} alt="lock icon" />
-          </button>
-          <button style={{ marginLeft: "-300px" }}>
-            <img src={lock} alt="lock icon" />
-          </button>{" "}
-          {/* Move some amount to the right */}
-        </div>
-        <div className="circle-buttons">
-          {/* {quizzes &&
-            quizzes.length > 0 &&
-            quizzes
-              .filter((quiz) => quiz.status === "Expert")
-              .map((quiz, index) => (
-                <button
-                  key={quiz.id}
-                  onClick={() => handleButtonClick(quiz.quiz_id)}
-                  style={{
-                    marginLeft:
-                      index === 0
-                        ? "-300px"
-                        : index === 1
-                          ? "-450px"
-                          : "-475px",
-                  }}
-                >
-                  <img
-                    src={user && user.total_points > 5 ? star : lock}
-                    alt={`Quiz ${quiz.quiz_id}`}
-                  />
-                </button>
-              ))} */}
+        <div>
+          <h1>
+            Collab on GitHub
+          </h1>
+          <button>Try it out on GitHub</button>
         </div>
       </div>
 
@@ -203,13 +115,6 @@ function Dashboard() {
         {/* Header */}
         <div className="header">
           <div className="icon-container">
-            {/* Points */}
-
-            <img src={pointsIcon} alt="points icon" className="points-icon" />
-
-            <span className="icon-text">{user && user.total_points} pts</span>
-
-
             <img
               src={userIcon}
               alt="User Icon"
@@ -220,10 +125,6 @@ function Dashboard() {
             <h4>{user && user.username}</h4>
           </div>
         </div>
-
-        {/* Footer */}
-
-        <div className="footer"> {<DashboardFooter/>}</div>
       </div>
     </div>
   );
