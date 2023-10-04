@@ -15,6 +15,8 @@ import { LoggedInPage } from "./Components/LoggedIn";
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import Footer from "./Components/Footer";
+import About from "./Pages/AboutUs/About";
+
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
             <Route path="/simulation/:user_id" element={<Simulation />} />
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
+            <Route path="/about" element={<About />} />
           </Routes>
           <Footer/>
       </Router>
