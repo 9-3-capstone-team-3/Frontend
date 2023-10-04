@@ -10,9 +10,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 15%; /* adjust as needed */
-    border-right: 2px #0276a0;
-    /* other styles */
+    width: 20px; /* adjust as needed */
+    border: 2px black;
   }
   
   /* Header inside Right Sidebar */
@@ -41,13 +40,9 @@
     border-radius: 50%; /* Optional, if you want the image to appear circular */
     margin-left: auto;
 }
-.points-icon {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    background-color: #0276a0;
-    margin-left: 20px;
+.dash-buttons {
+    display: flex;
+    flex-direction: column;
 }
 .icon-text {
     margin: 0 15px;   /* 15px horizontal margin on both sides, adjust as needed */
@@ -58,91 +53,11 @@
     flex: 1;
     justify-content: center;
     align-items: center;
-    margin-top: 0; /* Replace with actual height of the header, e.g., 60px */
-    width: 60%; /* adjust as needed */
-    height: 100vh; /* adjust based on header height */
-    overflow-y: scroll;
-    overflow-x: hidden;
+    margin-top: 60px; /* Replace with actual height of the header, e.g., 60px */
+    margin-left: 40px;
     background-color: rgb(255, 255, 255); /* for visualization */
     /* other styles */
   }
-
-  .banner {
-    width: 800px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: center;
-    /* Create a gradient background */
-    background: linear-gradient(to right, #47d0f9, #0276a0);
-    border-radius: 30px;
-    margin-left: 50px;
-}
-
-.banner h1, .banner2 h1, .banner3 h1 {
-    margin: 0; /* Reset default margins */
-    color: white; /* Set text color */
-    font-size: 60px;
-}
-.banner p, .banner2 p, .banner3 p {
-    position: auto;  /*Takes the element out of the normal flow */
-    bottom: 10px;        /* Position it 10px from the bottom */
-    left: -190px;          /* Position it 10px from the left */
-    margin: auto;           /* Removes default margin */
-    font-size: 15px;
-    color: white;
-}
-
-.banner2 {
-    width: 800px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: center;
-    /* Create a gradient background */
-    background: linear-gradient(to right, #47d0f9, #0276a0);
-    border-radius: 30px;
-    margin-left: 50px;
-}
-.banner3 {
-    width: 800px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: center;
-    /* Create a gradient background */
-    background: linear-gradient(to right, #47d0f9, #0276a0);
-    border-radius: 30px;
-    margin-left: 50px;
-}
-
-.circle-buttons {
-    display: flex;
-    flex-direction: column;  /* stack buttons vertically */
-    align-items: center;  /* center buttons horizontally */
-    gap: 25px;  /* spacing between buttons, adjust as needed */
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-}
-
-.circle-buttons button {
-    position: relative;
-    width: 100px;  /* adjust as needed */
-    height: 100px;  /* adjust as needed */
-    border-radius: 50%;  /* makes the button circular */
-    background: linear-gradient(to right, #47d0f9, #0276a0);
-    border: none;  /* removes default border */
-    /* other styles... */
-}
-.circle-buttons button img {
-    width: 100%; /* Or any desired width */
-    height: 100%; /* Or any desired height */
-    object-fit: cover; /* To ensure the image covers the button without distortion */
-}
   
   /* Right Sidebar */
 .right-sidebar {
@@ -157,9 +72,7 @@
     border-left: 2px #0276a0;
     /* other styles */
   }
-  
-.gray-background {
-    background-color: #f2f2f2; /* This is a light gray, but you can use any shade of gray you prefer */
-    padding: 20px; /* Optional: Adds some space inside the wrapping element */
-    border-radius: 8px; /* Optional: Adds rounded corners to the wrapping element */
-}
+  h4 {
+    font-size: 15px;
+    background-color: aliceblue;
+  }
