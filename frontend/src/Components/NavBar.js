@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../Assests/Logo2.png";
 import "../Components/NavBar.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { logOut } from "../services/Firebase";
 import { useContext, useState } from "react";
 import { UserContext } from "../providers/userProvider.js";
@@ -12,6 +12,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function NavBar() {
   const { user_id } = useParams();
+  const navigate = useNavigate();
   const user = useContext(UserContext);
   const [quizzes, setQuizzes] = useState([]);
   const [quiz, setQuiz] = useState([]);
@@ -22,7 +23,7 @@ export default function NavBar() {
     setQuiz(quiz);
     console.log(quiz);
     // console.log(quiz.quiz_id)
-    // navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
+    navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
   };
 
   useEffect(() => {
