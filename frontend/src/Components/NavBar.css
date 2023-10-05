@@ -1,6 +1,7 @@
 #logo{ 
 	top:0;    
-    margin-left: 60px; 
+    margin-left: 80px; 
+    margin-bottom: 50px;
 } 
 .nav-bar {
     display: flex;
@@ -17,20 +18,25 @@
     border-right: 2px black;
 }
 
-.contact-link {
+
+.nav-buttons {
     text-decoration: none;
     color: #020C1Cff;
     font-size: large;
     transition:  transform .3s;
-    padding: 0;
-
+    padding:  0;
+    text-align: center;
+    margin-bottom: 40px;
+   
 }
 
-.contact-link:hover {
+.nav-buttons:hover {
     color: #024A94ff;
-    transform: translateY(-10px)
+    transform: translateY(-10px);
+    border: 2px solid #229CF0ff;
 } 
-.about-link {
+
+.signout-button {
     text-decoration: none;
     color: #020C1Cff;
     font-size: large;
@@ -39,63 +45,8 @@
    
 }
 
-.about-link:hover {
+.signout-button:hover {
     color: #024A94ff;
-    transform: translateY(-10px)
-} 
-
-.home-link {
-    text-decoration: none;
-    color: #020C1Cff;
-    font-size: large;
-    transition:  transform .3s;
-    padding:  0;
-   
-}
-
-.home-link:hover {
-    color: #024A94ff;
-    transform: translateY(-10px)
-} 
-
-.completed-link {
-    text-decoration: none;
-    color: #020C1Cff;
-    font-size: large;
-    transition:  transform .3s;
-    padding:  0;
-   
-}
-
-.completed-link:hover {
-    color: #024A94ff;
-    transform: translateY(-10px)
-} 
-
-.leaderboard-link {
-    text-decoration: none;
-    color: #020C1Cff;
-    font-size: large;
-    transition:  transform .3s;
-    padding:  0;
-   
-}
-
-.leaderboard-link:hover {
-    color: #024A94ff;
-    transform: translateY(-10px)
-} 
-
-.link-list {
-    text-decoration: none;
-    color: #020C1Cff;
-    font-size: large;
-    transition:  transform .3s;
-    padding:  0;
-   
-}
-
-.link-list:hover {
-    color: #024A94ff;
-    transform: translateY(-10px)
+    transform: translateY(-10px);
+    border: 2px solid #229CF0ff;
 } 
