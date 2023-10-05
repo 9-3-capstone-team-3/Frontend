@@ -4,11 +4,40 @@ import logo from "../Assests/Logo2.png";
 import "../Components/NavBar.css";
 import { useParams } from "react-router-dom";
 import { logOut } from "../services/Firebase";
+import { useContext, useState } from "react";
+import { UserContext } from "../providers/userProvider.js";
+import { useEffect } from "react";
 
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function NavBar() {
   const { user_id } = useParams();
+  const user = useContext(UserContext);
+  const [quizzes, setQuizzes] = useState([]);
+  const [quiz, setQuiz] = useState([]);
 
+  console.log(user)
+
+  const handleButtonClick = (quiz) => {
+    setQuiz(quiz);
+    console.log(quiz);
+    // console.log(quiz.quiz_id)
+    // navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
+  };
+
+  useEffect(() => {
+    const fetchQuizzes = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/quiz`);
+        const data = await response.json();
+
+        setQuizzes(data);
+      } catch (error) {
+        console.error("Error fetching quizzes:", error);
+      }
+    };
+    fetchQuizzes();
+  }, []);
 
   return (
     <nav className="nav-bar">
@@ -18,39 +47,26 @@ export default function NavBar() {
             className="logo"
             src={logo}
             alt="logo"
-            width="120"
-            height="70"
+            width="150"
+            height="100"
           ></img>
         </Link>
       </div>
-
-      <br></br>
-
-      <Link className="home-link" to={`/dashboard/${user_id}`}>
-        Home
-      </Link>
-
-      <br></br>
-
-      <Link className="completed-link" to="/completed">
-        Completed Quizzes
-      </Link>
-
-      <br></br>
-
-      <Link className="leaderboard-link" to="/leaderboard">
-        Leaderboard
-      </Link>
-
-      <br></br>
-
-      <Link className="contact-link" to="/contact">
-        Contact Us
-      </Link>
-
-      <br></br>
-
-      <button onClick={logOut}>Sign Out</button>
+      <br/>
+      <div>
+          {quizzes &&
+            quizzes.length > 0 &&
+            quizzes
+              .filter((quiz) => quiz.status_name === "Beginner")
+              .map((quiz, index) => (
+                <ul
+                  className="nav-buttons"
+                  key={quiz.quiz_id}
+                  onClick={() => handleButtonClick(quiz)}>{quiz.name}
+                </ul>
+              ))}
+        </div>
+      <ul className="signout-button" onClick={logOut}>Sign Out</ul>
     </nav>
   );
 }

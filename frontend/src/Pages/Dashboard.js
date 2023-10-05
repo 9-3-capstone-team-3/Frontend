@@ -3,6 +3,7 @@ import {  useNavigate, useParams } from "react-router-dom";
 import userIcon from "../Assests/userIcon.png";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
+import LoginTracker from "../Components/checkInLog/LogInTracker";
 
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -56,7 +57,6 @@ function Dashboard() {
 
         setUser(userData);
       
-
         // Fetch completed quizzes here and set them as an array
         const completedQuizzesResponse = await fetch(
           `${apiUrl}/users/completed-quizzes/${user_id}`
@@ -123,7 +123,7 @@ function Dashboard() {
             />
             {/* {showProfile && <UserProfile />} */}
             <h4>{user && user.username}</h4>
-          </div>
+          </div>  
         </div>
       </div>
     </div>

@@ -1,9 +1,8 @@
 import "./OpeningPage.css"
 import logo3 from '../Assests/Logo3.png';
 import { Link} from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 import { UserContext } from "../providers/userProvider.js";
 import {
   signInWithGoogle
@@ -124,7 +123,7 @@ const postUserDataToBackend = async (userData) => {
         <a href="/"><li>Home</li></a>
         <Link to="/aboutus"><li>About Us</li></Link>
         <a href="https://www.youtube.com/channel/UCX-6L6UBdZTJ2CeQVSL3uKw"><li>Youtube</li></a>
-        <button className="google-button" onClick={signInWithGoogle}><li>Sign In</li></button>
+        <li onClick={signInWithGoogle}>Sign In</li>
       </ul>
     </div>
   </header>
