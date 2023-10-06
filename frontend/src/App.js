@@ -37,7 +37,6 @@ function App() {
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
             <Route path="/about" element={<About />} />
           </Routes>
-          <Footer/>
       </Router>
     </div>
   );
