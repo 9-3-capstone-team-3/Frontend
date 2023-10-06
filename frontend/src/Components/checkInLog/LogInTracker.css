@@ -1,26 +1,33 @@
 .trackerBox {
-    border: 2px solid black;
-    padding: 20px; /* Add padding to create space underneath the boxes */
+    border: 7px solid orange;
+    padding: 4px; 
     display: flex;
-    flex-direction: column; /* Display text and boxes vertically */
-    align-items: center; /* Center text and boxes horizontally */
+    flex-direction: column; 
+    align-items: center; 
+    background-color: orange;
+    height: 150px;
+    box-shadow: 1px 2px 10px #023E7Cff;
+    
   }
   
   .h2-title {
-    white-space: nowrap; /* Prevent text from wrapping */
-    margin-bottom: 20px; /* Add space between text and boxes */
+    white-space: nowrap; 
+    margin-bottom: 20px; 
+    color: white;
+    border-bottom: 2px solid white;
   }
   
   .login-tracker-container {
     display: flex;
-    gap: 7px; /* Adjust the gap between boxes as needed */
-    flex-wrap: nowrap; /* Prevent boxes from wrapping */
-    justify-content: center; /* Center boxes horizontally */
+    gap: 5px; 
+    flex-wrap: nowrap; 
+    justify-content: center; 
+
   }
   
   .custom-checkbox {
-    width: 35px; /* Set the width and height for the boxes */
-    height: 35px;
+    width: 30px; 
+    height: 30px;
     border: 1px solid #000;
     background-color: #fff;
     display: flex;
@@ -29,21 +36,22 @@
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin: 0 3px; /* Add a small margin between boxes */
+    padding: 2px;
+    
   }
   
   .custom-checkbox.checked {
-    background-color: #007bff; /* Color when box is checked */
-    color: #fff; /* Text color when box is checked */
+    background-color: #39B7FFff; 
+    color: #fff; 
   }
   
   .current-day .custom-checkbox {
-    background-color: #007bff; /* Color for the current day's box */
-    color: #fff; /* Text color for the current day's box */
+    background-color: #39B7FFff; 
+    color: #fff; 
   }
   
   .highlight .custom-checkbox {
-    background-color: #f0ad4e; /* Color for highlighted checkbox (previous logins) */
-    color: #fff; /* Text color for highlighted checkbox (previous logins) */
+    background-color: #39B7FFff; 
+    color: #fff; 
   }
   

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../Assests/Logo2.png";
+import logo from '../Assests/text-icon.png';
 import "../Components/NavBar.css";
 import { useParams } from "react-router-dom";
 import { logOut } from "../services/Firebase";
@@ -41,19 +41,21 @@ export default function NavBar() {
 
   return (
     <nav className="nav-bar">
-      <div id="logo">
+      <div className="logo">
         <Link className="nav-link" to="/">
           <img
-            className="logo"
+            className="nav-logo"
             src={logo}
             alt="logo"
-            width="150"
-            height="100"
+            width="240"
+            height="130"
           ></img>
         </Link>
       </div>
       <br/>
+      <div className="course-name"><h2 className="course-title">Git Mastery</h2></div>
       <div>
+        <div className="level-one"><h2 className="level1">Level 1</h2></div>
           {quizzes &&
             quizzes.length > 0 &&
             quizzes
@@ -62,7 +64,8 @@ export default function NavBar() {
                 <ul
                   className="nav-buttons"
                   key={quiz.quiz_id}
-                  onClick={() => handleButtonClick(quiz)}>{quiz.name}
+                  index={index}
+                  onClick={() => handleButtonClick(quiz)}>1.{index + 1}  {quiz.name}
                 </ul>
               ))}
         </div>
