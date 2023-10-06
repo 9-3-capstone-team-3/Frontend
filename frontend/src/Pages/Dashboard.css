@@ -84,6 +84,7 @@ h9 {
   margin-bottom: 25px; /* Adjust the margin-bottom to reduce the space below the header */
   background-color: orange;
   border: 2px solid orange;
+  box-shadow: 1px 2px 10px white;
 }
 
 .main-title {
