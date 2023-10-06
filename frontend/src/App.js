@@ -14,7 +14,12 @@ import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import Footer from "./Components/Footer";
 import About from "./Pages/AboutUs/About";
-
+import VersionControlStory from "./Components/Stories/VersionControlStory";
+import GitIntroStory from "./Components/Stories/GitIntroStory";
+import InstallGitStory from "./Components/Stories/InstallGitStory";
+import GitHubSetupStory from "./Components/Stories/GitHubSetupStory";
+import CreateRepoStory from "./Components/Stories/CreateRepoStory";
+import CommitsBranchesStory from "./Components/Stories/CommitsBranchesStory";
 
 
 function App() {
@@ -36,6 +41,12 @@ function App() {
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
             <Route path="/about" element={<About />} />
+            <Route path="/version" element={<VersionControlStory />}/>
+            <Route path="/git" element={<GitIntroStory/>} />
+            <Route path="install-git" element={<InstallGitStory />} />
+            <Route path="github" element={<GitHubSetupStory />} />
+            <Route path="repo" element={<CreateRepoStory/>}/>
+            <Route path="commits" element={<CommitsBranchesStory/>} />
           </Routes>
       </Router>
     </div>
