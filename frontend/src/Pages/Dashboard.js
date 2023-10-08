@@ -39,6 +39,15 @@ function Dashboard() {
     navigate(`/simulation/${user.user_id}`)
   };
 
+  const handleClick3 = () => {
+    navigate(`/simvidone`)
+  };
+
+  const handleClick4 = () => {
+    navigate(`/simvidtwo`)
+  };
+
+
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
@@ -95,6 +104,7 @@ function Dashboard() {
         <div className="img-holder1">
           <img src={gitLogo} className="module-img1" alt="module-logo"/>
         </div>
+
         <div className="module-text1">
           <h4>Module 1:</h4>
           <h9>Git Mastery</h9>
@@ -120,12 +130,6 @@ function Dashboard() {
       </div>
       </div>
     </div>
-
-    <div class="right-panel">
-      <RightBar user={user}/>
-    </div>
-  </div>
-</body>
   );
 }
 

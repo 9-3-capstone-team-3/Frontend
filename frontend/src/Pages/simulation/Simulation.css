@@ -1,3 +1,413 @@
+.download-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.download-wrapper img {
+  width: 800px;
+}
+
+.download-button {
+  position: absolute;
+  top: 32%;  /* 50% from the top */
+  left: 70%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 37px;
+  background-color: rgb(19, 120, 125); /* semi-transparent black */
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.gitsignin-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.gitsignin-wrapper img {
+  width: 800px;
+}
+
+.gitsignin-button {
+  position: absolute;
+  top: 86%;  /* 50% from the top */
+  left: 43%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 7px;
+  background-color: rgb(134, 18, 167); /* semi-transparent black */
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.gitsignin-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.settings1-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.settings1-wrapper img {
+  width: 800px;
+}
+
+.settings1-button {
+  position: absolute;
+  top: 58%;  /* 50% from the top */
+  left: 88.5%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings1-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.settings2-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.settings2-wrapper img {
+  width: 800px;
+}
+
+.settings2-button {
+  position: absolute;
+  top: 55%;  /* 50% from the top */
+  left: 25%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings2-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.settings3-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.settings3-wrapper img {
+  width: 800px;
+}
+
+.settings3-button {
+  position: absolute;
+  top: 22%;  /* 50% from the top */
+  left: 78%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(11, 138, 74); /* semi-transparent black */
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings3-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.settings4-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.settings4-wrapper img {
+  width: 800px;
+}
+
+.settings4-button {
+  position: absolute;
+  top: 58%;  /* 50% from the top */
+  left: 88.5%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings4-add-title-button {
+  position: absolute;
+  top: 30%;  /* 50% from the top */
+  left: 60%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 3px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings4-input {
+  position: absolute;
+  top: 31%;  /* 50% from the top */
+  left: 47%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 2px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+  font-size: 8px;
+  height: 8px;
+  width: 200px !important;
+}
+
+.settings4-submit {
+  position: absolute;
+  top: 31%;  /* 50% from the top */
+  left: 60%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+  font-size: 8px;
+}
+.settings4-paste {
+  position: absolute;
+  top: 50%;  /* 50% from the top */
+  left: 86%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.settings4-textarea {
+  position: absolute;
+  top: 53.5%;  /* 50% from the top */
+  left: 57.5%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+  height: 80px;
+  width: 367px;
+}
+
+.settings4-add-ssh-key {
+  position: absolute;
+  top: 68%;  /* 50% from the top */
+  left: 41%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 1px 1px;
+  background-color: rgb(11, 138, 74); /* semi-transparent black */
+  color: rgb(255, 255, 255);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+}
+
+.settings4-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.create-repository0-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.create-repository0-wrapper img {
+  width: 800px;
+}
+
+.create-repository0-button {
+  position: absolute;
+  top: 10%;  /* 50% from the top */
+  left: 90%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px ;
+  background-color: rgb(255, 255, 255); /* semi-transparent black */
+  color: black;
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 7px;
+  width: 63px;
+}
+
+.create-repository0-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
+.create-repository1-wrapper {
+  position: relative;
+  display: inline-block; /* This makes the wrapper size adapt to the image */
+ 
+}
+
+.create-repository1-wrapper img {
+  width: 800px;
+}
+
+.create-repository1-button {
+  position: absolute;
+  top: 96%;  /* 50% from the top */
+  left: 73%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 6px ;
+  background-color: rgb(4, 88, 38); /* semi-transparent black */
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.create-repository1-input {
+  position: absolute;
+  top: 32.5%;  /* 50% from the top */
+  left: 49%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 2px 2px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 3px;
+  border-color: rgb(7, 109, 182);
+  cursor: pointer;
+  font-size: 8px;
+  height: 20px;
+  width: 102px !important ;
+}
+
+.create-repository1-submit {
+  position: absolute;
+  top: 32.5%;  /* 50% from the top */
+  left: 60%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px 0px;
+  background-color: rgb(249, 248, 249); /* semi-transparent black */
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+  border-color: rgb(188, 185, 185);
+  cursor: pointer;
+  font-size: 8px;
+}
+
+.create-repository1-radial-button {
+  position: absolute;
+  top: 47.5%;  /* Adjust to position over your image */
+  left: 28%; /* Adjust to position over your image */
+  cursor: pointer;
+  font-size: 24px;
+  border: none;
+  background: none;
+  transition: color 0.3s;
+  color: blue;
+}
+
+.create-repository1-radial-button:hover {
+  color: blue;
+}
+
+.create-repository1-checkbox {
+  position: absolute;
+  top: 61.5%;  /* Adjust to position over your image */
+  left: 28%; /* Adjust to position over your image */
+}
+
+.create-repository1-name-button {
+  position: absolute;
+  top: 32%;  /* 50% from the top */
+  left: 60%; /* 50% from the left */
+  transform: translate(-50%, -50%); /* This centers the button */
+  
+  /* Add any additional styling for the button here */
+  padding: 0px ;
+  background-color: rgb(255, 255, 255); /* semi-transparent black */
+  color: black;
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+  font-size: 7px;
+  width: 63px;
+}
+
+.create-repository1-button:hover {
+  background-color: rgb(158, 158, 165);
+}
+
 .fork-wrapper {
     position: relative;
     display: inline-block; /* This makes the wrapper size adapt to the image */
@@ -10,12 +420,12 @@
   
   .fork-button {
     position: absolute;
-    top: 10%;  /* 50% from the top */
+    top: 7%;  /* 50% from the top */
     left: 82%; /* 50% from the left */
     transform: translate(-50%, -50%); /* This centers the button */
     
     /* Add any additional styling for the button here */
-    padding: 2px 37px;
+    padding: 2px 36px;
     background-color: rgb(237, 240, 238); /* semi-transparent black */
     color: black;
     border-radius: 5px;

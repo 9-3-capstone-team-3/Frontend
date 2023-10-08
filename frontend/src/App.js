@@ -6,6 +6,7 @@ import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import UserProfile from "./Pages/userProfile/UserProfile";
 import Simulation from "./Pages/simulation/Simulation";
+import SimVidOne from "./Pages/simulationVidOne/SimVidOne";
 import Dashboard from "./Pages/Dashboard";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
@@ -14,6 +15,7 @@ import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import Footer from "./Components/Footer";
 import About from "./Pages/AboutUs/About";
+import SimVidTwo from "./Pages/simulationVidTwo/SimVidTwo";
 
 
 
@@ -36,6 +38,8 @@ function App() {
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
             <Route path="/about" element={<About />} />
+            <Route path="/simvidone" element={<SimVidOne/>} />
+            <Route path="/simvidtwo" element={<SimVidTwo/>} />
           </Routes>
       </Router>
     </div>
