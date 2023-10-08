@@ -271,7 +271,9 @@ function QuizDash() {
 
     const currentQuestion = questions[currentIndex];
 
-
+    function onDone(){
+        navigate(`/quizdash/${quiz_id}/${user_id}`);
+    }
    // const userId = 1; // Replace with dynamic user ID if necessary
 
     useEffect(() => {

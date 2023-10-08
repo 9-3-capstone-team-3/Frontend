@@ -34,6 +34,15 @@ function Dashboard() {
     navigate(`/simulation/${user.user_id}`)
   };
 
+  const handleClick3 = () => {
+    navigate(`/simvidone`)
+  };
+
+  const handleClick4 = () => {
+    navigate(`/simvidtwo`)
+  };
+
+
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
@@ -107,10 +116,11 @@ function Dashboard() {
             Collab on GitHub
           </h1>
           <button>Try it out on GitHub</button>
+          <button onClick={()=> handleClick3()}>simulationVidOne</button>
+          <button onClick={()=> handleClick4()}>simulationVidTwo</button>
         </div>
-      </div>
 
-      {/* Right Sidebar */}
+       {/* Right Sidebar */}
       <div className="right-sidebar">
         {/* Header */}
         <div className="header">
@@ -126,6 +136,7 @@ function Dashboard() {
           </div>  
         </div>
       </div>
+    </div>
     </div>
   );
 }
