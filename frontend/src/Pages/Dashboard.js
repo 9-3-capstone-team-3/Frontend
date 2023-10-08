@@ -87,6 +87,7 @@ function Dashboard() {
 
 
   return (
+
     <body>
   <div class="container-three-panel">
     <div class="left-panel">
@@ -122,13 +123,13 @@ function Dashboard() {
       <div className="module-box3">
         <div className="img-holder3">
           <img src={markdownLogo} className="module-img3" alt="module-logo" />
-        </div>
-        <div className="module-text3">
-          <h4>Module 3:</h4>
-          <h9>Markdown Files</h9>
-        </div> 
-      </div>
-      </div>
+              </div>
+              <div className="module-text3">
+                <h4>Module 3:</h4>
+                <p>Markdown Files</p>
+              </div>
+            </div>
+          </div>
     </div>
     </div>
 
