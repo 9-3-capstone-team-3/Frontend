@@ -47,8 +47,6 @@ export default function NavBar() {
             className="nav-logo"
             src={logo}
             alt="logo"
-            width="240"
-            height="130"
           ></img>
         </Link>
       </div>
