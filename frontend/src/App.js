@@ -41,7 +41,6 @@ function App() {
             <Route path="/simvidone" element={<SimVidOne/>} />
             <Route path="/simvidtwo" element={<SimVidTwo/>} />
           </Routes>
-          <Footer/>
       </Router>
     </div>
   );

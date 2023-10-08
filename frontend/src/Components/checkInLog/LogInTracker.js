@@ -30,7 +30,7 @@ function LoginTracker({ user }) {
 
   return (
     <div className="trackerBox">
-      <h2 className="h2-title">This Week</h2>
+      <h2 className="h2-title">Daily Streak</h2>
       <div className="horizontal-scroll-container">
         <div className="login-tracker-container">
           {loginHistory.map((day, index) => (

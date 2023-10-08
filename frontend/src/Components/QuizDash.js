@@ -7,6 +7,7 @@ import QuizDetails from "../Components/QuizDetails";
 import QuizSummary from './QuizSummary';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
+import RightBar from './rightBar/RightBar';
 
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -289,59 +290,20 @@ function QuizDash() {
     const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
 
     return (
-        <div className="container">
-            <aside >
-                <NavBar/>
-            </aside>
-            <main>
-                <div className="progress-bar">
-                    <div className="progress" style={{ width: progressBarWidth }}></div>
+        <body>
+            <div class="container-three-panel">
+                <div class="left-panel">
+                    <NavBar/>
                 </div>
-                <div className="boxes">
-                    <QuizSummary quizId={quiz_id}/>
-                    <QuizDetails quizId={quiz_id} />
-                </div>
-            <div className='bottom-row'>
-                    {videoUrl && (
-                        <div className="youtube-frame">
-                            <Youtube quiz_id={videoUrl} />
-                        </div>
-                    )}
-                
-                <div className="box small">
-                    <h1>{currentQuestion?.prompt}</h1>
-                    {/* <p>Yet some more content</p> */}
-                                    {questionRenderer({
-                                        question: currentQuestion,
-                                        isAnswered,
-                                        selectedAnswer,
-                                        answers,
-                                        handleAnswerSubmission
-                                    })}
-                        {feedback && <div className="feedback">{feedback}</div>}
-                        
-                        {isAnswered && (
-                            <button className="quiz-button" onClick={handleNextQuestion}>
-                                Next Question
-                            </button>
-                        )}
+            <div class="content-panel"> 
+            Content goes here
+            </div>
 
-                        {feedback && <div className="feedback">{feedback}</div>}
-                </div>
-       
-                </div>
-                {/* <button className="quiz-button" onClick={() => navigate(`/dashboard/${user_id}`)}>
-                    Return to Dashboard
-                </button> */}
-                        {isQuizCompleted && (
-                            
-                            <div className="result-box">
-                            <p>You answered {correctAnswersCount} out of {questions.length} questions correctly!</p>
-                            <button className="quiz-button" onClick={startNextQuiz}>Move to Next Quiz</button>
-                            </div>
-                        )}
-        </main >
-</div >
+            <div class="right-panel">
+                <RightBar/>
+            </div>
+  </div>
+</body>
     );
 }
 

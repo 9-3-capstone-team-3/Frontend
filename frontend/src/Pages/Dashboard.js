@@ -4,6 +4,11 @@ import userIcon from "../Assests/userIcon.png";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
 import LoginTracker from "../Components/checkInLog/LogInTracker";
+import HomeNav from "../Components/homeNav/HomeNav.js";
+import RightBar from "../Components/rightBar/RightBar";
+import gitLogo from "../Assests/git-icon.png"
+import githubLogo from '../Assests/github-mark.png'
+import markdownLogo from '../Assests/markdown-logo.png'
 
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -83,60 +88,47 @@ function Dashboard() {
 
 
   return (
-    <div className="container">
-      {/* Left Sidebar */}
-      <div className="left-sidebar">{<NavBar />}</div>
-
-      {/* Main Body */}
-      <div className="body-section">
-        {/* ...contents of main body... */}
-        <div>
-          <h1>Learn the basics of Git!</h1>
-        </div>
-        <div>
-          {quizzes &&
-            quizzes.length > 0 &&
-            quizzes
-              .filter((quiz) => quiz.status_name === "Beginner")
-              .map((quiz, index) => (
-                <button
-                  className="dash-buttons"
-                  key={quiz.quiz_id}
-                  onClick={() => handleButtonClick(quiz)}>{quiz.name}
-                </button>
-              ))}
-        </div>
-
-        <div>
-          <h1>Practice the Git process</h1>
-          <button onClick={() => handleClick()} >Simulate the git process</button>
-        </div>
-        <div>
-          <h1>
-            Collab on GitHub
-          </h1>
-          <button>Try it out on GitHub</button>
-          <button onClick={()=> handleClick3()}>simulationVidOne</button>
-          <button onClick={()=> handleClick4()}>simulationVidTwo</button>
-        </div>
-
-       {/* Right Sidebar */}
-      <div className="right-sidebar">
-        {/* Header */}
-        <div className="header">
-          <div className="icon-container">
-            <img
-              src={userIcon}
-              alt="User Icon"
-              className="user-icon"
-              onClick={handleImageClick}
-            />
-            {/* {showProfile && <UserProfile />} */}
-            <h4>{user && user.username}</h4>
-          </div>  
-        </div>
-      </div>
+    <body>
+  <div class="container-three-panel">
+    <div class="left-panel">
+      <HomeNav/>
+      {/* <NavBar/> */}
     </div>
+
+    <div class="content-panel"> 
+      <div className="main-header">
+        <p className="main-title">Learning Journey</p>
+      </div>
+      <div className="module-grid">
+      <div className="module-box1">
+        <div className="img-holder1">
+          <img src={gitLogo} className="module-img1" alt="module-logo"/>
+        </div>
+
+        <div className="module-text1">
+          <h4>Module 1:</h4>
+          <h9>Git Mastery</h9>
+        </div> 
+      </div>
+      <div className="module-box2">
+        <div className="img-holder2">
+          <img src={githubLogo} className="module-img2" alt="module-logo"/>
+        </div>
+        <div className="module-text2">
+          <h4>Module 2:</h4>
+          <h9>Github Essentials</h9>
+        </div> 
+      </div>
+      <div className="module-box3">
+        <div className="img-holder3">
+          <img src={markdownLogo} className="module-img3" alt="module-logo"/>
+        </div>
+        <div className="module-text3">
+          <h4>Module 3:</h4>
+          <h9>Markdown Files</h9>
+        </div> 
+      </div>
+      </div>
     </div>
   );
 }
