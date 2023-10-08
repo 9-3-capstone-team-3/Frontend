@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Youtube from "./Youtube";
 import "../Components/QuizDash.css";
-import QuizDetails from "../Components/QuizDetails";
-import QuizSummary from './QuizSummary';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import RightBar from './rightBar/RightBar';
@@ -293,15 +290,16 @@ function QuizDash() {
                 <div class="left-panel">
                     <NavBar/>
                 </div>
-            <div class="content-panel"> 
-            Content goes here
-            </div>
 
-            <div class="right-panel">
-                <RightBar/>
+                <div class="content-panel"> 
+                    Content goes here
+                </div>
+
+                <div class="right-panel">
+                    <RightBar/>
+                </div>
             </div>
-  </div>
-</body>
+        </body>
     );
 }
 
