@@ -88,49 +88,47 @@ function Dashboard() {
 
 
   return (
-    <body>
-  <div class="container-three-panel">
-    <div class="left-panel">
-      <HomeNav/>
-      {/* <NavBar/> */}
-    </div>
-
-    <div class="content-panel"> 
-      <div className="main-header">
-        <p className="main-title">Learning Journey</p>
-      </div>
-      <div className="module-grid">
-      <div className="module-box1">
-        <div className="img-holder1">
-          <img src={gitLogo} className="module-img1" alt="module-logo"/>
+      <div className="container-three-panel">
+        <div className="left-panel">
+          <HomeNav/>
+          {/* <NavBar/> */}
         </div>
-
-        <div className="module-text1">
-          <h4>Module 1:</h4>
-          <h9>Git Mastery</h9>
-        </div> 
-      </div>
-      <div className="module-box2">
-        <div className="img-holder2">
-          <img src={githubLogo} className="module-img2" alt="module-logo"/>
+        <div className="content-panel">
+          <div className="main-header">
+            <p className="main-title">Learning Journey</p>
+          </div>
+          <div className="module-grid">
+            <div className="module-box1">
+              <div className="img-holder1">
+                <img src={gitLogo} className="module-img1" alt="module-logo"/>
+              </div>
+              <div className="module-text1">
+                <h4>Module 1:</h4>
+                <p>Git Mastery</p>
+              </div>
+            </div>
+            <div className="module-box2">
+              <div className="img-holder2">
+                <img src={githubLogo} className="module-img2" alt="module-logo"/>
+              </div>
+              <div className="module-text2">
+                <h4>Module 2:</h4>
+                <p>Github Essentials</p>
+              </div>
+            </div>
+            <div className="module-box3">
+              <div className="img-holder3">
+                <img src={markdownLogo} className="module-img3" alt="module-logo"/>
+              </div>
+              <div className="module-text3">
+                <h4>Module 3:</h4>
+                <p>Markdown Files</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="module-text2">
-          <h4>Module 2:</h4>
-          <h9>Github Essentials</h9>
-        </div> 
       </div>
-      <div className="module-box3">
-        <div className="img-holder3">
-          <img src={markdownLogo} className="module-img3" alt="module-logo"/>
-        </div>
-        <div className="module-text3">
-          <h4>Module 3:</h4>
-          <h9>Markdown Files</h9>
-        </div> 
-      </div>
-      </div>
-    </div>
-  );
-}
-
+    );
+  }
+  
 export default Dashboard;
