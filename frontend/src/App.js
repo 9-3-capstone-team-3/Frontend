@@ -40,7 +40,7 @@ function App() {
             <Route path="/simulation/:user_id" element={<Simulation />} />
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
-            <Route path="/about" element={<About />} />
+            <Route path="/aboutus" element={<About />} />
 
             <Route path="commits" element={<CommitsBranchesStory/>} />
             <Route path="/cloning" element={<CloningStory />}/>
