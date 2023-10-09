@@ -1,5 +1,7 @@
-
-  
+.nav-bar {
+    text-align: center;
+    justify-content: center;
+}
   .nav-buttons {
     font-size: large;
     transition: transform 0.3s;
@@ -9,9 +11,6 @@
     border-left: 6px solid orange;
     border-bottom: 4px solid orange;
     border-top: 2px solid orange;
-
-    
-    
   }
   
   /* Style the individual navigation links */
@@ -33,6 +32,7 @@
     color: #ffffff; /* Change button text color to your desired color */
     border: none;
     cursor: pointer;
+    
   }
   
   /* Add hover effect to links */
@@ -50,6 +50,7 @@
     margin-top: 30px;
   }
 
+ 
   .signout-b::-webkit-file-upload-button {
     color: #024A94ff;
     transform: translateY(-10px);
@@ -61,7 +62,7 @@
     background-color: orange;
     box-shadow: 1px 2px 10px #023E7Cff;
     padding: 2px;
-    height: 80px;
+    height: max-content;
   }
   
   .course-title {
