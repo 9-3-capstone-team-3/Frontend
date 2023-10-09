@@ -9,15 +9,13 @@ export default function HomeNav() {
     const { user_id } = useParams();
 
     return(
-        <nav>
-            <div id="logo">
+        <nav className="homeNav-container">
+            <div className="logo">
                 <Link className="nav-link" to="/">
                     <img
                         className="logo"
                         src={logo}
                         alt="logo"
-                        width="240"
-                        height="130"
                     ></img>
                 </Link>
             </div>
