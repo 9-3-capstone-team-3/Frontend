@@ -43,7 +43,8 @@ ul {
 
 /* End Global Rules */
 
-@media (min-width: 1200px) {html,
+/* @media (min-width: 1200px) { */
+html,
 body {
   margin: 0;
   padding: 0;
@@ -61,7 +62,7 @@ body {
 }
 
 .left-panel {
-  width: 13%;
+  width: 15%;
   background-color: #39B7FFff;
   border: 5px solid #fff;
   color: white;
@@ -85,9 +86,9 @@ body {
   text-align: center;
   justify-content: center;
 }
-}
-@media (max-width: 992px) {
- body {
+/* } */
+/* @media (max-width: 992px) { */
+ /* body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -104,7 +105,7 @@ body {
 }
 
 .left-panel {
-  width: 13%;
+  width: 15%;
   background-color: #39B7FFff;
   border: 5px solid #fff;
   color: white;
@@ -127,6 +128,6 @@ body {
   padding: 20px;
   text-align: center;
   justify-content: center;
-} 
-}
+}  */
+/* } */
 

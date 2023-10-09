@@ -47,8 +47,8 @@ const YouTube = () => {
       if (videoID && window.YT) {
         new window.YT.Player(ref.current, {
           videoId: videoID,
-          width: '350',
-          height: '250',
+          width: '500',
+          height: '400',
           playerVars: {
             'playsinline': 1,
             autoplay: 0,

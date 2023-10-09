@@ -350,19 +350,19 @@ function QuizDash() {
       <div className="content-panel">
         <div className="story-video-quiz-simulate">
           <div className="icon" onClick={handleStoryClick}>
-            <img src={readingIcon} alt="Story Icon" />
+            <img src={readingIcon} alt="Story Icon" height={70}/>
             Story
           </div>
           <div className="icon" onClick={handleVideoClick}>
-            <img src={youtubeIcon} alt="Video Icon" />
+            <img src={youtubeIcon} alt="Video Icon" height={70}/>
             Video
           </div>
           <div className="icon" onClick={handleQuizClick}>
-            <img src={quizIcon} alt="Quiz Icon" />
+            <img src={quizIcon} alt="Quiz Icon" height={70}/>
             Quiz
           </div>
           <div className="icon" onClick={handleSimulateClick}>
-            <img src={simulateIcon} alt="Simulate Icon" />
+            <img src={simulateIcon} alt="Simulate Icon" height={70}/>
             Simulate
           </div>
         </div>
