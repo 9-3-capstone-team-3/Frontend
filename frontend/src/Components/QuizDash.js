@@ -17,6 +17,11 @@ import VersionControlStory from "./Stories/VersionControlStory";
 import QuizDetails from "../Components/QuizDetails";
 import QuizSummary from "./QuizSummary";
 import QuizBox from "./QuizBox";
+import SimVidOne from "../Pages/simulationVidOne/SimVidOne"
+import SimVidTwo from "../Pages/simulationVidTwo/SimVidTwo";
+import Simulation from "../Pages/simulation/Simulation";
+
+
 
 //images
 import readingIcon from "../Assests/reading-icon.png";
@@ -249,6 +254,14 @@ function QuizDash() {
       })
       .catch((err) => console.error(err));
   }, [user_id]); // Re-fetch when userId changes
+
+  useEffect(() => {
+    if (isQuizCompleted) {
+        setIsQuizCompleted(true); // Set the quiz as completed
+        setSelectedComponent("simulate"); // Automatically navigate to the simulation after quiz completion
+    }
+}, [isQuizCompleted]);
+
   const handleStoryClick = () => {
     alert('Story Icon Clicked')
     setSelectedComponent("story");
@@ -275,6 +288,10 @@ function QuizDash() {
     console.log(selectedComponent)
 
   };
+  const handleTestSimulationClick = () => {
+    setIsQuizCompleted(true);
+};
+
   const TOTAL_QUESTIONS = questions.length; // Update this to the correct number if different
   const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
   const quizIdMap = {
@@ -306,6 +323,21 @@ function QuizDash() {
     }
 
   };
+
+  const getCurrentSimulation = (lesson) => {
+    switch (lesson) {
+        case "1.2": // After lesson 1.2's quiz
+            return <SimVidOne />;
+        case "2.2": // After lesson 2.2's quiz
+            return <SimVidTwo />;
+        // ... add more cases for other lessons ...
+        case "3.2":
+            return <Simulation />;
+        default:
+            return  "No Simulation Available"; // Default simulation or a placeholder component
+    }
+};
+
   let contentPanel;
   switch (selectedComponent) {
     case "story":
@@ -334,7 +366,7 @@ function QuizDash() {
       );
       break;
     case "simulate":
-    //   contentPanel = </** */ />;
+      contentPanel = getCurrentSimulation(translatedQuizId);  
       break;
     default:
       contentPanel = null;
@@ -367,6 +399,7 @@ function QuizDash() {
           </div>
         </div>
         {contentPanel}
+        <button onClick={handleTestSimulationClick}>Test Simulation</button>
       </div>
   
       <div className="right-panel">
