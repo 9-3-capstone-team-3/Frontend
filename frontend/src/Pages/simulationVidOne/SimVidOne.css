@@ -4,8 +4,8 @@
 }
 
 .boss-image {
-    margin-right: 10px;  /* space between the Boss image and the speech bubble */
-    margin-left: -170px;
+    margin-right: 70px;  /* space between the Boss image and the speech bubble */
+    margin-left: -90px;
 }
 
 .speech-bubble {
@@ -32,30 +32,20 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-body, html {
+/* body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-}
+} */
 
 .sim-container {
     display: flex;
-    height: 100vh;
-}
-
-.sim-left-sidebar, .sim-right-sidebar {
-    width: 20%; /* You can adjust this as needed */
-    background-color: #63b6ff; /* Adjust colors as you prefer */
-    color: white; /* Text color */
-    padding: 1em;
-    box-sizing: border-box;
-    overflow-y: auto; /* To handle content overflow */
+    /* height: 100vh; */
 }
 
 .sim-main-content {
     flex-grow: 1; /* This allows the main content to take up the remaining space */
-    background-color: #f4f4f4; /* Adjust colors as you prefer */
     padding: 1em;
     box-sizing: border-box;
     overflow-y: auto; /* To handle content overflow */
