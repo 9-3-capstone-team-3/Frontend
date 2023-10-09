@@ -151,7 +151,7 @@ function QuizDash() {
     }
   }
 
-  
+
 
   const handleNextQuestion = () => {
     if (currentIndex === questions.length - 1) {
@@ -244,8 +244,6 @@ function QuizDash() {
 
   const currentQuestion = questions[currentIndex];
 
-  // const userId = 1; // Replace with dynamic user ID if necessary
-
   useEffect(() => {
     fetch(`/${apiUrl}/correct-answers-count/${user_id}`)
       .then((res) => res.json())
@@ -257,38 +255,38 @@ function QuizDash() {
 
   useEffect(() => {
     if (isQuizCompleted) {
-        setIsQuizCompleted(true); // Set the quiz as completed
-        setSelectedComponent("simulate"); // Automatically navigate to the simulation after quiz completion
+      setIsQuizCompleted(true); // Set the quiz as completed
+      setSelectedComponent("simulate"); // Automatically navigate to the simulation after quiz completion
     }
-}, [isQuizCompleted]);
+  }, [isQuizCompleted]);
 
   const handleStoryClick = () => {
-   
+
     setSelectedComponent("story");
     console.log(selectedComponent)
 
   };
 
   const handleVideoClick = () => {
-    
+
     setSelectedComponent("video");
     console.log(selectedComponent)
   };
 
   const handleQuizClick = () => {
-   
+
     setSelectedComponent("quiz");
     console.log(selectedComponent)
 
   };
 
   const handleSimulateClick = () => {
-   
+
     setSelectedComponent("simulate");
     console.log(selectedComponent)
 
   };
- 
+
 
   const TOTAL_QUESTIONS = questions.length; // Update this to the correct number if different
   const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
@@ -321,7 +319,7 @@ function QuizDash() {
       case "4.1":
         return <CloningStory />;
       case "4.2":
-        return <UpdatingRepoStory />;    
+        return <UpdatingRepoStory />;
       default:
         return null;
     }
@@ -330,20 +328,28 @@ function QuizDash() {
 
   const getCurrentSimulation = (lesson) => {
     switch (lesson) {
-        case "1.2": // After lesson 1.2's quiz
-            return <SimVidOne />;
-        case "2.2": // After lesson 2.2's quiz
-            return <SimVidTwo />;
-        // ... add more cases for other lessons ...
-        case "3.2":
-            return <SimVidThree />;
-        case "4.2":
-            return <SimVidFour/>
+      case "1.1": // After lesson 1.2's quiz
+        return <SimVidOne />;
+      case "1.2": // After lesson 1.2's quiz
+        return <SimVidOne />;
+      case "2.1": // After lesson 2.2's quiz
+        return <SimVidTwo />;
+      case "2.2": // After lesson 2.2's quiz
+        return <SimVidTwo />;
+      case "3.1": // After lesson 2.2's quiz
+        return <SimVidThree />;
+      // ... add more cases for other lessons ...
+      case "3.2":
+        return <SimVidThree />;
+      case "4.1": // After lesson 2.2's quiz
+        return <SimVidFour />;
+      case "4.2":
+        return <SimVidFour />
 
-        default:
-            return  "No Simulation Available"; // Default simulation or a placeholder component
+      default:
+        return "No Simulation Available"; // Default simulation or a placeholder component
     }
-};
+  };
 
   let contentPanel;
   switch (selectedComponent) {
@@ -355,69 +361,69 @@ function QuizDash() {
       break;
     case "quiz":
       contentPanel = (
-        <QuizBox 
-    currentQuestion={currentQuestion}
-    isAnswered={isAnswered}
-    selectedAnswer={selectedAnswer}
-    answers={answers}
-    handleAnswerSubmission={handleAnswerSubmission}
-    feedback={feedback}
-    handleNextQuestion={handleNextQuestion}
-    progressBarWidth={progressBarWidth}
-    isQuizCompleted={isQuizCompleted}
-    correctAnswersCount={correctAnswersCount}
-    questions={questions}
-    startNextQuiz={startNextQuiz}
-    />
+        <QuizBox
+          currentQuestion={currentQuestion}
+          isAnswered={isAnswered}
+          selectedAnswer={selectedAnswer}
+          answers={answers}
+          handleAnswerSubmission={handleAnswerSubmission}
+          feedback={feedback}
+          handleNextQuestion={handleNextQuestion}
+          progressBarWidth={progressBarWidth}
+          isQuizCompleted={isQuizCompleted}
+          correctAnswersCount={correctAnswersCount}
+          questions={questions}
+          startNextQuiz={startNextQuiz}
+        />
 
       );
       break;
     case "simulate":
-      contentPanel = getCurrentSimulation(translatedQuizId);  
+      contentPanel = getCurrentSimulation(translatedQuizId);
       break;
     default:
       contentPanel = null;
-    }
-    console.log(currentQuestion, answers);
+  }
+  console.log(currentQuestion, answers);
 
   return (
     <div className="container-three-panel">
       <div className="left-panel">
         <NavBar />
       </div>
-  
+
       <div className="content-panel">
         <div className="story-video-quiz-simulate">
           <div className="icon" onClick={handleStoryClick}>
-            <img src={readingIcon} alt="Story Icon" height={70}/>
+            <img src={readingIcon} alt="Story Icon" height={70} />
             Story
           </div>
           <div className="icon" onClick={handleVideoClick}>
-            <img src={youtubeIcon} alt="Video Icon" height={70}/>
+            <img src={youtubeIcon} alt="Video Icon" height={70} />
             Video
           </div>
           <div className="icon" onClick={handleQuizClick}>
-            <img src={quizIcon} alt="Quiz Icon" height={70}/>
+            <img src={quizIcon} alt="Quiz Icon" height={70} />
             Quiz
           </div>
           <div className="icon" onClick={handleSimulateClick}>
-            <img src={simulateIcon} alt="Simulate Icon" height={70}/>
+            <img src={simulateIcon} alt="Simulate Icon" height={70} />
             Simulate
           </div>
         </div>
         {contentPanel}
-        
+
       </div>
-  
+
       <div className="right-panel">
         <RightBar />
       </div>
     </div>
   );
-  
 
 
-    
+
+
 
 }
 

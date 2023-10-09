@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import boss from '../../Assests/boss.png'; // Replace with the path to your boss image
+import bossOffice1 from '../../Assests/bossOffice1.png';
 import './SimVidOne.css';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -8,16 +9,17 @@ function SimVidOne() {
     const { user_id, quiz_id } = useParams();
     const navigate = useNavigate();
 
-
+    const nextQuizId = parseInt(quiz_id, 10) + 1;
     const onDone = ()=> {
-        navigate(`/quizdash/${quiz_id}/${user_id}`)
+
+        navigate(`/quizdash/${nextQuizId }/${user_id}`)
     };
 
     const messages = [
         `Hi, welcome to my app company. We use git to keep track of different versions of our code.`,
         "Over 90% of companies use git to keep track of their code.",
         "I know that you were in a pretty fast-paced coding bootcamp, are you familiar with using git?",
-        "Ok, no problem, I will set you up, just click on level 1.2 in the Git Mastery dropdown menu to learn more!"
+        "Ok, no problem, I will set you up, just click on level 2.1 in the Git Mastery dropdown menu to learn more!"
     ];
 
     const handleNext = () => {
@@ -30,7 +32,7 @@ function SimVidOne() {
 
     return (
         <body>
-    <div class="sim-container">
+    <div class="sim-container" style={{ backgroundImage: `url(${bossOffice1})` }}>
         <main class="sim-main-content">
             <div className="boss-container">
                 <img src={boss} alt="Boss" className='boss-image' />
