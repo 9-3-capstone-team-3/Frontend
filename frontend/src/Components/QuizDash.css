@@ -36,8 +36,14 @@
   
   .progress-bar {
     height: 10px;
-    background-color: #d5a20a;
+    background-color: orange;
     margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .progress-bar__fill {
+    background-color: #39B7FFff;
+    height: 10px;
   }
   
   .boxes {
@@ -45,16 +51,44 @@
     justify-content: space-between;
   }
   
-  .box {
+  /* .box {
     border: 1px solid #333;
     padding: 15px;
     box-shadow: 5px 5px 5px #c2ddf4;
     margin: 0px 10px;
     width: 350px;
-    height: 250px;  /* Example fixed height. Adjust as needed */
-    overflow: hidden;  /* Hides excess content */
+    height: 250px;  
+    overflow: hidden;  
+  } */
+
+  .quiz-container {
+    border: 1px solid #333;
+    padding: 15px;
+    box-shadow: 5px 5px 5px #c2ddf4;
+    margin: 10px;
+    background-color: white;
   }
   
+  .quiz-container__answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-container__answers button {
+    background-color: #39B7FFff;
+    color: white;
+    padding: 15px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .quiz-container__answers button:hover {
+    background-color: orange
+  }
+
   .medium {
     flex: 1;
     margin-right: 20px;

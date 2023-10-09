@@ -1,6 +1,6 @@
 export default function QuizBox(
     {
-        question,
+      currentQuestion,
         isAnswered,
         selectedAnswer,
         answers,
@@ -15,23 +15,24 @@ export default function QuizBox(
       }
 ) {
 
-    console.log("Rendering QuizBox");
+    console.log("width:", progressBarWidth);
     return (
-        <div className="box small">
-          <h1>{question?.prompt}</h1>
+        <div className="quiz-container" >
+          <h1>{currentQuestion?.prompt}</h1>
           
           {/* Render multiple choice questions */}
-          {answers.map((answer) => (
-            <button
-              key={answer.answer_id}
-              className="quiz-button"
-              disabled={isAnswered}
-              onClick={() => handleAnswerSubmission(answer)}
-            >
-              {answer.answer_text}
-            </button>
-          ))}
-    
+          <div className="quiz-container__answers">
+            {answers.map((answer) => (
+              <button
+                key={answer.answer_id}
+                className="quiz-button"
+                disabled={isAnswered}
+                onClick={() => handleAnswerSubmission(answer)}
+              >
+                {answer.answer_text}
+              </button>
+            ))}
+          </div>
           {feedback && <div className="feedback">{feedback}</div>}
     
           {isAnswered && (
@@ -43,7 +44,7 @@ export default function QuizBox(
           
     
           <div className="progress-bar">
-            <div className="progress" style={{ width: progressBarWidth }}></div>
+            <div className="progress-bar__fill" style={{ width: progressBarWidth }}></div>
           </div>
     
           {isQuizCompleted && (

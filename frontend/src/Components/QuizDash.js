@@ -42,7 +42,6 @@ const handleErrors = (err, message) => {
 const fetchData = async (url, options = {}) => {
   try {
     const response = await axios.get(url, {
-      withCredentials: true,
       ...options,
     });
     if (response.status === 200) {
