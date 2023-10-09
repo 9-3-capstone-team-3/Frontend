@@ -40,10 +40,12 @@ function App() {
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
             <Route path="/about" element={<About />} />
+
             <Route path="commits" element={<CommitsBranchesStory/>} />
             <Route path="/cloning" element={<CloningStory />}/>
-            <Route path="update-repo" element={<UpdatingRepoStory />}/>
+            <Route path="/update-repo" element={<UpdatingRepoStory />}/>
             <Route path="*" element={<FourOFour/>} />
+
             <Route path="/simvidone" element={<SimVidOne/>} />
             <Route path="/simvidtwo" element={<SimVidTwo/>} />
           </Routes>

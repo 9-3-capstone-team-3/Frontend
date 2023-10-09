@@ -304,6 +304,7 @@ function QuizDash() {
       default:
         return null;
     }
+
   };
   let contentPanel;
   switch (selectedComponent) {
@@ -374,6 +375,10 @@ function QuizDash() {
     </div>
   );
   
+
+
+    
+
 }
 
 export default QuizDash;
