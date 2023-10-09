@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import boss from '../../Assests/boss.png'; // Replace with the path to your boss image
 import './SimVidOne.css';
-import logo from "../../Assests/Logo2.png";
 import { useParams, useNavigate } from 'react-router-dom';
 
 function SimVidOne() {
     const [currentStep, setCurrentStep] = useState(0);
-    const { user_id } = useParams();
+    const { user_id, quiz_id } = useParams();
     const navigate = useNavigate();
 
 
     const onDone = ()=> {
-        navigate(`/dashboard/${user_id}`)
+        navigate(`/quizdash/${quiz_id}/${user_id}`)
     };
 
     const messages = [
@@ -32,11 +31,6 @@ function SimVidOne() {
     return (
         <body>
     <div class="sim-container">
-        <aside class="sim-left-sidebar">
-            <img className='sim-logo' src={logo} alt="codefusion" />
-            Left Sidebar
-        </aside>
-
         <main class="sim-main-content">
             <div className="boss-container">
                 <img src={boss} alt="Boss" className='boss-image' />
@@ -48,17 +42,6 @@ function SimVidOne() {
                 </div>
             </div>
         </main>
-
-        <aside class="sim-right-sidebar">
-          <div class="sim-profile-name">
-            userProfile
-          </div>
-          <div class="sim-profile-img">
-            profile img
-          </div>
-           
-            Right Sidebar
-        </aside>
     </div>
 </body>
         
