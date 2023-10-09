@@ -12,14 +12,12 @@ import { LoggedInPage } from "./Components/LoggedIn";
 
 import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
-import Footer from "./Components/Footer";
+
 import About from "./Pages/AboutUs/About";
-import VersionControlStory from "./Components/Stories/VersionControlStory";
-import GitIntroStory from "./Components/Stories/GitIntroStory";
-import InstallGitStory from "./Components/Stories/InstallGitStory";
-import GitHubSetupStory from "./Components/Stories/GitHubSetupStory";
-import CreateRepoStory from "./Components/Stories/CreateRepoStory";
+
 import CommitsBranchesStory from "./Components/Stories/CommitsBranchesStory";
+import CloningStory from "./Components/Stories/CloningStory";
+import UpdatingRepoStory from "./Components/Stories/UpdatingRepoStory";
 
 
 function App() {
@@ -34,19 +32,16 @@ function App() {
             <Route path='/leaderboard' element={<Leaderboard/>}/>
             <Route path="/signin" element={<SignInPage/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
-            <Route path="*" element={<FourOFour/>} />
             <Route path="/users/profile/:user_id" element={<UserProfile />} />
             <Route path="/dashboard/:user_id" element={ <Dashboard />} />
             <Route path="/simulation/:user_id" element={<Simulation />} />
             <Route path="/quizdash/:quiz_id/:user_id" element={<QuizDash />} />
             <Route path="/leaderboard/users" element={<Leaderboard/>} />
             <Route path="/about" element={<About />} />
-            <Route path="/version" element={<VersionControlStory />}/>
-            <Route path="/git" element={<GitIntroStory/>} />
-            <Route path="install-git" element={<InstallGitStory />} />
-            <Route path="github" element={<GitHubSetupStory />} />
-            <Route path="repo" element={<CreateRepoStory/>}/>
             <Route path="commits" element={<CommitsBranchesStory/>} />
+            <Route path="/cloning" element={<CloningStory />}/>
+            <Route path="update-repo" element={<UpdatingRepoStory />}/>
+            <Route path="*" element={<FourOFour/>} />
           </Routes>
       </Router>
     </div>
@@ -54,3 +49,4 @@ function App() {
 }
 
 export default App;
+            
