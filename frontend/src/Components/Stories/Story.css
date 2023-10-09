@@ -1,27 +1,10 @@
-html, body {
+/* html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 
-.container-three-panel {
-  display: flex;
-  justify-content: space-between;
-  background: black;
-  height: 100vh;  /* 100vh is full viewport height */
-  width: 100%;
-}
 
-.content-panel {
-  background-color: #d9d9d9;
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 .story-container {
   margin-top: ; /* There seems to be an error here, the value after "margin-top:" is missing */
@@ -61,7 +44,7 @@ html, body {
     margin-bottom: 20px;
 }
 
-button {
+/* button {
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -71,4 +54,4 @@ button {
     position: absolute;
     bottom: 20px;
     right: 20px;
-}
+} */
