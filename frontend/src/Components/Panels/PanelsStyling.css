@@ -1,0 +1,61 @@
+.left-panel-content, .right-panel-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.right-panel-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.right-panel-content li {
+    margin-bottom: 10px;
+}
+
+.right-panel-content a {
+    text-decoration: none;
+    color: #F9D923;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+        color: #fff;
+    }
+}
+.profile-section {
+    display: flex;
+    align-items: center; /* Vertically aligns the items */
+    gap: 10px; /* Space between image and name */
+}
+
+.profile-section,
+.badge-component,
+.streak-component {
+    margin-bottom: 20px; /* Adjust this value according to your desired spacing */
+}
+
+
+.profile-name {
+    color: #F9D923;
+}
+.subheading {
+    font-weight: bold;
+    color: black;
+}
+
+.streak-day {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.streak-day.checked {
+    background-color: #F9D923;
+}
