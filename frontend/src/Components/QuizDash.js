@@ -14,13 +14,13 @@ import GitHubSetupStory from "./Stories/GitHubSetupStory";
 import GitIntroStory from "./Stories/GitIntroStory";
 import InstallGitStory from "./Stories/InstallGitStory";
 import VersionControlStory from "./Stories/VersionControlStory";
-import QuizDetails from "../Components/QuizDetails";
-import QuizSummary from "./QuizSummary";
+import CloningStory from "./Stories/CloningStory";
+import UpdatingRepoStory from "./Stories/UpdatingRepoStory";
 import QuizBox from "./QuizBox";
 import SimVidOne from "../Pages/simulationVidOne/SimVidOne"
 import SimVidTwo from "../Pages/simulationVidTwo/SimVidTwo";
-import Simulation from "../Pages/simulation/Simulation";
-
+import SimVidThree from "../Pages/simulationVidThree/SimVidThree"
+import SimVidFour from "../Pages/simulationVidFour/SimVidFour"
 
 
 //images
@@ -31,6 +31,7 @@ import simulateIcon from "../Assests/simulate-icon.png";
 
 //css
 import "../Components/QuizDash.css";
+
 
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000/";
 
@@ -225,7 +226,7 @@ function QuizDash() {
       setIsAnswered(false);
       setSelectedAnswer("");
       setFeedback(""); // reset feedback
-    }, 1000);
+    }, 5000);
   };
 
   function startNextQuiz() {
@@ -262,34 +263,32 @@ function QuizDash() {
 }, [isQuizCompleted]);
 
   const handleStoryClick = () => {
-    alert('Story Icon Clicked')
+   
     setSelectedComponent("story");
     console.log(selectedComponent)
 
   };
 
   const handleVideoClick = () => {
-    alert('Video Icon clicked')
+    
     setSelectedComponent("video");
     console.log(selectedComponent)
   };
 
   const handleQuizClick = () => {
-    alert('Quiz Icon clicked')
+   
     setSelectedComponent("quiz");
     console.log(selectedComponent)
 
   };
 
   const handleSimulateClick = () => {
-    alert('Simulate Icon Clicked')
+   
     setSelectedComponent("simulate");
     console.log(selectedComponent)
 
   };
-  const handleTestSimulationClick = () => {
-    setIsQuizCompleted(true);
-};
+ 
 
   const TOTAL_QUESTIONS = questions.length; // Update this to the correct number if different
   const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
@@ -300,6 +299,8 @@ function QuizDash() {
     4: "2.2",
     5: "3.1",
     6: "3.2",
+    7: "4.1",
+    8: "4.2"
   };
   const translatedQuizId = quizIdMap[quiz_id];
 
@@ -317,6 +318,10 @@ function QuizDash() {
         return <CreateRepoStory />;
       case "3.2":
         return <CommitsBranchesStory />;
+      case "4.1":
+        return <CloningStory />;
+      case "4.2":
+        return <UpdatingRepoStory />;    
       default:
         return null;
     }
@@ -331,7 +336,10 @@ function QuizDash() {
             return <SimVidTwo />;
         // ... add more cases for other lessons ...
         case "3.2":
-            return <Simulation />;
+            return <SimVidThree />;
+        case "4.2":
+            return <SimVidFour/>
+
         default:
             return  "No Simulation Available"; // Default simulation or a placeholder component
     }
@@ -398,7 +406,7 @@ function QuizDash() {
           </div>
         </div>
         {contentPanel}
-        <button onClick={handleTestSimulationClick}>Test Simulation</button>
+        
       </div>
   
       <div className="right-panel">
