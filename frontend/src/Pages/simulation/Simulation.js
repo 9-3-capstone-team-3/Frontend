@@ -44,7 +44,7 @@ function Simulation() {
         <h2>Congratulations!</h2>
         <p>You have completed the Git simulation.</p>
         <button onClick={returnToDashboard}>Return to Dashboard</button>
-  </div>
+      </div>
 }
 
       </div>

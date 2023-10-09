@@ -304,6 +304,7 @@ function QuizDash() {
       default:
         return null;
     }
+
   };
   let contentPanel;
   switch (selectedComponent) {
@@ -374,6 +375,43 @@ function QuizDash() {
     </div>
   );
   
+
+
+    const currentQuestion = questions[currentIndex];
+
+    function onDone(){
+        navigate(`/quizdash/${quiz_id}/${user_id}`);
+    }
+   // const userId = 1; // Replace with dynamic user ID if necessary
+
+    useEffect(() => {
+        fetch(`/${apiUrl}/correct-answers-count/${user_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setCorrectAnswersCount(data.count);
+            })
+            .catch(err => console.error(err));
+    }, [user_id]); // Re-fetch when userId changes
+
+    const TOTAL_QUESTIONS = questions.length; // Update this to the correct number if different
+    const progressBarWidth = `${(correctAnswersCount / TOTAL_QUESTIONS) * 100}%`; // Assuming you know the total number of questions
+
+    return (
+        <body>
+            <div class="container-three-panel">
+                <div class="left-panel">
+                    <NavBar/>
+                </div>
+            <div class="content-panel"> 
+            Content goes here
+            </div>
+
+            <div class="right-panel">
+                <RightBar/>
+            </div>
+  </div>
+</body>
+    );
 }
 
 export default QuizDash;
