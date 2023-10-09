@@ -23,12 +23,11 @@ function Dashboard() {
   const { user_id } = useParams();
   const navigate = useNavigate();
 
-  const handleButtonClick = (quiz) => {
-    setQuiz(quiz);
-    console.log(quiz);
-    // console.log(quiz.quiz_id)
-    navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
+  const handleButtonClick1 = (event) => {
+    event.preventDefault();
+    navigate(`/quizdash/1/${user_id}`);
   };
+
   const handleImageClick = () => {
     // setShowProfile((prevState) => !prevState);
     navigate(`/users/profile/${user.user_id}`)
@@ -38,6 +37,15 @@ function Dashboard() {
     // setShowProfile((prevState) => !prevState);
     navigate(`/simulation/${user.user_id}`)
   };
+
+  const handleClick3 = () => {
+    navigate(`/simvidone`)
+  };
+
+  const handleClick4 = () => {
+    navigate(`/simvidtwo`)
+  };
+
 
   useEffect(() => {
     const fetchQuizzes = async () => {
@@ -79,6 +87,7 @@ function Dashboard() {
 
 
   return (
+
     <body>
   <div class="container-three-panel">
     <div class="left-panel">
@@ -87,14 +96,16 @@ function Dashboard() {
     </div>
 
     <div class="content-panel"> 
+    <div className="lesson-holder">
       <div className="main-header">
         <p className="main-title">Learning Journey</p>
       </div>
       <div className="module-grid">
       <div className="module-box1">
         <div className="img-holder1">
-          <img src={gitLogo} className="module-img1" alt="module-logo"/>
+          <img src={gitLogo} className="module-img1" alt="module-logo" onClick={handleButtonClick1}/>
         </div>
+
         <div className="module-text1">
           <h4>Module 1:</h4>
           <h9>Git Mastery</h9>
@@ -102,7 +113,7 @@ function Dashboard() {
       </div>
       <div className="module-box2">
         <div className="img-holder2">
-          <img src={githubLogo} className="module-img2" alt="module-logo"/>
+          <img src={githubLogo} className="module-img2" alt="module-logo" />
         </div>
         <div className="module-text2">
           <h4>Module 2:</h4>
@@ -111,14 +122,15 @@ function Dashboard() {
       </div>
       <div className="module-box3">
         <div className="img-holder3">
-          <img src={markdownLogo} className="module-img3" alt="module-logo"/>
-        </div>
-        <div className="module-text3">
-          <h4>Module 3:</h4>
-          <h9>Markdown Files</h9>
-        </div> 
-      </div>
-      </div>
+          <img src={markdownLogo} className="module-img3" alt="module-logo" />
+              </div>
+              <div className="module-text3">
+                <h4>Module 3:</h4>
+                <p>Markdown Files</p>
+              </div>
+            </div>
+          </div>
+    </div>
     </div>
 
     <div class="right-panel">

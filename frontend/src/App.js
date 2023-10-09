@@ -6,6 +6,7 @@ import SignInPage from "./Components/SignInPage";
 import SignUpPage from "./Components/SignUpPage";
 import UserProfile from "./Pages/userProfile/UserProfile";
 import Simulation from "./Pages/simulation/Simulation";
+import SimVidOne from "./Pages/simulationVidOne/SimVidOne";
 import Dashboard from "./Pages/Dashboard";
 import { Login } from "./Components/LogIn";
 import { LoggedInPage } from "./Components/LoggedIn";
@@ -14,6 +15,7 @@ import QuizDash from "./Components/QuizDash";
 import Leaderboard from "./Pages/leaderboard/Leaderboard";
 
 import About from "./Pages/AboutUs/About";
+import SimVidTwo from "./Pages/simulationVidTwo/SimVidTwo";
 
 import CommitsBranchesStory from "./Components/Stories/CommitsBranchesStory";
 import CloningStory from "./Components/Stories/CloningStory";
@@ -42,6 +44,8 @@ function App() {
             <Route path="/cloning" element={<CloningStory />}/>
             <Route path="update-repo" element={<UpdatingRepoStory />}/>
             <Route path="*" element={<FourOFour/>} />
+            <Route path="/simvidone" element={<SimVidOne/>} />
+            <Route path="/simvidtwo" element={<SimVidTwo/>} />
           </Routes>
       </Router>
     </div>

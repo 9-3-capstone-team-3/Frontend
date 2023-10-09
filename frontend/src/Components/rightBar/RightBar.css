@@ -1,7 +1,8 @@
-.username {
-    margin-left: 20px;
+
+    .username {
     color: white;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 
@@ -9,13 +10,10 @@
     width: 70px;      
     height: 50px;     
     border-radius: 50%; 
-    position: absolute;
-        top: 27px;
-        right: 20px;
+    margin-left: 20px;
 }
 
 .user-icon:hover {
- 
     -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -27,18 +25,19 @@
     font-size: x-large;
     background-color: orange;
     box-shadow: 1px 2px 10px #023E7Cff;
+    text-align: center;
+    width: 100%;
 }
 
 .badge-icon {
     margin-top: 20px;
     width: 40px; 
-    margin-left: 20px;
 }
 
 .icon-container {
     display: flex;
     margin-bottom: 10px;
-    margin-left: 25px;
+    justify-content: center;
 }
 
 .user-header {
@@ -46,15 +45,22 @@
     border-bottom: 2px solid orange;
     background-color: orange;
     box-shadow: 1px 2px 10px #023E7Cff;
+    display: flex;
+    justify-content: center;
+    
 }
 
-.rightBar {
-    display: grid;
-}
+
 
 h5 {
     color: white;
     font-size: x-large;
     justify-content: center;
-    margin-left: 55px;
 }
+
+.rightBar {
+    width: 100%;
+}
+
+
+

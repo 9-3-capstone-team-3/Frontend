@@ -1,8 +1,77 @@
-/* Common styles for the story component */
-.story-container {
-  padding: 20px;
-  border: 5px solid black;
-  position: relative;
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    flex: 1;
+    background-color: #c2ddf4;
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  main {
+    flex: 3;
+    padding: 20px;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #d5a20a;
+    margin-bottom: 20px;
+  }
+  
+  .boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .box {
+    border: 1px solid #333;
+    padding: 15px;
+    box-shadow: 5px 5px 5px #c2ddf4;
+    margin: 0px 10px;
+    width: 350px;
+    height: 250px;  /* Example fixed height. Adjust as needed */
+    overflow: hidden;  /* Hides excess content */
+  }
+  
+  .medium {
+    flex: 1;
+    margin-right: 20px;
+    overflow: auto;
+  }
+
+  .document {
+    margin-top: 20px;
+    overflow: auto;
+  }
+  
+  p {
+    font-size: 11px;
+    padding: 0;
+    margin: 0;  /* To ensure there's no default margin expanding the box */
+    overflow: hidden;  /* Hides the overflowing text */
+    max-height: calc(100% - 10px); /* Ensures paragraph stays within the box bounds considering padding */
 }
 
 /* Default styles for all screen sizes */
@@ -80,44 +149,10 @@
   /* margin: 0 10px; Add horizontal space between icons */
 }
 
-.icon img {
-  width: 60px; /* Adjust based on the desired size */
-  height: 60px; /* Adjust based on the desired size */
-  margin-bottom: 10px; /* Space between the image and the text */
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 767px) {
-  .container-three-panel {
-    flex-direction: column;
-  }
-
-  .left-panel, .right-panel {
-    flex: initial;
-    width: 100%;
-    border: none;
-    padding: 0;
-    background-color: transparent;
-  }
-
-  .content-panel {
-    flex: initial;
-    background-color: #d9d9d9;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .story-video-quiz-simulate {
-    flex-direction: column; /* Stack icons vertically on smaller screens */
-  }
-
-  .icon {
-    width: 100%; /* Allow icons to take full width on smaller screens */
-    margin: 10px 0; /* Add vertical space between icons */
-  }
-}
-
-.icon:hover {
-  transform: scale(1.05); /* slightly enlarge the icon on hover */
-  cursor: pointer; /* change the cursor to a hand to indicate clickability */
-}
+    .document {
+        margin-top: 20px;
+        margin-bottom: 0;
+        overflow: auto;
+    }
+  
+  

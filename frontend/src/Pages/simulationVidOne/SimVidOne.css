@@ -1,0 +1,62 @@
+.boss-container {
+    display: flex;
+    align-items: center;  /* vertically center the items */
+}
+
+.boss-image {
+    margin-right: 10px;  /* space between the Boss image and the speech bubble */
+    margin-left: -170px;
+}
+
+.speech-bubble {
+    flex-shrink: 0;  /* prevent the speech bubble from shrinking */
+    width: 180px;
+    padding: 20px;
+    background-color: #9db2f0;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: -100px;
+    z-index: 1;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;  /* position the speech bubble pointer to the left of the bubble */
+    width: 10px;
+    height: 10px;
+    background: #e38119;
+    transform: rotate(45deg) translateY(-50%);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.sim-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sim-left-sidebar, .sim-right-sidebar {
+    width: 20%; /* You can adjust this as needed */
+    background-color: #63b6ff; /* Adjust colors as you prefer */
+    color: white; /* Text color */
+    padding: 1em;
+    box-sizing: border-box;
+    overflow-y: auto; /* To handle content overflow */
+}
+
+.sim-main-content {
+    flex-grow: 1; /* This allows the main content to take up the remaining space */
+    background-color: #f4f4f4; /* Adjust colors as you prefer */
+    padding: 1em;
+    box-sizing: border-box;
+    overflow-y: auto; /* To handle content overflow */
+}
