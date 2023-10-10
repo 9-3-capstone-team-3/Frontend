@@ -4,16 +4,18 @@ import userIcon from '../../Assests/profile-img.png'
 import './RightBar.css'
 import { useNavigate, useParams } from "react-router-dom";
 import LoginTracker from "../checkInLog/LogInTracker";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import textImg from '../../Assests/Logo3.png'
-const apiUrl = process.env.REACT_APP_API_URL 
+import { UserContext } from "../../providers/userProvider";
 
+const apiUrl = process.env.REACT_APP_API_URL 
 
 export default function RightBar() {
 
+    const user = useContext(UserContext);
     const navigate = useNavigate();
-    const { user_id } = useParams();
-    const [user, setUser] = useState(null);
+    // const { user_id } = useParams();
+    const [currentUser, setCurrentUser] = useState(null);
 
 
     const handleImageClick = () => {
@@ -21,25 +23,48 @@ export default function RightBar() {
       };
 
       useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchUser = async () => {
           try {
-            const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
-            const userData = await userDataResponse.json();
-            console.log("User Data:", userData); 
-            setUser(userData);
+            const response = await fetch(`${apiUrl}/users/email/${user.email}`);
+            const data = await response.json();
+    
+            setCurrentUser(data);
           } catch (error) {
-            console.error("Error fetching user data:", error);
+            console.error("Error fetching quizzes:", error);
           }
         };
-        fetchUserData();
-      }, []);
+        fetchUser();
+      }, [user]);
+
+    // const checkUserEmail = async (user) => {
+
+    //     try {
+    //       const response = await fetch(`${apiUrl}/users/email/${user.email}`, {
+    //         method: 'GET',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //       });
+    //       console.log(response)
+    //       if (response.ok) {
+    //         console.log('Get Request Succesful');
+    //         const responseData = await response.json();
+    //         const currentUser = responseData;
+    //       } else {
+    //         console.error('Failed to fetch data');
+    //       }
+    //     } catch (error) {
+    //       console.error('Error checking user email:', error);
+    //     }
+    //   }
+      
     
-console.log(user)
+console.log(currentUser)
 
     return(
         <aside className="rightBar">
             <div className="user-header">
-            <h5 className="username">{user && user.username}</h5>
+            <h5 className="username">{currentUser && currentUser.username}</h5>
                     <img
                         src={userIcon}
                         alt="User Icon"
@@ -62,7 +87,7 @@ console.log(user)
             <br/>
             <br/>
             <div className="tracker-container">
-                <LoginTracker user={user}/>
+                <LoginTracker user={currentUser}/>
             </div>
         </aside>
     )
