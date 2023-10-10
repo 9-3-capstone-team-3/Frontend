@@ -28,7 +28,7 @@ function Dashboard() {
 
   const handleButtonClick1 = (event) => {
     event.preventDefault();
-    navigate(`/quizdash/1/${user_id}`);
+    navigate(`/quizdash/1`);
   };
 
   const handleImageClick = () => {
