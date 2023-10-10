@@ -149,6 +149,11 @@
   /* margin: 0 10px; Add horizontal space between icons */
 }
 
+.icon:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+}
+
     .document {
         margin-top: 20px;
         margin-bottom: 0;
