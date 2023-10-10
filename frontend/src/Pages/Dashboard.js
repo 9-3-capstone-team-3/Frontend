@@ -108,7 +108,7 @@ function Dashboard() {
 
         <div className="module-text1">
           <h4>Module 1:</h4>
-          <h9>Git Mastery</h9>
+          <p>Git Mastery</p>
         </div> 
       </div>
       <div className="module-box2">
@@ -117,7 +117,7 @@ function Dashboard() {
         </div>
         <div className="module-text2">
           <h4>Module 2:</h4>
-          <h9>Github Essentials</h9>
+          <p>Github Essentials</p>
         </div> 
       </div>
       <div className="module-box3">

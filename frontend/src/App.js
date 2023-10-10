@@ -29,7 +29,7 @@ function App() {
       <Router>
 
           <Routes>
-            <Route path="/" element={<OpeningPage />} /> 
+            <Route path="/" element={<Dashboard />} /> 
             <Route path='/login' element={<Login/>}/>
             <Route path='/loggedin' element={<LoggedInPage/>}/>
             <Route path='/leaderboard' element={<Leaderboard/>}/>
