@@ -37,13 +37,6 @@ export default function About() {
             info: 'Real Estate Agent at Gold Quest Realty Corp., Specializing in commercial realty and great customer service.'
         },
 
-        {
-            name: 'Markeya Mckoy-Carree',
-            image: 'https://avatars.githubusercontent.com/u/115170713?v=4', 
-            gitHub: 'https://github.com/Mckoy-93',
-            linkedIn: 'https://www.linkedin.com/in/markeya-mckoy-carree-0413881b2/',
-            info: '"My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style"... - Maya Angelou'
-        },
     ];
 
     return (
