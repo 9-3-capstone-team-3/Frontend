@@ -25,7 +25,7 @@ import SimVidFour from "../Pages/simulationVidFour/SimVidFour"
 
 //images
 import readingIcon from "../Assests/reading-icon.png";
-import youtubeIcon from "../Assests/youtube-icon.png";
+import youtubeIcon from "../Assests/black-youtube-logo.png";
 import quizIcon from "../Assests/quizbox-icon.png";
 import simulateIcon from "../Assests/simulate-icon.png";
 
@@ -399,7 +399,7 @@ function QuizDash() {
             Story
           </div>
           <div className="icon" onClick={handleVideoClick}>
-            <img src={youtubeIcon} alt="Video Icon" height={70} />
+            <img src={youtubeIcon} alt="Video Icon" height={60} />
             Video
           </div>
           <div className="icon" onClick={handleQuizClick}>

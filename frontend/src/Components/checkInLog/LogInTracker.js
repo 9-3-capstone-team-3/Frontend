@@ -3,29 +3,26 @@ import './LogInTracker.css'
 
 function LoginTracker({ user }) {
   const [loginHistory, setLoginHistory] = useState([]);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // Set current date to midnight
 
   useEffect(() => {
-    if (user && user.last_login) {
-      // Parse the last_login string into a JavaScript Date object
-      const lastLoginDate = new Date(user.last_login);
+    const today = new Date();
+    const currentDayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-      // Calculate the login history for the last 7 days
-      const history = [];
-      const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
-      for (let i = 0; i < 7; i++) {
-        const date = new Date(today);
-        date.setDate(today.getDate() - i);
-        history.push({
-          dayOfWeek: daysOfWeek[i], // Get the corresponding day of the week abbreviation
-          loggedIn: lastLoginDate.toDateString() === date.toDateString(),
-          isCurrentDay: today.toDateString() === date.toDateString(),
-          highlight: lastLoginDate <= date,
-        });
-      }
-      setLoginHistory(history);
+    // Create a list of days of the week.
+    const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
+
+    // Create login history for the last 7 days, marking the days leading up to the current day as checked.
+    const history = [];
+    for (let i = 0; i < 7; i++) {
+      const dayOfWeek = daysOfWeek[i]; // Get the corresponding day of the week abbreviation
+      history.push({
+        dayOfWeek,
+        loggedIn: i <= currentDayOfWeek, // Mark the days leading up to the current day as checked
+        isCurrentDay: i === currentDayOfWeek,
+      });
     }
+
+    setLoginHistory(history);
   }, [user]);
 
   return (
@@ -36,13 +33,9 @@ function LoginTracker({ user }) {
           {loginHistory.map((day, index) => (
             <div
               key={index}
-              className={`login-entry ${day.isCurrentDay ? "current-day" : ""} ${
-                day.highlight ? "highlight" : ""
-              }`}
+              className={`login-entry ${day.isCurrentDay ? "current-day" : ""}`}
             >
-              <div
-                className={`custom-checkbox ${day.loggedIn ? "checked" : ""}`}
-              >
+              <div className={`custom-checkbox ${day.loggedIn ? "checked" : ""}`}>
                 {day.dayOfWeek}
               </div>
             </div>

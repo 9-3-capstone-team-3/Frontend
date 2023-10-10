@@ -145,8 +145,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%; /* This divides the space equally between the icons */
+  width: 20%; /* This divides the space equally between the icons */
   /* margin: 0 10px; Add horizontal space between icons */
+}
+
+.icon:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
 }
 
     .document {
