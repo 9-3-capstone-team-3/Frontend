@@ -101,32 +101,32 @@ function Dashboard() {
         <p className="main-title">Learning Journey</p>
       </div>
       <div className="module-grid">
-      <div className="module-box1">
+      <div className="module-box">
         <div className="img-holder1">
           <img src={gitLogo} className="module-img1" alt="module-logo" onClick={handleButtonClick1}/>
         </div>
 
         <div className="module-text1">
           <h4>Module 1:</h4>
-          <p>Git Mastery</p>
+          <h5>Git Mastery</h5>
         </div> 
       </div>
-      <div className="module-box2">
+      <div className="module-box">
         <div className="img-holder2">
           <img src={githubLogo} className="module-img2" alt="module-logo" />
         </div>
         <div className="module-text2">
           <h4>Module 2:</h4>
-          <p>Github Essentials</p>
+          <h5>Github Essentials</h5>
         </div> 
       </div>
-      <div className="module-box3">
+      <div className="module-box">
         <div className="img-holder3">
           <img src={markdownLogo} className="module-img3" alt="module-logo" />
               </div>
               <div className="module-text3">
                 <h4>Module 3:</h4>
-                <p>Markdown Files</p>
+                <h5>Markdown Files</h5>
               </div>
             </div>
           </div>

@@ -26,10 +26,10 @@ export default function HomeNav() {
             </div>
             
             <div className="homeNav__links">
-                <Link className="homeNav__link" to={`/dashboard/${user_id}`}>
+                <Link className="homeNav__link" to={`/dashboard`}>
                     Courses
                 </Link>
-                <Link className="homeNav__link"  to={`/dashboard/${user_id}`}>
+                <Link className="homeNav__link"  to={'/aboutus'}>
                     About Us
                 </Link>
                 <Link className="homeNav__link"  to="/completed">
