@@ -31,7 +31,7 @@ export default function About() {
             image: SangImage,
             gitHub: 'https://github.com/SangunPark96',
             linkedIn: 'https://www.linkedin.com/in/sangunpark/',
-            info: 'Full Stack Web Developer, Love almost all terrible action/sci-fi movies.'   
+            info: 'Full Stack Web Developer, 9.3 Pursuit Cohort, Love almost all terrible action/sci-fi movies.'   
         },
 
         {
@@ -39,7 +39,7 @@ export default function About() {
             image: KarimahImage, 
             gitHub: 'https://github.com/kaycodeandsing',
             linkedIn: 'https://www.linkedin.com/in/karimah-reavis/',
-            info: 'Real Estate Agent at Gold Quest Realty Corp., Specializing in commercial realty and great customer service.'
+            info: 'Real Estate Agent at Gold Quest Realty Corp., Specializing in commercial realty and great customer service, FSW Developer passionate about uplifting people through tech and resolving issues.'
         },
 
     ];
