@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {  useNavigate, useParams } from "react-router-dom";
+import { UserContext } from "../providers/userProvider.js";
 import userIcon from "../Assests/userIcon.png";
 import NavBar from "../Components/NavBar";
 import "../Pages/Dashboard.css";
@@ -16,6 +17,8 @@ const apiUrl = process.env.REACT_APP_API_URL;
 function Dashboard() {
   const [showProfile, setShowProfile] = useState(false);
   const [user, setUser] = useState(null);
+  // const user = useContext(UserContext);
+
   const [quizzes, setQuizzes] = useState([]);
   const [quiz, setQuiz] = useState([]);
   const [completedQuizzes, setCompletedQuizzes] = useState([]); // Add this line
@@ -61,28 +64,28 @@ function Dashboard() {
     fetchQuizzes();
   }, []);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
-        const userData = await userDataResponse.json();
-        // console.log("User Data:", userData); // Log user data
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const userDataResponse = await fetch(`${apiUrl}/users/${user_id}`);
+  //       const userData = await userDataResponse.json();
+  //       // console.log("User Data:", userData); // Log user data
 
-        setUser(userData);
+  //       setUser(userData);
       
-        // Fetch completed quizzes here and set them as an array
-        const completedQuizzesResponse = await fetch(
-          `${apiUrl}/users/completed-quizzes/${user_id}`
-        );
-        const completedQuizzesData = await completedQuizzesResponse.json();
-        setCompletedQuizzes(completedQuizzesData); // Ensure this is an array
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
+  //       // Fetch completed quizzes here and set them as an array
+  //       const completedQuizzesResponse = await fetch(
+  //         `${apiUrl}/users/completed-quizzes/${user_id}`
+  //       );
+  //       const completedQuizzesData = await completedQuizzesResponse.json();
+  //       setCompletedQuizzes(completedQuizzesData); // Ensure this is an array
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //     }
+  //   };
 
-    fetchUserData();
-  }, [user_id]);
+  //   fetchUserData();
+  // }, [user_id]);
   
 
 
@@ -90,11 +93,8 @@ function Dashboard() {
 
     <body>
   <div class="container-three-panel">
-    <div class="left-panel">
-      <HomeNav/>
-      {/* <NavBar/> */}
-    </div>
-
+   
+    <HomeNav/>
     <div class="content-panel"> 
     <div className="lesson-holder">
       <div className="main-header">
