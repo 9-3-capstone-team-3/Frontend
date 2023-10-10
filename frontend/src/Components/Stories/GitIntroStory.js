@@ -92,11 +92,11 @@ function GitIntroStory() {
                     </div>
                 </div>
                 {currentSegment < gitStoryScript.length - 1 ? (
-                    <button onClick={() => setCurrentSegment(currentSegment + 1)}>
+                    <button className='story-button' onClick={() => setCurrentSegment(currentSegment + 1)}>
                         Next
                     </button>
                 ) : (
-                    <button
+                    <button className='story-button'
                         onClick={() => {
                             // This is where you'll add the navigation to the quiz when it's ready
                             console.log("Navigating to quiz..."); // Placeholder logic

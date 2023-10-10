@@ -45,9 +45,9 @@ function CommitsBranchesStory() {
                     </div>
                 </div>
                 {currentSegment < storyScript.length - 1 ? (
-                    <button onClick={() => setCurrentSegment(currentSegment + 1)}>Next</button>
+                    <button className='story-button' onClick={() => setCurrentSegment(currentSegment + 1)}>Next</button>
                 ) : (
-                    <button onClick={() => {
+                    <button className='story-button' onClick={() => {
                         // Placeholder logic for navigating to the next simulation.
                         console.log("Navigating to next simulation...");
                     }}>

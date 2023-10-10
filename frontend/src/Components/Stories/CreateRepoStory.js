@@ -39,9 +39,9 @@ function CreateRepoSimulation() {
                     </div>
                 </div>
                 {currentSegment < storyScript.length - 1 ? (
-                    <button onClick={() => setCurrentSegment(currentSegment + 1)}>Next</button>
+                    <button className='story-button' onClick={() => setCurrentSegment(currentSegment + 1)}>Next</button>
                 ) : (
-                    <button onClick={() => {
+                    <button className='story-button' onClick={() => {
                         // This is where you'll add the navigation to the next simulated lesson when it's ready.
                         console.log("Navigating to next simulation..."); // Placeholder logic
                     }}>
