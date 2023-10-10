@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../Assests/text-icon.png';
 import "../Components/NavBar.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { logOut } from "../services/Firebase";
 import { useContext, useState } from "react";
 import { UserContext } from "../providers/userProvider.js";
@@ -15,6 +15,7 @@ export default function NavBar() {
   const user = useContext(UserContext);
   const [quizzes, setQuizzes] = useState([]);
   const [quiz, setQuiz] = useState([]);
+  const navigate = useNavigate()
 
   console.log(user)
 
@@ -22,7 +23,7 @@ export default function NavBar() {
     setQuiz(quiz);
     console.log(quiz);
     // console.log(quiz.quiz_id)
-    // navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
+    navigate(`/quizdash/${quiz.quiz_id}/${user_id}`);
   };
 
   useEffect(() => {
@@ -53,11 +54,10 @@ export default function NavBar() {
       <br/>
       <div className="course-name"><h2 className="course-title">Git Mastery</h2></div>
       <div>
-        <div className="level-one"><h2 className="level1">Level 1</h2></div>
+        <div className="level-one"><h2 className="level1">Module 1</h2></div>
           {quizzes &&
             quizzes.length > 0 &&
             quizzes
-              .filter((quiz) => quiz.status_name === "Beginner")
               .map((quiz, index) => (
                 <ul
                   className="nav-buttons"
