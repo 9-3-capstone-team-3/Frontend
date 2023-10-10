@@ -7,8 +7,7 @@
 
 
 .story-container {
-  margin-top: ; /* There seems to be an error here, the value after "margin-top:" is missing */
-  width: 80%;  
+  width: 800px;  
   padding: 40px;  
   background-color: #f4f4f4;
   border-radius: 10px;
@@ -44,7 +43,7 @@
     margin-bottom: 20px;
 }
 
-/* button {
+.story-container button {
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;
@@ -54,4 +53,4 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-} */
+} 

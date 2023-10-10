@@ -30,7 +30,7 @@ import quizIcon from "../Assests/quizbox-icon.png";
 import simulateIcon from "../Assests/simulate-icon.png";
 
 //css
-import "../Components/QuizDash.css";
+import "../Components/QuizDash.scss";
 
 
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000/";
@@ -352,6 +352,7 @@ function QuizDash() {
   };
 
   let contentPanel;
+
   switch (selectedComponent) {
     case "story":
       contentPanel = getCurrentStory(translatedQuizId);
@@ -388,11 +389,10 @@ function QuizDash() {
 
   return (
     <div className="container-three-panel">
-      <div className="left-panel">
-        <NavBar />
-      </div>
+      <NavBar />
 
-      <div className="content-panel">
+      <div className="first-content-panel">
+        
         <div className="story-video-quiz-simulate">
           <div className="icon" onClick={handleStoryClick}>
             <img src={readingIcon} alt="Story Icon" height={70} />
@@ -411,6 +411,7 @@ function QuizDash() {
             Simulate
           </div>
         </div>
+        
         {contentPanel}
 
       </div>

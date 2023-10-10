@@ -1,3 +1,15 @@
+.first-content-panel {
+  width: 100%;
+}
+
+.content-panel {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+  height: calc(100vh - 80px);
+}
+
 .container::after {
     content: "";
     display: table;
@@ -114,46 +126,56 @@
 .content-panel .story-container {
   border: 5px solid black;
   padding: 40px; /* Increase padding to make it larger */
-  width: 80%; /* Adjust width as needed */
+  width: 600px; /* Adjust width as needed */
   height: 500px; /* Adjust height as needed */
   position: relative;
 }
 
-.content-panel .story-container::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: -5px;
-  right: -5px;
-  bottom: -20px;
-  height: 40px;
-  background-color: #4d98e8;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+// .content-panel .story-container::before {
+//   content: '';
+//   position: absolute;
+//   top: -20px;
+//   left: -5px;
+//   right: -5px;
+//   bottom: -20px;
+//   height: 40px;
+//   background-color: #4d98e8;
+//   border-top-left-radius: 10px;
+//   border-top-right-radius: 10px;
+// }
 
 .story-video-quiz-simulate {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
-  margin-left: 200px;
-  margin-right: 200px;
+  background-color: white;
+
 }
 
 .icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%; /* This divides the space equally between the icons */
-  /* margin: 0 10px; Add horizontal space between icons */
+  width: 25%;
+  cursor: pointer;
+  background-color: white;
 }
 
-    .document {
-        margin-top: 20px;
-        margin-bottom: 0;
-        overflow: auto;
-    }
+.document {
+    margin-top: 20px;
+    margin-bottom: 0;
+    overflow: auto;
+}
+
+.youtube-thumbnail {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 40px;
+  margin-top: 20px;
+  background-color: #d9d9d9;
+  height: calc(100vh - 115px);
+}
   
   
 

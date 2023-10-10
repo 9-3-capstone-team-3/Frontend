@@ -1,0 +1,55 @@
+.navBar {
+  width: 260px;
+  background-color: #39B7FFff;
+  color: white;
+  height: 100vh;
+
+  img {
+    height: 130px;  
+  }
+
+  &__subheader {
+    color: white;
+    background-color: orange;
+    border: 2px solid orange;
+    margin-top: 20px;
+    padding: 3px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__link, button {
+    display: block;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(221, 166, 64);
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  button {
+    border: none;
+    width: 240px;
+  }
+}
+
+.course-name {
+  border: 2px solid orange;
+  background-color: orange;
+  box-shadow: 1px 2px 10px #023E7Cff;
+  padding: 2px;
+  height: max-content;
+}
+
+.course-title {
+  color: black;
+  font-weight: bold;
+  margin-top: 15px;
+  text-align: center;
+}

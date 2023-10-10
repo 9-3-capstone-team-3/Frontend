@@ -106,7 +106,7 @@ function Dashboard() {
           <img src={gitLogo} className="module-img1" alt="module-logo" onClick={handleButtonClick1}/>
         </div>
 
-        <div className="module-text1">
+        <div className="module-text">
           <h4>Module 1:</h4>
           <h5>Git Mastery</h5>
         </div> 
@@ -115,7 +115,7 @@ function Dashboard() {
         <div className="img-holder2">
           <img src={githubLogo} className="module-img2" alt="module-logo" />
         </div>
-        <div className="module-text2">
+        <div className="module-text">
           <h4>Module 2:</h4>
           <h5>Github Essentials</h5>
         </div> 
@@ -124,7 +124,7 @@ function Dashboard() {
         <div className="img-holder3">
           <img src={markdownLogo} className="module-img3" alt="module-logo" />
               </div>
-              <div className="module-text3">
+              <div className="module-text">
                 <h4>Module 3:</h4>
                 <h5>Markdown Files</h5>
               </div>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../Assests/text-icon.png';
-import "../Components/NavBar.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { logOut } from "../services/Firebase";
 import { useContext, useState } from "react";
 import { UserContext } from "../providers/userProvider.js";
 import { useEffect } from "react";
+
+import "../Components/NavBar.scss";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -41,33 +42,38 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="nav-bar">
+    <nav className="navBar">
       <div className="logo">
-        <Link className="nav-link" to="/">
-          <img
-            className="nav-logo"
-            src={logo}
-            alt="logo"
-          ></img>
-        </Link>
+          <Link className="nav-link" to="/">
+              <img
+                  className="logo"
+                  src={logo}
+                  alt="logo"
+              ></img>
+          </Link>
       </div>
-      <br/>
-      <div className="course-name"><h2 className="course-title">Git Mastery</h2></div>
-      <div>
-        <div className="level-one"><h2 className="level1">Module 1</h2></div>
-          {quizzes &&
-            quizzes.length > 0 &&
-            quizzes
-              .map((quiz, index) => (
-                <ul
-                  className="nav-buttons"
-                  key={quiz.quiz_id}
-                  index={index}
-                  onClick={() => handleButtonClick(quiz)}>1.{index + 1}  {quiz.name}
-                </ul>
-              ))}
-        </div>
-      <ul className="signout-button" onClick={logOut}>Sign Out</ul>
+      <div className="course-name">
+        <h2 className="course-title">
+          Git Mastery
+        </h2>
+      </div>
+
+   
+      <div className="navBar__subheader">Module 1</div>
+      
+      {quizzes &&
+        quizzes.length > 0 &&
+        quizzes
+          .map((quiz, index) => (
+            <div
+              className="navBar__link"
+              key={quiz.quiz_id}
+              index={index}
+              onClick={() => handleButtonClick(quiz)}>1.{index + 1}  {quiz.name}
+            </div>
+          ))}
+      
+      {/* <ul className="signout-button" onClick={logOut}>Sign Out</ul> */}
     </nav>
   );
 }
