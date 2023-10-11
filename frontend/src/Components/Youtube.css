@@ -1,8 +1,20 @@
-
 .youtube-thumbnail {
-    width: 320px;
-    height: 180px;
-    overflow: hidden;
-    position: relative;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.youtube-h3 {
+  margin-top: 15px;
+  /* Space between the video and the heading */
+  font-size: 2em;
+  /* Adjust font size as needed */
+  color: #333;
+  /* Dark color for the text */
+  text-align: center;
+  /* Centers the text */
+}
