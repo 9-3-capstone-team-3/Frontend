@@ -1,66 +1,62 @@
-
-    .username {
-    color: white;
-    margin-top: 10px;
-    margin-left: 5px;
+*{
+    box-sizing: border-box;
+    
 }
 
+.username {
+    color: white;
+    margin-left: 0; /* Removed the margin to ensure it doesn't push the element out */
+    padding-left: 10px; /* You can use padding instead if you still want some space on the left */
+}
 
 .user-icon {
-    width: 70px;      
-    height: 50px;     
+    width: 10vw;      /* Adjust according to your preference */
+    height: auto;     /* Keep aspect ratio */
     border-radius: 50%; 
-    margin-left: 20px;
 }
 
 .user-icon:hover {
     -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-
 .badge-container {
-    margin-bottom: 20px;
-    padding: 5px;
-    font-size: x-large;
+    margin-bottom: 2rem;  /* Adjust according to your preference */
+    padding: 0.5rem;     /* Adjust according to your preference */
+    font-size: 1.5rem;   /* Adjust according to your preference */
     background-color: orange;
-    box-shadow: 1px 2px 10px #023E7Cff;
     text-align: center;
     width: 100%;
 }
 
 .badge-icon {
-    margin-top: 20px;
-    width: 40px; 
+    margin-top: 2rem;   /* Adjust according to your preference */
+    width: 5vw;        /* Adjust according to your preference */
+    height: auto;      /* Keep aspect ratio */
 }
 
 .icon-container {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 1rem; /* Adjust according to your preference */
     justify-content: center;
 }
 
 .user-header {
-    padding: 10px;
-    border-bottom: 2px solid orange;
+    padding: 1rem;       /* Adjust according to your preference */
+    border-bottom: 0.2rem solid orange;  /* Adjust according to your preference */
     background-color: orange;
-    box-shadow: 1px 2px 10px #023E7Cff;
     display: flex;
     justify-content: center;
-    
+
 }
-
-
 
 h5 {
     color: white;
-    font-size: x-large;
-    justify-content: center;
+    font-size: 1.5rem;  /* Adjust according to your preference */
+    text-align: center; /* Center the text of h5 */
 }
 
 .rightBar {
     width: 100%;
+    margin-top: 94px;
 }
-
-
-
