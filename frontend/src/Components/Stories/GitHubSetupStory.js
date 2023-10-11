@@ -48,7 +48,7 @@ function GitHubSetupStory() {
                         // This is where you'll add the navigation to the quiz when it's ready
                         console.log("Navigating to quiz..."); // Placeholder logic
                     }}>
-                        Start the Quiz
+                        Click the video icon above
                     </button>
                 )}
             </div>

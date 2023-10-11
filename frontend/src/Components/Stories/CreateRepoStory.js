@@ -45,7 +45,7 @@ function CreateRepoSimulation() {
                         // This is where you'll add the navigation to the next simulated lesson when it's ready.
                         console.log("Navigating to next simulation..."); // Placeholder logic
                     }}>
-                        Continue Simulation
+                        Click the video icon above
                     </button>
                 )}
             </div>
