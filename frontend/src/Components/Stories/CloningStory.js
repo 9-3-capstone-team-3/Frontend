@@ -36,7 +36,7 @@ function CloningStory() {
                         {storyScript1[currentSegment].speaker}: {storyScript1[currentSegment].text}
                     </div>
                 </div>
-                <button className='story-button' onClick={() => setCurrentSegment((prevSegment) => (prevSegment + 1) % storyScript1.length)}>Next</button>
+                <button className='story-button' onClick={() => setCurrentSegment((prevSegment) => (prevSegment + 1) % storyScript1.length)}>Click the video icon above</button>
             </div>
         </div>
     );

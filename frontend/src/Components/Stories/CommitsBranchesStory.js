@@ -51,7 +51,7 @@ function CommitsBranchesStory() {
                         // Placeholder logic for navigating to the next simulation.
                         console.log("Navigating to next simulation...");
                     }}>
-                        Start Simulation
+                        Click the video icon above
                     </button>
                 )}
             </div>

@@ -71,6 +71,7 @@ const YouTube = () => {
   return (
     <div className="youtube-thumbnail">
       <div ref={ref}></div>
+      <h3>Test your knowledge and click on the quiz icon!</h3>
     </div>
   );
 };

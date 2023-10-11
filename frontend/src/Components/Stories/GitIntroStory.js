@@ -102,7 +102,7 @@ function GitIntroStory() {
                             console.log("Navigating to quiz..."); // Placeholder logic
                         }}
                     >
-                        Start the Quiz
+                        Click the video icon above
                     </button>
                 )}
             </div>
