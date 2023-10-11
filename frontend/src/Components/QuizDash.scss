@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   padding: 40px 0;
-  height: calc(100vh - 80px);
+  height: calc(120vh - 80px);
 }
 
 .container::after {
@@ -78,6 +78,7 @@
     padding: 15px;
     box-shadow: 5px 5px 5px #c2ddf4;
     margin: 10px;
+    margin-top: 80px;
     background-color: white;
   }
   
@@ -150,7 +151,6 @@
   align-items: center;
   flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
   background-color: #39B7FFff;
-
 }
 
 .icon {
@@ -183,8 +183,4 @@
   cursor: pointer;
   transform: translateY(-5px);
 }
-
-
-   
-  
 
