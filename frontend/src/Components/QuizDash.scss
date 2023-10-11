@@ -149,7 +149,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
-  background-color: white;
+  background-color: #39B7FFff;
 
 }
 
@@ -159,7 +159,8 @@
   align-items: center;
   width: 20%;
   cursor: pointer;
-  background-color: white;
+  background-color: #39B7FFff;
+  color: white;
 }
 
 .document {
@@ -180,7 +181,7 @@
 
 .icon:hover {
   cursor: pointer;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 
