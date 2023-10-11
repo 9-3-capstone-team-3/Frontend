@@ -34,7 +34,7 @@ function UpdatingRepoStory() {
                         {storyScript2[currentSegment].speaker}: {storyScript2[currentSegment].text}
                     </div>
                 </div>
-                <button className='story-button' onClick={() => setCurrentSegment((prevSegment) => (prevSegment + 1) % storyScript2.length)}>Click the video icon above</button>
+                <button className='story-button' onClick={() => setCurrentSegment((prevSegment) => (prevSegment + 1) % storyScript2.length)}>Next</button>
             </div>
         </div>
     );
