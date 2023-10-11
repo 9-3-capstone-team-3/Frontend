@@ -1,0 +1,95 @@
+.nav-bar {
+    text-align: center;
+    justify-content: center;
+    background-color: #39B7FFff;
+}
+  .nav-buttons {
+    font-size: large;
+    transition: transform 0.3s;
+    padding: 10px;
+    text-align: center;
+    border-right: 2px solid orange;
+    border-left: 2px solid orange;
+    border-bottom: 2px solid orange;
+    border-top: 2px solid orange;
+  }
+  
+  .nav-buttons:hover {
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  /* Style the individual navigation links */
+  .homeNav-links a {
+    display: inline-block; /* Display links as inline blocks */
+     /* Add some spacing between links (adjust as needed) */
+    text-decoration: none; /* Remove underlines from links */
+    color: #ffffff; /* Change link color to your desired color */
+    background-color: orange;
+    box-shadow: 1px 2px 10px #023E7Cff;
+    
+  }
+  
+  /* Style the Sign Out button */
+.signout-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: orange; /* Change button background color to your desired color */
+    color: #ffffff; /* Change button text color to your desired color */
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  /* Add hover effect to links */
+  .homeNav-links a:hover {
+    color: #ffffff;
+    transform: translateY(-10px);
+    border: 3px solid orange;
+    font-size: x-large; /* Change link color on hover to your desired color */
+    background-color: orange;
+  }
+
+
+  .signout-button {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+ 
+  .signout-b::-webkit-file-upload-button {
+    color: #024A94ff;
+    transform: translateY(-10px);
+    background-color: white;
+  }
+
+  .course-name {
+    border: 2px solid orange;
+    background-color: orange;
+    box-shadow: 1px 2px 10px #023E7Cff;
+    padding: 2px;
+    height: max-content;
+  }
+  
+  .course-title {
+    color: black;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .level1 {
+    color: white;
+    background-color: orange;
+    border: 2px solid orange;
+    margin-top: 20px;
+    padding: 3px;
+    width: 100%;
+    text-align: center;
+  }
+ 
+  .level-one {
+    background-color: orange;
+    height: 50px;
+  }
+ 
