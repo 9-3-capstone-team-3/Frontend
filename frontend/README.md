@@ -2,7 +2,7 @@
 
 # CodeFusion
 
-This is a web application built with PERN (PostgreSQL, Express, React, Node.js) that allows users (Junior Software Developers) to collaborate on open source projects.
+This is a web application built with PERN (PostgreSQL, Express, React, Node.js) that allows users (Junior Software Developers) to learn and then simulate the git/github code contribution process.
 
 ## Team Members
 
